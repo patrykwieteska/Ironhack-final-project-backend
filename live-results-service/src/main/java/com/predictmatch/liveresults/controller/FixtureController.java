@@ -16,7 +16,29 @@ public class FixtureController {
     FixtureService fixtureService;
 
     @GetMapping("/all")
-    public ResponseEntity<FixtureDto> getAllFixtures() {
-        return fixtureService.initAllMatches();
+    public ResponseEntity<FixtureDto> initAllFixtures() {
+        return fixtureService.initAllFixtures();
     }
+
+    @GetMapping("/postponed")
+    public ResponseEntity<FixtureDto> initPostponedFixtures() {
+        return fixtureService.initPostponedFixtures();
+    }
+
+    @GetMapping("/upcoming")
+    public ResponseEntity<FixtureDto> initUpcomingFixtures() {
+        return fixtureService.initUpcomingFixtures();
+    }
+
+    @GetMapping("/finished")
+    public ResponseEntity<FixtureDto> initFinishedFixtures() {
+        return fixtureService.initFinishedFixtures();
+    }
+
+    @GetMapping("/in-progress")
+    public ResponseEntity<FixtureDto> initInProgressFixtures() {
+        return fixtureService.initInProgressFixtures();
+    }
+
+
 }

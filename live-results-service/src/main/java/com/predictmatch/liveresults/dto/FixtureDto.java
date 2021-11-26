@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class FixtureDto {
 
-    private Long externalFixtureId;
+    private Long fixtureId;
     private LocalDateTime date;
     private String timezone;
     private String referee;
