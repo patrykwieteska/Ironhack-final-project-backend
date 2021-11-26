@@ -17,31 +17,25 @@ public class LeagueStanding {
     @Id
     private Long rank;
 
-    @ManyToOne
-    @JoinColumn(name = "team_id")
-    private Team team;
+    private Integer teamId;
 
-    private int position;
+    private Integer points;
 
-    private int points;
+    private Integer played;
 
-    private int played;
+    private Integer win;
 
-    private int win;
+    private Integer draw;
 
-    private int draw;
+    private Integer lose;
 
-    private int lose;
+    private Integer goalsFor;
 
-    private int goalsFor;
+    private Integer goalsAgainst;
 
-    private int goalsAgainst;
+    private Integer goalsDifference;
 
-    private int goalsDifference;
+    private String rankStatus;
 
-    private int rankStatus;
-
-    @ManyToOne
-    @JoinColumn(name = "league_external_league_id")
-    private League league;
+    private Long leagueId;
 }
