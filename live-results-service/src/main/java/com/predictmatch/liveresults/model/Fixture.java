@@ -30,21 +30,23 @@ public class Fixture {
 
     private String status;
 
-    private int homeTeamId;
+    private Integer homeTeamId;
 
-    private int awayTeamId;
+    private Integer awayTeamId;
 
-    private int homeHalfTimeGoals;
+    private Boolean homeIsWinner;
 
-    private  int awayHalfTimeGoals;
+    private Boolean awayIsWinner;
 
-    private int homeFullTimeGoals;
+    private Integer homeHalfTimeGoals;
 
-    private int awayFullTimeGoals;
+    private  Integer awayHalfTimeGoals;
 
-    @ManyToOne
-    @JoinColumn(name = "league_external_league_id")
-    private League league;
+    private Integer homeFullTimeGoals;
+
+    private Integer awayFullTimeGoals;
+
+    private Long leagueId;
 
 
 
