@@ -23,4 +23,6 @@ public class Team {
     private String logo;
 
     private String form;
+
+    private Long leagueId;
 }

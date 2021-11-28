@@ -37,10 +37,13 @@ public class ApiService {
 
     //Test fixtures
     public static String getTestFixtures() throws IOException {
-      return Files.readString (Paths.get("src/main/resources/static/fixtures.json"));
+
+
+            return Files.readString (Paths.get("live-results-service/src/main/resources/static/fixtures.json"));
+
     }
     // Test standings
     public static String getTestStandings() throws IOException {
-        return Files.readString (Paths.get("src/main/resources/static/standings.json"));
+            return Files.readString (Paths.get("live-results-service/src/main/resources/static/standings.json"));
     }
 }
