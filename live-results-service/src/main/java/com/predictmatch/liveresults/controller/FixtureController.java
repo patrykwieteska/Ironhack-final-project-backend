@@ -2,6 +2,7 @@ package com.predictmatch.liveresults.controller;
 
 import com.predictmatch.liveresults.dto.FixtureDto;
 
+import com.predictmatch.liveresults.dto.FixtureResponseDto;
 import com.predictmatch.liveresults.service.FixtureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,27 +22,27 @@ public class FixtureController {
     FixtureService fixtureService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<FixtureDto>> initAllFixtures() {
+    public ResponseEntity<FixtureResponseDto> initAllFixtures() {
         return fixtureService.initAllFixtures();
     }
 
     @GetMapping("/postponed")
-    public ResponseEntity<List<FixtureDto>> initPostponedFixtures() {
+    public ResponseEntity<FixtureResponseDto> initPostponedFixtures() {
         return fixtureService.initFixturesByStatus( POSTPONED);
     }
 
     @GetMapping("/upcoming")
-    public ResponseEntity<List<FixtureDto>> initUpcomingFixtures() {
+    public ResponseEntity<FixtureResponseDto> initUpcomingFixtures() {
         return fixtureService.initFixturesByStatus( UPCOMING );
     }
 
     @GetMapping("/finished")
-    public ResponseEntity<List<FixtureDto>> initFinishedFixtures() {
+    public ResponseEntity<FixtureResponseDto> initFinishedFixtures() {
         return fixtureService.initFixturesByStatus( FINISHED);
     }
 
     @GetMapping("/live")
-    public ResponseEntity<List<FixtureDto>> initInProgressFixtures() {
+    public ResponseEntity<FixtureResponseDto> initInProgressFixtures() {
         return fixtureService.initFixturesByStatus( LIVE);
     }
 
