@@ -10,7 +10,8 @@ public class TeamMapper {
           team.getId(),
           team.getName(),
           team.getForm(),
-          team.getLogo()
+          team.getLogo(),
+                team.getLeagueId()
         );
     }
 }

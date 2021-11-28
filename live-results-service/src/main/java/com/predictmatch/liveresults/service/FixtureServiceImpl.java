@@ -59,7 +59,7 @@ public class FixtureServiceImpl implements FixtureService {
         List<Fixture> storedFixtures = fixtureRepository.findFixturesByFixtureStatus(getFixtureStatuses( fixtureStatus ));
 
         if(storedFixtures.size() == 0)
-            throw new EntityNotFoundException("There is no fixtures with status: "+fixtureStatus);
+            return ResponseEntity.notFound().header( "message","" ).build();
 
 
 

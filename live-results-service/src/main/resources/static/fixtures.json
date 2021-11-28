@@ -8174,13 +8174,13 @@
     {
       "fixture": {
         "id": 712918,
-        "referee": "P. Raczkowski",
+        "referee": "Pawel Raczkowski, Poland",
         "timezone": "UTC",
         "date": "2021-11-28T14:00:00+00:00",
         "timestamp": 1638108000,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1638108000,
+          "second": 1638111600
         },
         "venue": {
           "id": 1251,
@@ -8188,9 +8188,9 @@
           "city": "Poznań"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90
         }
       },
       "league": {
@@ -8207,27 +8207,27 @@
           "id": 347,
           "name": "Lech Poznan",
           "logo": "https://media.api-sports.io/football/teams/347.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 3496,
           "name": "Warta Poznań",
           "logo": "https://media.api-sports.io/football/teams/3496.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 0
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 0
         },
         "extratime": {
           "home": null,
@@ -8242,13 +8242,13 @@
     {
       "fixture": {
         "id": 712919,
-        "referee": "T. Musial",
+        "referee": "Tomasz Musial, Poland",
         "timezone": "UTC",
         "date": "2021-11-28T16:30:00+00:00",
         "timestamp": 1638117000,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1638117000,
+          "second": 1638120600
         },
         "venue": {
           "id": 1253,
@@ -8256,9 +8256,9 @@
           "city": "Warszawa"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90
         }
       },
       "league": {
@@ -8275,27 +8275,27 @@
           "id": 339,
           "name": "Legia Warszawa",
           "logo": "https://media.api-sports.io/football/teams/339.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 336,
           "name": "Jagiellonia",
           "logo": "https://media.api-sports.io/football/teams/336.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 0
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "extratime": {
           "home": null,
@@ -8383,8 +8383,8 @@
         "date": "2021-11-27T16:30:00+00:00",
         "timestamp": 1638030600,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1638030600,
+          "second": 1638034200
         },
         "venue": {
           "id": 1256,
@@ -8392,9 +8392,9 @@
           "city": "Szczecin"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90
         }
       },
       "league": {
@@ -8411,27 +8411,27 @@
           "id": 348,
           "name": "Pogon Szczecin",
           "logo": "https://media.api-sports.io/football/teams/348.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 343,
           "name": "Lechia Gdansk",
           "logo": "https://media.api-sports.io/football/teams/343.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 5,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 5,
+          "away": 1
         },
         "extratime": {
           "home": null,
@@ -8451,8 +8451,8 @@
         "date": "2021-11-27T19:00:00+00:00",
         "timestamp": 1638039600,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1638039600,
+          "second": 1638043200
         },
         "venue": {
           "id": 2292,
@@ -8460,9 +8460,9 @@
           "city": "Częstochowa"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90
         }
       },
       "league": {
@@ -8479,27 +8479,27 @@
           "id": 3491,
           "name": "Raków Częstochowa",
           "logo": "https://media.api-sports.io/football/teams/3491.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 345,
           "name": "Zaglebie Lubin",
           "logo": "https://media.api-sports.io/football/teams/345.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 4,
+        "away": 0
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 4,
+          "away": 0
         },
         "extratime": {
           "home": null,
@@ -8582,13 +8582,13 @@
     {
       "fixture": {
         "id": 712924,
-        "referee": "J. Przybył",
+        "referee": "Jaroslaw Przybyl, Poland",
         "timezone": "UTC",
         "date": "2021-11-28T11:30:00+00:00",
         "timestamp": 1638099000,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1638099000,
+          "second": 1638102600
         },
         "venue": {
           "id": 1259,
@@ -8596,9 +8596,9 @@
           "city": "Płock"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90
         }
       },
       "league": {
@@ -8615,27 +8615,27 @@
           "id": 341,
           "name": "Wisla Plock",
           "logo": "https://media.api-sports.io/football/teams/341.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 350,
           "name": "Cracovia Krakow",
           "logo": "https://media.api-sports.io/football/teams/350.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 0
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "extratime": {
           "home": null,
@@ -8655,8 +8655,8 @@
         "date": "2021-11-27T14:00:00+00:00",
         "timestamp": 1638021600,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1638021600,
+          "second": 1638025200
         },
         "venue": {
           "id": 1257,
@@ -8664,9 +8664,9 @@
           "city": "Wrocław"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90
         }
       },
       "league": {
@@ -8683,27 +8683,27 @@
           "id": 337,
           "name": "Slask Wroclaw",
           "logo": "https://media.api-sports.io/football/teams/337.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 3493,
           "name": "Stal Mielec",
           "logo": "https://media.api-sports.io/football/teams/3493.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "extratime": {
           "home": null,
@@ -19530,13 +19530,13 @@
     {
       "fixture": {
         "id": 718223,
-        "referee": "Zbigniew Dobrynin, Poland",
+        "referee": "Z. Dobrynin",
         "timezone": "UTC",
         "date": "2021-11-27T11:30:00+00:00",
         "timestamp": 1638012600,
         "periods": {
           "first": 1638012600,
-          "second": null
+          "second": 1638016200
         },
         "venue": {
           "id": 5059,
@@ -19544,9 +19544,9 @@
           "city": "Łęczna"
         },
         "status": {
-          "long": "Halftime",
-          "short": "HT",
-          "elapsed": 45
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90
         }
       },
       "league": {
@@ -19582,8 +19582,8 @@
           "away": 2
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 2
         },
         "extratime": {
           "home": null,

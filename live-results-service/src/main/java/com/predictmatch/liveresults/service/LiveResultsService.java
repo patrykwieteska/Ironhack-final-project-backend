@@ -37,7 +37,7 @@ public class LiveResultsService {
     private FixtureRepository fixtureRepository;
 
     @Transactional
-    public void initData() throws IOException, JSONException {
+    public void initData() throws JSONException, IOException {
         // TODO Change to live
         String standingsResponse = ApiService.getTestStandings();
 
@@ -160,14 +160,16 @@ public class LiveResultsService {
                     jsonArray.getJSONObject( i ).getJSONObject( "team" ).getLong( "id" ),
                     jsonArray.getJSONObject( i ).getJSONObject( "team" ).getString( "name" ),
                     jsonArray.getJSONObject( i ).getJSONObject( "team" ).getString( "logo" ),
-                    jsonArray.getJSONObject( i ).getString( "form" )
+                    jsonArray.getJSONObject( i ).getString( "form" ),
+                    jsonObject.getJSONArray( "response" ).getJSONObject( 0 ).getJSONObject( "league" ).optLong( "id" )
             );
 
             teamRepository.save( new Team(
                     Long.parseLong( jsonArray.getJSONObject( i ).getJSONObject( "team" ).getString( "id" ) ),
                     jsonArray.getJSONObject( i ).getJSONObject( "team" ).getString( "name" ),
                     jsonArray.getJSONObject( i ).getJSONObject( "team" ).getString( "logo" ),
-                    jsonArray.getJSONObject( i ).getString( "form" )
+                    jsonArray.getJSONObject( i ).getString( "form" ),
+                    jsonObject.getJSONArray( "response" ).getJSONObject( 0 ).getJSONObject( "league" ).optLong( "id" )
             ) );
         }
 
