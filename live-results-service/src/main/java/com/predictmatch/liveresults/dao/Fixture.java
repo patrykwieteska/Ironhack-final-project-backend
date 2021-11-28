@@ -1,4 +1,4 @@
-package com.predictmatch.liveresults.model;
+package com.predictmatch.liveresults.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,9 +30,9 @@ public class Fixture {
 
     private String status;
 
-    private Integer homeTeamId;
+    private Long homeTeamId;
 
-    private Integer awayTeamId;
+    private Long awayTeamId;
 
     private Boolean homeIsWinner;
 

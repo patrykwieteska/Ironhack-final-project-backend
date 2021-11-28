@@ -1,6 +1,6 @@
 package com.predictmatch.liveresults.dto;
 
-import com.predictmatch.liveresults.model.Team;
+import com.predictmatch.liveresults.dao.Team;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,15 +14,15 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class FixtureDto {
 
-    private Long externalFixtureId;
+    private Long fixtureId;
     private LocalDateTime date;
     private String timezone;
     private String referee;
     private String venueName;
     private String venueCity;
     private String status;
-    private Team homeTeam;
-    private Team awayTeam;
+    private TeamDto homeTeam;
+    private TeamDto awayTeam;
     private Boolean homeIsWinner;
     private Boolean awayIsWinner;
     private Integer homeHalfTimeGoals;

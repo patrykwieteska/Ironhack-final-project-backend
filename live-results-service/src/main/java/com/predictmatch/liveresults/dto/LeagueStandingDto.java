@@ -1,10 +1,18 @@
 package com.predictmatch.liveresults.dto;
 
-import com.predictmatch.liveresults.model.Team;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class LeagueStandingDto {
     private Long rank;
-    private Team team;
+    private TeamDto team;
     private Integer points;
     private Integer played;
     private Integer win;
