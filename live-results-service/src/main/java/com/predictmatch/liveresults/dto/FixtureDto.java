@@ -1,6 +1,6 @@
 package com.predictmatch.liveresults.dto;
 
-import com.predictmatch.liveresults.model.Team;
+import com.predictmatch.liveresults.dao.Team;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,8 +21,8 @@ public class FixtureDto {
     private String venueName;
     private String venueCity;
     private String status;
-    private Team homeTeam;
-    private Team awayTeam;
+    private TeamDto homeTeam;
+    private TeamDto awayTeam;
     private Boolean homeIsWinner;
     private Boolean awayIsWinner;
     private Integer homeHalfTimeGoals;

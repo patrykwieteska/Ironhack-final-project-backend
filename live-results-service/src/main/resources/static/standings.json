@@ -64,7 +64,7 @@
                   "against": 6
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
               "rank": 2,
@@ -109,7 +109,7 @@
                   "against": 9
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
               "rank": 3,
@@ -154,10 +154,55 @@
                   "against": 6
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
               "rank": 4,
+              "team": {
+                "id": 4248,
+                "name": "Radomiak Radom",
+                "logo": "https://media.api-sports.io/football/teams/4248.png"
+              },
+              "points": 28,
+              "goalsDiff": 8,
+              "group": "Ekstraklasa",
+              "form": "WWWWW",
+              "status": "up",
+              "description": null,
+              "all": {
+                "played": 16,
+                "win": 7,
+                "draw": 7,
+                "lose": 2,
+                "goals": {
+                  "for": 21,
+                  "against": 13
+                }
+              },
+              "home": {
+                "played": 7,
+                "win": 4,
+                "draw": 3,
+                "lose": 0,
+                "goals": {
+                  "for": 11,
+                  "against": 5
+                }
+              },
+              "away": {
+                "played": 9,
+                "win": 3,
+                "draw": 4,
+                "lose": 2,
+                "goals": {
+                  "for": 10,
+                  "against": 8
+                }
+              },
+              "update": "2021-11-27T00:00:00+00:00"
+            },
+            {
+              "rank": 5,
               "team": {
                 "id": 3491,
                 "name": "Raków Częstochowa",
@@ -167,7 +212,7 @@
               "goalsDiff": 7,
               "group": "Ekstraklasa",
               "form": "LDDWW",
-              "status": "same",
+              "status": "down",
               "description": null,
               "all": {
                 "played": 14,
@@ -199,52 +244,7 @@
                   "against": 11
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
-            },
-            {
-              "rank": 5,
-              "team": {
-                "id": 4248,
-                "name": "Radomiak Radom",
-                "logo": "https://media.api-sports.io/football/teams/4248.png"
-              },
-              "points": 25,
-              "goalsDiff": 7,
-              "group": "Ekstraklasa",
-              "form": "WWWWD",
-              "status": "same",
-              "description": null,
-              "all": {
-                "played": 15,
-                "win": 6,
-                "draw": 7,
-                "lose": 2,
-                "goals": {
-                  "for": 20,
-                  "against": 13
-                }
-              },
-              "home": {
-                "played": 7,
-                "win": 4,
-                "draw": 3,
-                "lose": 0,
-                "goals": {
-                  "for": 11,
-                  "against": 5
-                }
-              },
-              "away": {
-                "played": 8,
-                "win": 2,
-                "draw": 4,
-                "lose": 2,
-                "goals": {
-                  "for": 9,
-                  "against": 8
-                }
-              },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
               "rank": 6,
@@ -289,10 +289,55 @@
                   "against": 14
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
               "rank": 7,
+              "team": {
+                "id": 349,
+                "name": "Piast Gliwice",
+                "logo": "https://media.api-sports.io/football/teams/349.png"
+              },
+              "points": 21,
+              "goalsDiff": 1,
+              "group": "Ekstraklasa",
+              "form": "WLLDW",
+              "status": "up",
+              "description": null,
+              "all": {
+                "played": 16,
+                "win": 6,
+                "draw": 3,
+                "lose": 7,
+                "goals": {
+                  "for": 23,
+                  "against": 22
+                }
+              },
+              "home": {
+                "played": 9,
+                "win": 4,
+                "draw": 1,
+                "lose": 4,
+                "goals": {
+                  "for": 16,
+                  "against": 15
+                }
+              },
+              "away": {
+                "played": 7,
+                "win": 2,
+                "draw": 2,
+                "lose": 3,
+                "goals": {
+                  "for": 7,
+                  "against": 7
+                }
+              },
+              "update": "2021-11-27T00:00:00+00:00"
+            },
+            {
+              "rank": 8,
               "team": {
                 "id": 336,
                 "name": "Jagiellonia",
@@ -334,10 +379,10 @@
                   "against": 12
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
-              "rank": 8,
+              "rank": 9,
               "team": {
                 "id": 3493,
                 "name": "Stal Mielec",
@@ -379,10 +424,10 @@
                   "against": 11
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
-              "rank": 9,
+              "rank": 10,
               "team": {
                 "id": 341,
                 "name": "Wisla Plock",
@@ -392,7 +437,7 @@
               "goalsDiff": 1,
               "group": "Ekstraklasa",
               "form": "WDWLW",
-              "status": "up",
+              "status": "same",
               "description": null,
               "all": {
                 "played": 15,
@@ -424,10 +469,10 @@
                   "against": 21
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
-              "rank": 10,
+              "rank": 11,
               "team": {
                 "id": 350,
                 "name": "Cracovia Krakow",
@@ -437,7 +482,7 @@
               "goalsDiff": -1,
               "group": "Ekstraklasa",
               "form": "WLLDW",
-              "status": "up",
+              "status": "same",
               "description": null,
               "all": {
                 "played": 15,
@@ -469,52 +514,7 @@
                   "against": 12
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
-            },
-            {
-              "rank": 11,
-              "team": {
-                "id": 349,
-                "name": "Piast Gliwice",
-                "logo": "https://media.api-sports.io/football/teams/349.png"
-              },
-              "points": 18,
-              "goalsDiff": 0,
-              "group": "Ekstraklasa",
-              "form": "LLDWD",
-              "status": "down",
-              "description": null,
-              "all": {
-                "played": 15,
-                "win": 5,
-                "draw": 3,
-                "lose": 7,
-                "goals": {
-                  "for": 21,
-                  "against": 21
-                }
-              },
-              "home": {
-                "played": 8,
-                "win": 3,
-                "draw": 1,
-                "lose": 4,
-                "goals": {
-                  "for": 14,
-                  "against": 14
-                }
-              },
-              "away": {
-                "played": 7,
-                "win": 2,
-                "draw": 2,
-                "lose": 3,
-                "goals": {
-                  "for": 7,
-                  "against": 7
-                }
-              },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
               "rank": 12,
@@ -559,7 +559,7 @@
                   "against": 10
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
               "rank": 13,
@@ -604,7 +604,7 @@
                   "against": 13
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
               "rank": 14,
@@ -614,29 +614,29 @@
                 "logo": "https://media.api-sports.io/football/teams/338.png"
               },
               "points": 17,
-              "goalsDiff": -10,
+              "goalsDiff": -11,
               "group": "Ekstraklasa",
-              "form": "LWLLW",
+              "form": "LLWLL",
               "status": "down",
               "description": null,
               "all": {
-                "played": 15,
+                "played": 16,
                 "win": 5,
                 "draw": 2,
-                "lose": 8,
+                "lose": 9,
                 "goals": {
                   "for": 16,
-                  "against": 26
+                  "against": 27
                 }
               },
               "home": {
-                "played": 7,
+                "played": 8,
                 "win": 3,
                 "draw": 1,
-                "lose": 3,
+                "lose": 4,
                 "goals": {
                   "for": 8,
-                  "against": 10
+                  "against": 11
                 }
               },
               "away": {
@@ -649,7 +649,7 @@
                   "against": 16
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
               "rank": 15,
@@ -659,19 +659,19 @@
                 "logo": "https://media.api-sports.io/football/teams/3487.png"
               },
               "points": 12,
-              "goalsDiff": -5,
+              "goalsDiff": -6,
               "group": "Ekstraklasa",
-              "form": "DDWLL",
+              "form": "LDDWL",
               "status": "same",
               "description": null,
               "all": {
-                "played": 14,
+                "played": 15,
                 "win": 2,
                 "draw": 6,
-                "lose": 6,
+                "lose": 7,
                 "goals": {
-                  "for": 18,
-                  "against": 23
+                  "for": 19,
+                  "against": 25
                 }
               },
               "home": {
@@ -685,16 +685,16 @@
                 }
               },
               "away": {
-                "played": 6,
+                "played": 7,
                 "win": 0,
                 "draw": 3,
-                "lose": 3,
+                "lose": 4,
                 "goals": {
-                  "for": 5,
-                  "against": 8
+                  "for": 6,
+                  "against": 10
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
               "rank": 16,
@@ -739,7 +739,7 @@
                   "against": 9
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
               "rank": 17,
@@ -784,7 +784,7 @@
                   "against": 15
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             },
             {
               "rank": 18,
@@ -829,7 +829,7 @@
                   "against": 16
                 }
               },
-              "update": "2021-11-22T00:00:00+00:00"
+              "update": "2021-11-27T00:00:00+00:00"
             }
           ]
         ]

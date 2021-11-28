@@ -14,7 +14,7 @@
     {
       "fixture": {
         "id": 712798,
-        "referee": "Zbigniew Dobrynin, Poland",
+        "referee": "Z. Dobrynin",
         "timezone": "UTC",
         "date": "2021-07-23T16:00:00+00:00",
         "timestamp": 1627056000,
@@ -82,7 +82,7 @@
     {
       "fixture": {
         "id": 712799,
-        "referee": "Tomasz Kwiatkowski, Poland",
+        "referee": "T. Kwiatkowski",
         "timezone": "UTC",
         "date": "2021-07-24T15:30:00+00:00",
         "timestamp": 1627140600,
@@ -150,7 +150,7 @@
     {
       "fixture": {
         "id": 712800,
-        "referee": "Bartosz Frankowski, Poland",
+        "referee": "B. Frankowski",
         "timezone": "UTC",
         "date": "2021-07-23T18:30:00+00:00",
         "timestamp": 1627065000,
@@ -218,7 +218,7 @@
     {
       "fixture": {
         "id": 712801,
-        "referee": "Damian Kos, Poland",
+        "referee": "D. Kos",
         "timezone": "UTC",
         "date": "2021-07-24T18:00:00+00:00",
         "timestamp": 1627149600,
@@ -286,7 +286,7 @@
     {
       "fixture": {
         "id": 712802,
-        "referee": "Szymon Marciniak, Poland",
+        "referee": "S. Marciniak",
         "timezone": "UTC",
         "date": "2021-07-25T13:00:00+00:00",
         "timestamp": 1627218000,
@@ -354,7 +354,7 @@
     {
       "fixture": {
         "id": 712803,
-        "referee": "Jaroslaw Przybyl, Poland",
+        "referee": "J. Przybył",
         "timezone": "UTC",
         "date": "2021-07-25T18:00:00+00:00",
         "timestamp": 1627236000,
@@ -422,7 +422,7 @@
     {
       "fixture": {
         "id": 712804,
-        "referee": "Piotr Lasyk, Poland",
+        "referee": "P. Lasyk",
         "timezone": "UTC",
         "date": "2021-07-26T16:00:00+00:00",
         "timestamp": 1627315200,
@@ -490,7 +490,7 @@
     {
       "fixture": {
         "id": 712805,
-        "referee": "Lukasz Kuzma, Poland",
+        "referee": "L. Kuźma",
         "timezone": "UTC",
         "date": "2021-07-25T15:30:00+00:00",
         "timestamp": 1627227000,
@@ -558,7 +558,7 @@
     {
       "fixture": {
         "id": 712806,
-        "referee": "Tomasz Kwiatkowski, Poland",
+        "referee": "T. Kwiatkowski",
         "timezone": "UTC",
         "date": "2021-07-31T15:30:00+00:00",
         "timestamp": 1627745400,
@@ -626,7 +626,7 @@
     {
       "fixture": {
         "id": 712807,
-        "referee": "Tomasz Wajda, Poland",
+        "referee": "T. Wajda",
         "timezone": "UTC",
         "date": "2021-08-01T15:30:00+00:00",
         "timestamp": 1627831800,
@@ -694,7 +694,7 @@
     {
       "fixture": {
         "id": 712808,
-        "referee": "Szymon Marciniak, Poland",
+        "referee": "S. Marciniak",
         "timezone": "UTC",
         "date": "2021-07-30T18:30:00+00:00",
         "timestamp": 1627669800,
@@ -762,7 +762,7 @@
     {
       "fixture": {
         "id": 712809,
-        "referee": "Bartosz Frankowski, Poland",
+        "referee": "B. Frankowski",
         "timezone": "UTC",
         "date": "2021-08-02T16:00:00+00:00",
         "timestamp": 1627920000,
@@ -830,7 +830,7 @@
     {
       "fixture": {
         "id": 712810,
-        "referee": "Jaroslaw Przybyl, Poland",
+        "referee": "J. Przybył",
         "timezone": "UTC",
         "date": "2021-07-31T18:00:00+00:00",
         "timestamp": 1627754400,
@@ -966,7 +966,7 @@
     {
       "fixture": {
         "id": 712812,
-        "referee": "Pawel Gil, Poland",
+        "referee": "P. Gil",
         "timezone": "UTC",
         "date": "2021-07-31T13:00:00+00:00",
         "timestamp": 1627736400,
@@ -1034,7 +1034,7 @@
     {
       "fixture": {
         "id": 712813,
-        "referee": "Damian Sylwestrzak, Poland",
+        "referee": "D. Sylwestrzak",
         "timezone": "UTC",
         "date": "2021-08-01T13:00:00+00:00",
         "timestamp": 1627822800,
@@ -1102,7 +1102,7 @@
     {
       "fixture": {
         "id": 712814,
-        "referee": "Wojciech Myc, Poland",
+        "referee": "W. Myć",
         "timezone": "UTC",
         "date": "2021-08-07T15:30:00+00:00",
         "timestamp": 1628350200,
@@ -1170,7 +1170,7 @@
     {
       "fixture": {
         "id": 712815,
-        "referee": "Damian Kos, Poland",
+        "referee": "D. Kos",
         "timezone": "UTC",
         "date": "2021-08-07T13:00:00+00:00",
         "timestamp": 1628341200,
@@ -1238,7 +1238,7 @@
     {
       "fixture": {
         "id": 712816,
-        "referee": "Damian Sylwestrzak, Poland",
+        "referee": "D. Sylwestrzak",
         "timezone": "UTC",
         "date": "2021-08-06T18:30:00+00:00",
         "timestamp": 1628274600,
@@ -1374,7 +1374,7 @@
     {
       "fixture": {
         "id": 712818,
-        "referee": "Tomasz Kwiatkowski, Poland",
+        "referee": "T. Kwiatkowski",
         "timezone": "UTC",
         "date": "2021-08-08T13:00:00+00:00",
         "timestamp": 1628427600,
@@ -1442,7 +1442,7 @@
     {
       "fixture": {
         "id": 712819,
-        "referee": "Krzysztof Jakubik, Poland",
+        "referee": "K. Jakubik",
         "timezone": "UTC",
         "date": "2021-08-08T15:30:00+00:00",
         "timestamp": 1628436600,
@@ -1510,7 +1510,7 @@
     {
       "fixture": {
         "id": 712820,
-        "referee": "Zbigniew Dobrynin, Poland",
+        "referee": "Z. Dobrynin",
         "timezone": "UTC",
         "date": "2021-08-09T16:00:00+00:00",
         "timestamp": 1628524800,
@@ -1578,7 +1578,7 @@
     {
       "fixture": {
         "id": 712821,
-        "referee": "Zbigniew Dobrynin, Poland",
+        "referee": "J. Przybył",
         "timezone": "UTC",
         "date": "2021-08-08T18:00:00+00:00",
         "timestamp": 1628445600,
@@ -1646,7 +1646,7 @@
     {
       "fixture": {
         "id": 712822,
-        "referee": "Tomasz Wajda, Poland",
+        "referee": "T. Wajda",
         "timezone": "UTC",
         "date": "2021-08-13T16:00:00+00:00",
         "timestamp": 1628870400,
@@ -1714,7 +1714,7 @@
     {
       "fixture": {
         "id": 712823,
-        "referee": "Krzysztof Jakubik, Poland",
+        "referee": "K. Jakubik",
         "timezone": "UTC",
         "date": "2021-08-16T16:00:00+00:00",
         "timestamp": 1629129600,
@@ -1782,7 +1782,7 @@
     {
       "fixture": {
         "id": 712824,
-        "referee": "Sebastian Jarzebak, Poland",
+        "referee": "S. Jarzebak",
         "timezone": "UTC",
         "date": "2021-08-15T18:00:00+00:00",
         "timestamp": 1629050400,
@@ -1850,7 +1850,7 @@
     {
       "fixture": {
         "id": 712825,
-        "referee": "Pawel Raczkowski, Poland",
+        "referee": "P. Raczkowski",
         "timezone": "UTC",
         "date": "2021-08-14T15:30:00+00:00",
         "timestamp": 1628955000,
@@ -1918,7 +1918,7 @@
     {
       "fixture": {
         "id": 712826,
-        "referee": "Sebastian Krasny, Poland",
+        "referee": "S. Krasny",
         "timezone": "UTC",
         "date": "2021-08-14T13:00:00+00:00",
         "timestamp": 1628946000,
@@ -1986,7 +1986,7 @@
     {
       "fixture": {
         "id": 712827,
-        "referee": "Damian Kos, Poland",
+        "referee": "D. Kos",
         "timezone": "UTC",
         "date": "2021-09-29T15:00:00+00:00",
         "timestamp": 1632927600,
@@ -2054,7 +2054,7 @@
     {
       "fixture": {
         "id": 712828,
-        "referee": "Szymon Marciniak, Poland",
+        "referee": "S. Marciniak",
         "timezone": "UTC",
         "date": "2021-08-13T18:30:00+00:00",
         "timestamp": 1628879400,
@@ -2122,7 +2122,7 @@
     {
       "fixture": {
         "id": 712829,
-        "referee": "Piotr Lasyk, Poland",
+        "referee": "P. Lasyk",
         "timezone": "UTC",
         "date": "2021-08-14T18:00:00+00:00",
         "timestamp": 1628964000,
@@ -2190,7 +2190,7 @@
     {
       "fixture": {
         "id": 712830,
-        "referee": "Tomasz Kwiatkowski, Poland",
+        "referee": "T. Kwiatkowski",
         "timezone": "UTC",
         "date": "2021-08-21T15:30:00+00:00",
         "timestamp": 1629559800,
@@ -2258,7 +2258,7 @@
     {
       "fixture": {
         "id": 712831,
-        "referee": "Krzysztof Jakubik, Poland",
+        "referee": "K. Jakubik",
         "timezone": "UTC",
         "date": "2021-08-22T15:30:00+00:00",
         "timestamp": 1629646200,
@@ -2394,7 +2394,7 @@
     {
       "fixture": {
         "id": 712833,
-        "referee": "Lukasz Szczech, Poland",
+        "referee": "Ł. Szczech",
         "timezone": "UTC",
         "date": "2021-08-22T13:00:00+00:00",
         "timestamp": 1629637200,
@@ -2462,7 +2462,7 @@
     {
       "fixture": {
         "id": 712834,
-        "referee": "Bartosz Frankowski, Poland",
+        "referee": "B. Frankowski",
         "timezone": "UTC",
         "date": "2021-08-21T13:00:00+00:00",
         "timestamp": 1629550800,
@@ -2530,7 +2530,7 @@
     {
       "fixture": {
         "id": 712835,
-        "referee": "Tomasz Musial, Poland",
+        "referee": "T. Musial",
         "timezone": "UTC",
         "date": "2021-08-20T18:30:00+00:00",
         "timestamp": 1629484200,
@@ -2666,7 +2666,7 @@
     {
       "fixture": {
         "id": 712837,
-        "referee": "Pawel Raczkowski, Poland",
+        "referee": "P. Raczkowski",
         "timezone": "UTC",
         "date": "2021-08-20T16:00:00+00:00",
         "timestamp": 1629475200,
@@ -2734,7 +2734,7 @@
     {
       "fixture": {
         "id": 712838,
-        "referee": "Lukasz Kuzma, Poland",
+        "referee": "L. Kuźma",
         "timezone": "UTC",
         "date": "2021-08-28T10:30:00+00:00",
         "timestamp": 1630146600,
@@ -2802,7 +2802,7 @@
     {
       "fixture": {
         "id": 712839,
-        "referee": "Damian Kos, Poland",
+        "referee": "D. Kos",
         "timezone": "UTC",
         "date": "2021-08-28T18:00:00+00:00",
         "timestamp": 1630173600,
@@ -2870,7 +2870,7 @@
     {
       "fixture": {
         "id": 712840,
-        "referee": "Piotr Lasyk, Poland",
+        "referee": "P. Lasyk",
         "timezone": "UTC",
         "date": "2021-08-29T13:00:00+00:00",
         "timestamp": 1630242000,
@@ -2938,7 +2938,7 @@
     {
       "fixture": {
         "id": 712841,
-        "referee": "Tomasz Musial, Poland",
+        "referee": "T. Musial",
         "timezone": "UTC",
         "date": "2021-08-28T15:30:00+00:00",
         "timestamp": 1630164600,
@@ -3006,7 +3006,7 @@
     {
       "fixture": {
         "id": 712842,
-        "referee": "Tomasz Kwiatkowski, Poland",
+        "referee": "T. Kwiatkowski",
         "timezone": "UTC",
         "date": "2021-08-28T13:00:00+00:00",
         "timestamp": 1630155600,
@@ -3074,7 +3074,7 @@
     {
       "fixture": {
         "id": 712843,
-        "referee": "Szymon Marciniak, Poland",
+        "referee": "S. Marciniak",
         "timezone": "UTC",
         "date": "2021-08-27T18:30:00+00:00",
         "timestamp": 1630089000,
@@ -3142,7 +3142,7 @@
     {
       "fixture": {
         "id": 712844,
-        "referee": "Zbigniew Dobrynin, Poland",
+        "referee": "Z. Dobrynin",
         "timezone": "UTC",
         "date": "2021-08-29T15:30:00+00:00",
         "timestamp": 1630251000,
@@ -3210,7 +3210,7 @@
     {
       "fixture": {
         "id": 712845,
-        "referee": "Malec Pawel, Poland",
+        "referee": "P. Malec",
         "timezone": "UTC",
         "date": "2021-08-29T10:30:00+00:00",
         "timestamp": 1630233000,
@@ -3278,7 +3278,7 @@
     {
       "fixture": {
         "id": 712846,
-        "referee": "Damian Sylwestrzak, Poland",
+        "referee": "D. Sylwestrzak",
         "timezone": "UTC",
         "date": "2021-09-11T13:00:00+00:00",
         "timestamp": 1631365200,
@@ -3346,7 +3346,7 @@
     {
       "fixture": {
         "id": 712847,
-        "referee": "Krzysztof Jakubik, Poland",
+        "referee": "K. Jakubik",
         "timezone": "UTC",
         "date": "2021-09-11T15:30:00+00:00",
         "timestamp": 1631374200,
@@ -3414,7 +3414,7 @@
     {
       "fixture": {
         "id": 712848,
-        "referee": "Wojciech Myc, Poland",
+        "referee": "W. Myć",
         "timezone": "UTC",
         "date": "2021-09-12T10:30:00+00:00",
         "timestamp": 1631442600,
@@ -3482,7 +3482,7 @@
     {
       "fixture": {
         "id": 712849,
-        "referee": "Sebastian Jarzebak, Poland",
+        "referee": "S. Jarzebak",
         "timezone": "UTC",
         "date": "2021-09-13T18:30:00+00:00",
         "timestamp": 1631557800,
@@ -3550,7 +3550,7 @@
     {
       "fixture": {
         "id": 712850,
-        "referee": "Szymon Marciniak, Poland",
+        "referee": "S. Marciniak",
         "timezone": "UTC",
         "date": "2021-09-12T15:30:00+00:00",
         "timestamp": 1631460600,
@@ -3618,7 +3618,7 @@
     {
       "fixture": {
         "id": 712851,
-        "referee": "Sebastian Krasny, Poland",
+        "referee": "S. Krasny",
         "timezone": "UTC",
         "date": "2021-09-11T10:30:00+00:00",
         "timestamp": 1631356200,
@@ -3686,7 +3686,7 @@
     {
       "fixture": {
         "id": 712852,
-        "referee": "Pawel Raczkowski, Poland",
+        "referee": "P. Raczkowski",
         "timezone": "UTC",
         "date": "2021-09-12T13:00:00+00:00",
         "timestamp": 1631451600,
@@ -3754,7 +3754,7 @@
     {
       "fixture": {
         "id": 712853,
-        "referee": "Bartosz Frankowski, Poland",
+        "referee": "B. Frankowski",
         "timezone": "UTC",
         "date": "2021-09-11T18:00:00+00:00",
         "timestamp": 1631383200,
@@ -3822,7 +3822,7 @@
     {
       "fixture": {
         "id": 712854,
-        "referee": "Pawel Raczkowski, Poland",
+        "referee": "P. Raczkowski",
         "timezone": "UTC",
         "date": "2021-09-19T13:00:00+00:00",
         "timestamp": 1632056400,
@@ -3890,7 +3890,7 @@
     {
       "fixture": {
         "id": 712855,
-        "referee": "Jaroslaw Przybyl, Poland",
+        "referee": "J. Przybył",
         "timezone": "UTC",
         "date": "2021-09-17T16:00:00+00:00",
         "timestamp": 1631894400,
@@ -3958,7 +3958,7 @@
     {
       "fixture": {
         "id": 712856,
-        "referee": "Tomasz Kwiatkowski, Poland",
+        "referee": "T. Kwiatkowski",
         "timezone": "UTC",
         "date": "2021-09-17T18:30:00+00:00",
         "timestamp": 1631903400,
@@ -4026,7 +4026,7 @@
     {
       "fixture": {
         "id": 712857,
-        "referee": "Tomasz Musial, Poland",
+        "referee": "T. Musial",
         "timezone": "UTC",
         "date": "2021-09-18T18:00:00+00:00",
         "timestamp": 1631988000,
@@ -4094,7 +4094,7 @@
     {
       "fixture": {
         "id": 712858,
-        "referee": "Zbigniew Dobrynin, Poland",
+        "referee": "Z. Dobrynin",
         "timezone": "UTC",
         "date": "2021-09-18T13:00:00+00:00",
         "timestamp": 1631970000,
@@ -4162,7 +4162,7 @@
     {
       "fixture": {
         "id": 712859,
-        "referee": "Szymon Marciniak, Poland",
+        "referee": "S. Marciniak",
         "timezone": "UTC",
         "date": "2021-09-18T15:30:00+00:00",
         "timestamp": 1631979000,
@@ -4230,7 +4230,7 @@
     {
       "fixture": {
         "id": 712860,
-        "referee": "Malec Pawel, Poland",
+        "referee": "P. Malec",
         "timezone": "UTC",
         "date": "2021-09-19T10:30:00+00:00",
         "timestamp": 1632047400,
@@ -4298,7 +4298,7 @@
     {
       "fixture": {
         "id": 712861,
-        "referee": "Piotr Lasyk, Poland",
+        "referee": "P. Lasyk",
         "timezone": "UTC",
         "date": "2021-09-18T10:30:00+00:00",
         "timestamp": 1631961000,
@@ -4366,7 +4366,7 @@
     {
       "fixture": {
         "id": 712862,
-        "referee": "Lukasz Szczech, Poland",
+        "referee": "Ł. Szczech",
         "timezone": "UTC",
         "date": "2021-09-26T10:30:00+00:00",
         "timestamp": 1632652200,
@@ -4434,7 +4434,7 @@
     {
       "fixture": {
         "id": 712863,
-        "referee": "Pawel Raczkowski, Poland",
+        "referee": "P. Raczkowski",
         "timezone": "UTC",
         "date": "2021-09-24T18:30:00+00:00",
         "timestamp": 1632508200,
@@ -4502,7 +4502,7 @@
     {
       "fixture": {
         "id": 712864,
-        "referee": "Jaroslaw Przybyl, Poland",
+        "referee": "J. Przybył",
         "timezone": "UTC",
         "date": "2021-09-25T18:00:00+00:00",
         "timestamp": 1632592800,
@@ -4570,7 +4570,7 @@
     {
       "fixture": {
         "id": 712865,
-        "referee": "Tomasz Kwiatkowski, Poland",
+        "referee": "T. Kwiatkowski",
         "timezone": "UTC",
         "date": "2021-09-27T16:00:00+00:00",
         "timestamp": 1632758400,
@@ -4638,7 +4638,7 @@
     {
       "fixture": {
         "id": 712866,
-        "referee": "Piotr Lasyk, Poland",
+        "referee": "P. Lasyk",
         "timezone": "UTC",
         "date": "2021-09-25T13:00:00+00:00",
         "timestamp": 1632574800,
@@ -4706,7 +4706,7 @@
     {
       "fixture": {
         "id": 712867,
-        "referee": "Bartosz Frankowski, Poland",
+        "referee": "B. Frankowski",
         "timezone": "UTC",
         "date": "2021-09-25T15:30:00+00:00",
         "timestamp": 1632583800,
@@ -4774,7 +4774,7 @@
     {
       "fixture": {
         "id": 712868,
-        "referee": "Szymon Marciniak, Poland",
+        "referee": "S. Marciniak",
         "timezone": "UTC",
         "date": "2021-09-26T15:30:00+00:00",
         "timestamp": 1632670200,
@@ -4842,7 +4842,7 @@
     {
       "fixture": {
         "id": 712869,
-        "referee": "Tomasz Musial, Poland",
+        "referee": "T. Musial",
         "timezone": "UTC",
         "date": "2021-09-26T13:00:00+00:00",
         "timestamp": 1632661200,
@@ -4910,7 +4910,7 @@
     {
       "fixture": {
         "id": 712870,
-        "referee": "Tomasz Wajda, Poland",
+        "referee": "T. Wajda",
         "timezone": "UTC",
         "date": "2021-10-02T13:00:00+00:00",
         "timestamp": 1633179600,
@@ -4978,7 +4978,7 @@
     {
       "fixture": {
         "id": 712871,
-        "referee": "Tomasz Musial, Poland",
+        "referee": "T. Musial",
         "timezone": "UTC",
         "date": "2021-10-02T18:00:00+00:00",
         "timestamp": 1633197600,
@@ -5046,7 +5046,7 @@
     {
       "fixture": {
         "id": 712872,
-        "referee": "Sebastian Jarzebak, Poland",
+        "referee": "S. Jarzebak",
         "timezone": "UTC",
         "date": "2021-10-01T16:00:00+00:00",
         "timestamp": 1633104000,
@@ -5114,7 +5114,7 @@
     {
       "fixture": {
         "id": 712873,
-        "referee": "Bartosz Frankowski, Poland",
+        "referee": "B. Frankowski",
         "timezone": "UTC",
         "date": "2021-10-02T15:30:00+00:00",
         "timestamp": 1633188600,
@@ -5182,7 +5182,7 @@
     {
       "fixture": {
         "id": 712874,
-        "referee": "Szymon Marciniak, Poland",
+        "referee": "S. Marciniak",
         "timezone": "UTC",
         "date": "2021-10-03T15:30:00+00:00",
         "timestamp": 1633275000,
@@ -5250,7 +5250,7 @@
     {
       "fixture": {
         "id": 712875,
-        "referee": "Damian Sylwestrzak, Poland",
+        "referee": "D. Sylwestrzak",
         "timezone": "UTC",
         "date": "2021-10-01T18:30:00+00:00",
         "timestamp": 1633113000,
@@ -5318,7 +5318,7 @@
     {
       "fixture": {
         "id": 712876,
-        "referee": "Zbigniew Dobrynin, Poland",
+        "referee": "Z. Dobrynin",
         "timezone": "UTC",
         "date": "2021-10-02T10:30:00+00:00",
         "timestamp": 1633170600,
@@ -5386,7 +5386,7 @@
     {
       "fixture": {
         "id": 712877,
-        "referee": "Tomasz Kwiatkowski, Poland",
+        "referee": "T. Kwiatkowski",
         "timezone": "UTC",
         "date": "2021-10-03T10:30:00+00:00",
         "timestamp": 1633257000,
@@ -5454,7 +5454,7 @@
     {
       "fixture": {
         "id": 712878,
-        "referee": "Krzysztof Jakubik, Poland",
+        "referee": "K. Jakubik",
         "timezone": "UTC",
         "date": "2021-10-16T13:00:00+00:00",
         "timestamp": 1634389200,
@@ -5522,7 +5522,7 @@
     {
       "fixture": {
         "id": 712879,
-        "referee": "Pawel Raczkowski, Poland",
+        "referee": "P. Raczkowski",
         "timezone": "UTC",
         "date": "2021-10-17T13:00:00+00:00",
         "timestamp": 1634475600,
@@ -5590,7 +5590,7 @@
     {
       "fixture": {
         "id": 712880,
-        "referee": "Bartosz Frankowski, Poland",
+        "referee": "B. Frankowski",
         "timezone": "UTC",
         "date": "2021-10-16T15:30:00+00:00",
         "timestamp": 1634398200,
@@ -5658,7 +5658,7 @@
     {
       "fixture": {
         "id": 712881,
-        "referee": "Jaroslaw Przybyl, Poland",
+        "referee": "J. Przybył",
         "timezone": "UTC",
         "date": "2021-10-18T18:30:00+00:00",
         "timestamp": 1634581800,
@@ -5726,7 +5726,7 @@
     {
       "fixture": {
         "id": 712882,
-        "referee": "Tomasz Musial, Poland",
+        "referee": "T. Musial",
         "timezone": "UTC",
         "date": "2021-10-17T15:30:00+00:00",
         "timestamp": 1634484600,
@@ -5794,7 +5794,7 @@
     {
       "fixture": {
         "id": 712883,
-        "referee": "Sebastian Krasny, Poland",
+        "referee": "S. Krasny",
         "timezone": "UTC",
         "date": "2021-10-18T16:00:00+00:00",
         "timestamp": 1634572800,
@@ -5862,7 +5862,7 @@
     {
       "fixture": {
         "id": 712884,
-        "referee": "Daniel Stefanski, Poland",
+        "referee": "D. Stefanski",
         "timezone": "UTC",
         "date": "2021-10-17T10:30:00+00:00",
         "timestamp": 1634466600,
@@ -5930,7 +5930,7 @@
     {
       "fixture": {
         "id": 712885,
-        "referee": "Szymon Marciniak, Poland",
+        "referee": "S. Marciniak",
         "timezone": "UTC",
         "date": "2021-10-16T18:00:00+00:00",
         "timestamp": 1634407200,
@@ -5998,7 +5998,7 @@
     {
       "fixture": {
         "id": 712886,
-        "referee": "Bartosz Frankowski, Poland",
+        "referee": "B. Frankowski",
         "timezone": "UTC",
         "date": "2021-10-24T13:00:00+00:00",
         "timestamp": 1635080400,
@@ -6066,7 +6066,7 @@
     {
       "fixture": {
         "id": 712887,
-        "referee": "Damian Sylwestrzak, Poland",
+        "referee": "D. Sylwestrzak",
         "timezone": "UTC",
         "date": "2021-10-22T18:30:00+00:00",
         "timestamp": 1634927400,
@@ -6134,7 +6134,7 @@
     {
       "fixture": {
         "id": 712888,
-        "referee": "Tomasz Kwiatkowski, Poland",
+        "referee": "T. Kwiatkowski",
         "timezone": "UTC",
         "date": "2021-10-23T13:00:00+00:00",
         "timestamp": 1634994000,
@@ -6202,7 +6202,7 @@
     {
       "fixture": {
         "id": 712889,
-        "referee": "Jaroslaw Przybyl, Poland",
+        "referee": "J. Przybył",
         "timezone": "UTC",
         "date": "2021-10-24T18:00:00+00:00",
         "timestamp": 1635098400,
@@ -6270,7 +6270,7 @@
     {
       "fixture": {
         "id": 712890,
-        "referee": "Pawel Raczkowski, Poland",
+        "referee": "P. Raczkowski",
         "timezone": "UTC",
         "date": "2021-10-23T15:30:00+00:00",
         "timestamp": 1635003000,
@@ -6338,7 +6338,7 @@
     {
       "fixture": {
         "id": 712891,
-        "referee": "Daniel Stefanski, Poland",
+        "referee": "D. Stefanski",
         "timezone": "UTC",
         "date": "2021-10-23T10:30:00+00:00",
         "timestamp": 1634985000,
@@ -6406,7 +6406,7 @@
     {
       "fixture": {
         "id": 712892,
-        "referee": "Krzysztof Jakubik, Poland",
+        "referee": "K. Jakubik",
         "timezone": "UTC",
         "date": "2021-10-24T15:30:00+00:00",
         "timestamp": 1635089400,
@@ -6474,7 +6474,7 @@
     {
       "fixture": {
         "id": 712893,
-        "referee": "Piotr Lasyk, Poland",
+        "referee": "P. Lasyk",
         "timezone": "UTC",
         "date": "2021-10-23T18:00:00+00:00",
         "timestamp": 1635012000,
@@ -6542,7 +6542,7 @@
     {
       "fixture": {
         "id": 712894,
-        "referee": "Zbigniew Dobrynin, Poland",
+        "referee": "Z. Dobrynin",
         "timezone": "UTC",
         "date": "2021-10-30T10:30:00+00:00",
         "timestamp": 1635589800,
@@ -6610,7 +6610,7 @@
     {
       "fixture": {
         "id": 712895,
-        "referee": "Szymon Marciniak, Poland",
+        "referee": "S. Marciniak",
         "timezone": "UTC",
         "date": "2021-10-29T16:00:00+00:00",
         "timestamp": 1635523200,
@@ -6678,7 +6678,7 @@
     {
       "fixture": {
         "id": 712896,
-        "referee": "Damian Kos, Poland",
+        "referee": "D. Kos",
         "timezone": "UTC",
         "date": "2021-10-30T15:30:00+00:00",
         "timestamp": 1635607800,
@@ -6746,7 +6746,7 @@
     {
       "fixture": {
         "id": 712897,
-        "referee": "Tomasz Musial, Poland",
+        "referee": "T. Musial",
         "timezone": "UTC",
         "date": "2021-10-30T18:00:00+00:00",
         "timestamp": 1635616800,
@@ -6814,7 +6814,7 @@
     {
       "fixture": {
         "id": 712898,
-        "referee": "Damian Sylwestrzak, Poland",
+        "referee": "D. Sylwestrzak",
         "timezone": "UTC",
         "date": "2021-10-31T16:30:00+00:00",
         "timestamp": 1635697800,
@@ -6882,7 +6882,7 @@
     {
       "fixture": {
         "id": 712899,
-        "referee": "Pawel Raczkowski, Poland",
+        "referee": "P. Raczkowski",
         "timezone": "UTC",
         "date": "2021-10-29T18:30:00+00:00",
         "timestamp": 1635532200,
@@ -6950,7 +6950,7 @@
     {
       "fixture": {
         "id": 712900,
-        "referee": "Malec Pawel, Poland",
+        "referee": "P. Malec",
         "timezone": "UTC",
         "date": "2021-10-30T13:00:00+00:00",
         "timestamp": 1635598800,
@@ -7018,7 +7018,7 @@
     {
       "fixture": {
         "id": 712901,
-        "referee": "Tomasz Kwiatkowski, Poland",
+        "referee": "T. Kwiatkowski",
         "timezone": "UTC",
         "date": "2021-10-31T11:30:00+00:00",
         "timestamp": 1635679800,
@@ -7086,7 +7086,7 @@
     {
       "fixture": {
         "id": 712902,
-        "referee": "Bartosz Frankowski, Poland",
+        "referee": "B. Frankowski",
         "timezone": "UTC",
         "date": "2021-11-06T16:30:00+00:00",
         "timestamp": 1636216200,
@@ -7154,7 +7154,7 @@
     {
       "fixture": {
         "id": 712903,
-        "referee": "Piotr Lasyk, Poland",
+        "referee": "P. Lasyk",
         "timezone": "UTC",
         "date": "2021-11-07T16:30:00+00:00",
         "timestamp": 1636302600,
@@ -7222,7 +7222,7 @@
     {
       "fixture": {
         "id": 712904,
-        "referee": "Damian Sylwestrzak, Poland",
+        "referee": "D. Sylwestrzak",
         "timezone": "UTC",
         "date": "2021-11-06T11:30:00+00:00",
         "timestamp": 1636198200,
@@ -7290,7 +7290,7 @@
     {
       "fixture": {
         "id": 712905,
-        "referee": "Tomasz Musial, Poland",
+        "referee": "T. Musial",
         "timezone": "UTC",
         "date": "2021-11-06T14:00:00+00:00",
         "timestamp": 1636207200,
@@ -7358,7 +7358,7 @@
     {
       "fixture": {
         "id": 712906,
-        "referee": "Szymon Marciniak, Poland",
+        "referee": "S. Marciniak",
         "timezone": "UTC",
         "date": "2021-11-07T14:00:00+00:00",
         "timestamp": 1636293600,
@@ -7426,7 +7426,7 @@
     {
       "fixture": {
         "id": 712907,
-        "referee": "Tomasz Kwiatkowski, Poland",
+        "referee": "T. Kwiatkowski",
         "timezone": "UTC",
         "date": "2021-11-07T19:00:00+00:00",
         "timestamp": 1636311600,
@@ -7494,7 +7494,7 @@
     {
       "fixture": {
         "id": 712908,
-        "referee": "Tomasz Wajda, Poland",
+        "referee": "T. Wajda",
         "timezone": "UTC",
         "date": "2021-11-05T17:00:00+00:00",
         "timestamp": 1636131600,
@@ -7562,7 +7562,7 @@
     {
       "fixture": {
         "id": 712909,
-        "referee": "Jaroslaw Przybyl, Poland",
+        "referee": "J. Przybył",
         "timezone": "UTC",
         "date": "2021-11-05T19:30:00+00:00",
         "timestamp": 1636140600,
@@ -7630,7 +7630,7 @@
     {
       "fixture": {
         "id": 712910,
-        "referee": "Bartosz Frankowski, Poland",
+        "referee": "B. Frankowski",
         "timezone": "UTC",
         "date": "2021-11-22T19:30:00+00:00",
         "timestamp": 1637609400,
@@ -7698,7 +7698,7 @@
     {
       "fixture": {
         "id": 712911,
-        "referee": "Damian Sylwestrzak, Poland",
+        "referee": "D. Sylwestrzak",
         "timezone": "UTC",
         "date": "2021-11-21T16:30:00+00:00",
         "timestamp": 1637512200,
@@ -7766,7 +7766,7 @@
     {
       "fixture": {
         "id": 712912,
-        "referee": "Szymon Marciniak, Poland",
+        "referee": "S. Marciniak",
         "timezone": "UTC",
         "date": "2021-11-20T14:00:00+00:00",
         "timestamp": 1637416800,
@@ -7834,7 +7834,7 @@
     {
       "fixture": {
         "id": 712913,
-        "referee": "Malec Pawel, Poland",
+        "referee": "P. Malec",
         "timezone": "UTC",
         "date": "2021-11-22T17:00:00+00:00",
         "timestamp": 1637600400,
@@ -7902,7 +7902,7 @@
     {
       "fixture": {
         "id": 712914,
-        "referee": "Daniel Stefanski, Poland",
+        "referee": "D. Stefanski",
         "timezone": "UTC",
         "date": "2021-11-20T19:00:00+00:00",
         "timestamp": 1637434800,
@@ -7970,7 +7970,7 @@
     {
       "fixture": {
         "id": 712915,
-        "referee": "Pawel Raczkowski, Poland",
+        "referee": "P. Raczkowski",
         "timezone": "UTC",
         "date": "2021-11-21T14:00:00+00:00",
         "timestamp": 1637503200,
@@ -8038,7 +8038,7 @@
     {
       "fixture": {
         "id": 712916,
-        "referee": "Tomasz Kwiatkowski, Poland",
+        "referee": "T. Kwiatkowski",
         "timezone": "UTC",
         "date": "2021-11-20T16:30:00+00:00",
         "timestamp": 1637425800,
@@ -8106,7 +8106,7 @@
     {
       "fixture": {
         "id": 712917,
-        "referee": "Damian Kos, Poland",
+        "referee": "D. Kos",
         "timezone": "UTC",
         "date": "2021-11-20T11:30:00+00:00",
         "timestamp": 1637407800,
@@ -8174,7 +8174,7 @@
     {
       "fixture": {
         "id": 712918,
-        "referee": null,
+        "referee": "P. Raczkowski",
         "timezone": "UTC",
         "date": "2021-11-28T14:00:00+00:00",
         "timestamp": 1638108000,
@@ -8242,7 +8242,7 @@
     {
       "fixture": {
         "id": 712919,
-        "referee": null,
+        "referee": "T. Musial",
         "timezone": "UTC",
         "date": "2021-11-28T16:30:00+00:00",
         "timestamp": 1638117000,
@@ -8310,13 +8310,13 @@
     {
       "fixture": {
         "id": 712920,
-        "referee": null,
+        "referee": "B. Frankowski",
         "timezone": "UTC",
         "date": "2021-11-26T17:00:00+00:00",
         "timestamp": 1637946000,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1637946000,
+          "second": 1637949600
         },
         "venue": {
           "id": 1255,
@@ -8324,9 +8324,9 @@
           "city": "Gliwice"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90
         }
       },
       "league": {
@@ -8343,27 +8343,27 @@
           "id": 349,
           "name": "Piast Gliwice",
           "logo": "https://media.api-sports.io/football/teams/349.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 3487,
           "name": "Nieciecza",
           "logo": "https://media.api-sports.io/football/teams/3487.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "extratime": {
           "home": null,
@@ -8378,7 +8378,7 @@
     {
       "fixture": {
         "id": 712921,
-        "referee": null,
+        "referee": "P. Lasyk",
         "timezone": "UTC",
         "date": "2021-11-27T16:30:00+00:00",
         "timestamp": 1638030600,
@@ -8446,7 +8446,7 @@
     {
       "fixture": {
         "id": 712922,
-        "referee": null,
+        "referee": "S. Krasny",
         "timezone": "UTC",
         "date": "2021-11-27T19:00:00+00:00",
         "timestamp": 1638039600,
@@ -8514,13 +8514,13 @@
     {
       "fixture": {
         "id": 712923,
-        "referee": null,
+        "referee": "D. Sylwestrzak",
         "timezone": "UTC",
         "date": "2021-11-26T19:30:00+00:00",
         "timestamp": 1637955000,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1637955000,
+          "second": 1637958600
         },
         "venue": {
           "id": 1258,
@@ -8528,9 +8528,9 @@
           "city": "Kraków"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90
         }
       },
       "league": {
@@ -8547,27 +8547,27 @@
           "id": 338,
           "name": "Wisla Krakow",
           "logo": "https://media.api-sports.io/football/teams/338.png",
-          "winner": null
+          "winner": false
         },
         "away": {
           "id": 4248,
           "name": "Radomiak Radom",
           "logo": "https://media.api-sports.io/football/teams/4248.png",
-          "winner": null
+          "winner": true
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "extratime": {
           "home": null,
@@ -8582,7 +8582,7 @@
     {
       "fixture": {
         "id": 712924,
-        "referee": null,
+        "referee": "J. Przybył",
         "timezone": "UTC",
         "date": "2021-11-28T11:30:00+00:00",
         "timestamp": 1638099000,
@@ -8650,7 +8650,7 @@
     {
       "fixture": {
         "id": 712925,
-        "referee": null,
+        "referee": "D. Stefanski",
         "timezone": "UTC",
         "date": "2021-11-27T14:00:00+00:00",
         "timestamp": 1638021600,
@@ -9806,7 +9806,7 @@
     {
       "fixture": {
         "id": 712942,
-        "referee": "Sebastian Jarzebak, Poland",
+        "referee": "S. Jarzebak",
         "timezone": "UTC",
         "date": "2021-08-01T18:00:00+00:00",
         "timestamp": 1627840800,
@@ -18510,7 +18510,7 @@
     {
       "fixture": {
         "id": 718208,
-        "referee": "Lukasz Szczech, Poland",
+        "referee": "Ł. Szczech",
         "timezone": "UTC",
         "date": "2021-07-24T13:00:00+00:00",
         "timestamp": 1627131600,
@@ -18578,7 +18578,7 @@
     {
       "fixture": {
         "id": 718209,
-        "referee": "Sebastian Krasny, Poland",
+        "referee": "S. Krasny",
         "timezone": "UTC",
         "date": "2021-07-30T16:00:00+00:00",
         "timestamp": 1627660800,
@@ -18646,7 +18646,7 @@
     {
       "fixture": {
         "id": 718210,
-        "referee": "Malec Pawel, Poland",
+        "referee": "P. Malec",
         "timezone": "UTC",
         "date": "2021-08-06T16:00:00+00:00",
         "timestamp": 1628265600,
@@ -18714,7 +18714,7 @@
     {
       "fixture": {
         "id": 718211,
-        "referee": "Tomasz Musial, Poland",
+        "referee": "T. Musial",
         "timezone": "UTC",
         "date": "2021-08-15T15:30:00+00:00",
         "timestamp": 1629041400,
@@ -18782,7 +18782,7 @@
     {
       "fixture": {
         "id": 718212,
-        "referee": "Lukasz Kuzma, Poland",
+        "referee": "L. Kuźma",
         "timezone": "UTC",
         "date": "2021-08-21T18:00:00+00:00",
         "timestamp": 1629568800,
@@ -18850,7 +18850,7 @@
     {
       "fixture": {
         "id": 718213,
-        "referee": "Jaroslaw Przybyl, Poland",
+        "referee": "J. Przybył",
         "timezone": "UTC",
         "date": "2021-08-27T16:00:00+00:00",
         "timestamp": 1630080000,
@@ -18918,7 +18918,7 @@
     {
       "fixture": {
         "id": 718214,
-        "referee": "Tomasz Wajda, Poland",
+        "referee": "T. Wajda",
         "timezone": "UTC",
         "date": "2021-09-13T16:00:00+00:00",
         "timestamp": 1631548800,
@@ -18986,7 +18986,7 @@
     {
       "fixture": {
         "id": 718215,
-        "referee": "Mariusz Zlotek, Poland",
+        "referee": "M. Zlotek",
         "timezone": "UTC",
         "date": "2021-09-19T15:30:00+00:00",
         "timestamp": 1632065400,
@@ -19054,7 +19054,7 @@
     {
       "fixture": {
         "id": 718216,
-        "referee": "Damian Sylwestrzak, Poland",
+        "referee": "D. Sylwestrzak",
         "timezone": "UTC",
         "date": "2021-09-24T16:00:00+00:00",
         "timestamp": 1632499200,
@@ -19122,7 +19122,7 @@
     {
       "fixture": {
         "id": 718217,
-        "referee": "Piotr Lasyk, Poland",
+        "referee": "P. Lasyk",
         "timezone": "UTC",
         "date": "2021-10-03T13:00:00+00:00",
         "timestamp": 1633266000,
@@ -19190,7 +19190,7 @@
     {
       "fixture": {
         "id": 718218,
-        "referee": "Damian Kos, Poland",
+        "referee": "D. Kos",
         "timezone": "UTC",
         "date": "2021-10-16T10:30:00+00:00",
         "timestamp": 1634380200,
@@ -19258,7 +19258,7 @@
     {
       "fixture": {
         "id": 718219,
-        "referee": "Lukasz Kuzma, Poland",
+        "referee": "L. Kuźma",
         "timezone": "UTC",
         "date": "2021-10-22T16:00:00+00:00",
         "timestamp": 1634918400,
@@ -19326,7 +19326,7 @@
     {
       "fixture": {
         "id": 718220,
-        "referee": "Krzysztof Jakubik, Poland",
+        "referee": "K. Jakubik",
         "timezone": "UTC",
         "date": "2021-10-31T14:00:00+00:00",
         "timestamp": 1635688800,
@@ -19394,7 +19394,7 @@
     {
       "fixture": {
         "id": 718221,
-        "referee": "Sebastian Krasny, Poland",
+        "referee": "S. Krasny",
         "timezone": "UTC",
         "date": "2021-11-06T19:00:00+00:00",
         "timestamp": 1636225200,
@@ -19462,7 +19462,7 @@
     {
       "fixture": {
         "id": 718222,
-        "referee": "Tomasz Wajda, Poland",
+        "referee": "T. Wajda",
         "timezone": "UTC",
         "date": "2021-11-21T11:30:00+00:00",
         "timestamp": 1637494200,
@@ -19530,12 +19530,12 @@
     {
       "fixture": {
         "id": 718223,
-        "referee": null,
+        "referee": "Zbigniew Dobrynin, Poland",
         "timezone": "UTC",
         "date": "2021-11-27T11:30:00+00:00",
         "timestamp": 1638012600,
         "periods": {
-          "first": null,
+          "first": 1638012600,
           "second": null
         },
         "venue": {
@@ -19544,9 +19544,9 @@
           "city": "Łęczna"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null
+          "long": "Halftime",
+          "short": "HT",
+          "elapsed": 45
         }
       },
       "league": {
@@ -19563,23 +19563,23 @@
           "id": 6941,
           "name": "Górnik Łęczna",
           "logo": "https://media.api-sports.io/football/teams/6941.png",
-          "winner": null
+          "winner": false
         },
         "away": {
           "id": 340,
           "name": "Gornik Zabrze",
           "logo": "https://media.api-sports.io/football/teams/340.png",
-          "winner": null
+          "winner": true
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 2
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 2
         },
         "fulltime": {
           "home": null,

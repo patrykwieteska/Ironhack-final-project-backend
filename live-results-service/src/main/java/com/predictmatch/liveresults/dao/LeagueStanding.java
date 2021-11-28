@@ -1,4 +1,4 @@
-package com.predictmatch.liveresults.model;
+package com.predictmatch.liveresults.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +17,7 @@ public class LeagueStanding {
     @Id
     private Long rank;
 
-    private Integer teamId;
+    private Long teamId;
 
     private Integer points;
 

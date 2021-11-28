@@ -1,9 +1,9 @@
 package com.predictmatch.liveresults.service;
 
-import com.predictmatch.liveresults.model.Fixture;
-import com.predictmatch.liveresults.model.League;
-import com.predictmatch.liveresults.model.LeagueStanding;
-import com.predictmatch.liveresults.model.Team;
+import com.predictmatch.liveresults.dao.Fixture;
+import com.predictmatch.liveresults.dao.League;
+import com.predictmatch.liveresults.dao.LeagueStanding;
+import com.predictmatch.liveresults.dao.Team;
 import com.predictmatch.liveresults.repository.FixtureRepository;
 import com.predictmatch.liveresults.repository.LeagueRepository;
 import com.predictmatch.liveresults.repository.LeagueStandingRepository;
@@ -39,10 +39,10 @@ public class LiveResultsService {
     @Transactional
     public void initData() throws IOException, JSONException {
         // TODO Change to live
-        String standingsResponse = ApiService.getLiveStandings();
+        String standingsResponse = ApiService.getTestStandings();
 
         // TODO Change to live
-        String fixturesResponse = ApiService.getLiveFixtures();
+        String fixturesResponse = ApiService.getTestFixtures();
 
 
         saveLeague( standingsResponse );
@@ -73,8 +73,8 @@ public class LiveResultsService {
                     fixtureObject.getJSONObject( "venue" ).getString( "name" ),
                     fixtureObject.getJSONObject( "venue" ).getString( "city" ),
                     fixtureObject.getJSONObject( "status" ).getString( "short" ),
-                    teamsObject.getJSONObject( "home" ).optInt( "id" ),
-                    teamsObject.getJSONObject( "away" ).optInt( "id" ),
+                    teamsObject.getJSONObject( "home" ).optLong( "id" ),
+                    teamsObject.getJSONObject( "away" ).optLong( "id" ),
                     teamsObject.getJSONObject( "home" ).optBoolean( "winner" ),
                     teamsObject.getJSONObject( "away" ).optBoolean( "winner" ),
                     scoresObject.getJSONObject( "halftime" ).optInt( "home" ),
@@ -126,7 +126,7 @@ public class LiveResultsService {
             JSONObject standing = standingsArray.getJSONObject( i );
             LeagueStanding leagueStanding = new LeagueStanding(
                     standing.getLong( "rank" ),
-                    standing.getJSONObject( "team" ).getInt( "id" ),
+                    standing.getJSONObject( "team" ).getLong( "id" ),
                     standing.getInt( "points" ),
                     standing.getJSONObject( "all" ).getInt( "played" ),
                     standing.getJSONObject( "all" ).getInt( "win" ),

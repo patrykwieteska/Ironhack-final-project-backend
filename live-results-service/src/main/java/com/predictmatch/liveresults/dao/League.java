@@ -1,4 +1,4 @@
-package com.predictmatch.liveresults.model;
+package com.predictmatch.liveresults.dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
