@@ -46,6 +46,8 @@ public class Fixture {
 
     private Integer awayFullTimeGoals;
 
+    private int round;
+
     private Long leagueId;
 
 

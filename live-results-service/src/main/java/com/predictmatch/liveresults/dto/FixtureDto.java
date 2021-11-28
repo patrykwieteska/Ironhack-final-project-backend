@@ -15,6 +15,8 @@ import java.time.LocalDateTime;
 public class FixtureDto {
 
     private Long fixtureId;
+    private Long leagueId;
+    private int round;
     private LocalDateTime date;
     private String timezone;
     private String referee;
@@ -29,6 +31,5 @@ public class FixtureDto {
     private Integer awayHalfTimeGoals;
     private Integer homeFullTimeGoals;
     private Integer awayFullTimeGoals;
-    private Long leagueId;
 
 }

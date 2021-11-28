@@ -9,4 +9,6 @@ public interface FixtureService {
     ResponseEntity<FixtureResponseDto> initAllFixtures();
 
     ResponseEntity<FixtureResponseDto> initFixturesByStatus(FixtureStatus fixtureStatus);
+
+    ResponseEntity<FixtureResponseDto> initFixturesByRound(int round);
 }

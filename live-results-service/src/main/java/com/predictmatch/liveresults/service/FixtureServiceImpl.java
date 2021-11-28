@@ -48,7 +48,7 @@ public class FixtureServiceImpl implements FixtureService {
 
         });
 
-        return ResponseEntity.ok(new FixtureResponseDto("OK",fixturesDtos));
+        return ResponseEntity.ok(new FixtureResponseDto("OK",fixturesDtos.size(),fixturesDtos));
     }
 
     @Override
@@ -58,7 +58,7 @@ public class FixtureServiceImpl implements FixtureService {
         List<Fixture> storedFixtures = fixtureRepository.findFixturesByFixtureStatus(getFixtureStatuses( fixtureStatus ));
 
         if(storedFixtures.size() == 0)
-            return ResponseEntity.ok(new FixtureResponseDto("No fixtures with status: "+fixtureStatus,fixturesDtos));
+            return ResponseEntity.ok(new FixtureResponseDto("No fixtures with status: "+fixtureStatus, 0,fixturesDtos));
 
         storedFixtures.forEach( fixture -> {
             Optional<Team> storedHomeTeam = teamRepository.findById( fixture.getHomeTeamId());
@@ -76,7 +76,37 @@ public class FixtureServiceImpl implements FixtureService {
 
         });
 
-        return ResponseEntity.ok(new FixtureResponseDto("OK",fixturesDtos));
+        return ResponseEntity.ok(new FixtureResponseDto("OK",fixturesDtos.size(),fixturesDtos));
+    }
+
+    @Override
+    public ResponseEntity<FixtureResponseDto> initFixturesByRound(int round) {
+        List<FixtureDto> fixturesDtos = new ArrayList<>();
+
+        List<Fixture> storedFixtures = fixtureRepository.findFixtureByRound( round );
+
+        if(storedFixtures.size() == 0)
+            return ResponseEntity.ok(new FixtureResponseDto(
+                    "Not found round: "+round+". There are rounds only between 1 and 34", 0,
+                    fixturesDtos));
+
+        storedFixtures.forEach( fixture -> {
+            Optional<Team> storedHomeTeam = teamRepository.findById( fixture.getHomeTeamId());
+            Optional<Team> storedAwayTeam = teamRepository.findById( fixture.getAwayTeamId());
+
+            if(storedHomeTeam.isEmpty()) {
+                throw new EntityNotFoundException("Not found home team with id: "+fixture.getHomeTeamId());
+            }
+
+            if(storedAwayTeam.isEmpty()) {
+                throw new EntityNotFoundException("Not found home team with id: "+fixture.getAwayTeamId());
+            }
+
+            fixturesDtos.add( FixtureMapper.entityToDto(fixture,storedHomeTeam.get(),storedAwayTeam.get()));
+
+        });
+
+        return ResponseEntity.ok(new FixtureResponseDto("OK",fixturesDtos.size(),fixturesDtos));
     }
 
     private static List<String> getFixtureStatuses(FixtureStatus fixtureStatus) {

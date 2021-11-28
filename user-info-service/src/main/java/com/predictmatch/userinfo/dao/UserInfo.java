@@ -19,4 +19,17 @@ public class UserInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String firstName;
+    private String lastName;
+    private String city;
+    private String country;
+    private String info;
+    private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "favorite_team_id")
+    private Team favoriteTeam;
+
+
+
 }
