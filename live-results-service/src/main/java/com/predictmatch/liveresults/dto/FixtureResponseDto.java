@@ -14,6 +14,7 @@ import java.util.List;
 public class FixtureResponseDto {
 
     String message;
+    int results;
     List<FixtureDto> fixtures;
 
 }

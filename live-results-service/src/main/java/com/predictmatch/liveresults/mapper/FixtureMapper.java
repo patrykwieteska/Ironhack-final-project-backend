@@ -10,6 +10,8 @@ public class FixtureMapper {
 
         return new FixtureDto(
                 fixture.getExternalFixtureId(),
+                fixture.getLeagueId(),
+                fixture.getRound(),
                 fixture.getDate(),
                 fixture.getTimezone(),
                 fixture.getReferee(),
@@ -23,8 +25,8 @@ public class FixtureMapper {
                 fixture.getHomeHalfTimeGoals(),
                 fixture.getAwayHalfTimeGoals(),
                 fixture.getHomeFullTimeGoals(),
-                fixture.getAwayFullTimeGoals(),
-                fixture.getLeagueId()
+                fixture.getAwayFullTimeGoals()
+
         );
     }
 }

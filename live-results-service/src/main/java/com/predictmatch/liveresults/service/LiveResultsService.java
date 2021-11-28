@@ -1,13 +1,7 @@
 package com.predictmatch.liveresults.service;
 
-import com.predictmatch.liveresults.dao.Fixture;
-import com.predictmatch.liveresults.dao.League;
-import com.predictmatch.liveresults.dao.LeagueStanding;
-import com.predictmatch.liveresults.dao.Team;
-import com.predictmatch.liveresults.repository.FixtureRepository;
-import com.predictmatch.liveresults.repository.LeagueRepository;
-import com.predictmatch.liveresults.repository.LeagueStandingRepository;
-import com.predictmatch.liveresults.repository.TeamRepository;
+import com.predictmatch.liveresults.dao.*;
+import com.predictmatch.liveresults.repository.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,6 +12,7 @@ import javax.transaction.Transactional;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 @Service
 public class LiveResultsService {
@@ -65,6 +60,9 @@ public class LiveResultsService {
             JSONObject scoresObject = jsonArray.getJSONObject( i ).getJSONObject( "score" );
             JSONObject leagueObject = jsonArray.getJSONObject( i ).getJSONObject( "league" );
 
+            int round= Integer.parseInt(  leagueObject.getString( "round" ).substring(leagueObject.getString(
+                    "round" ).indexOf( "-" )+1).trim());
+
             Fixture fixture = new Fixture(
                     fixtureObject.getLong( "id" ),
                     LocalDateTime.parse( fixtureObject.getString( "date" ).substring( 0, 16 ), DATE_FORMAT ),
@@ -81,6 +79,7 @@ public class LiveResultsService {
                     scoresObject.getJSONObject( "halftime" ).optInt( "away" ),
                     scoresObject.getJSONObject( "fulltime" ).optInt( "home" ),
                     scoresObject.getJSONObject( "fulltime" ).optInt( "away" ),
+                    round,
                     leagueObject.getLong( "id" )
             );
 

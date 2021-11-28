@@ -6,9 +6,7 @@ import com.predictmatch.liveresults.dto.FixtureResponseDto;
 import com.predictmatch.liveresults.service.FixtureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -44,6 +42,11 @@ public class FixtureController {
     @GetMapping("/live")
     public ResponseEntity<FixtureResponseDto> initInProgressFixtures() {
         return fixtureService.initFixturesByStatus( LIVE);
+    }
+
+    @GetMapping
+    public ResponseEntity<FixtureResponseDto> initFixturesByRound(@RequestParam(name="round") int round) {
+        return fixtureService.initFixturesByRound(round);
     }
 
 
