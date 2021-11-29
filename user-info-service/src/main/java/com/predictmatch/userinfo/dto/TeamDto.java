@@ -12,8 +12,6 @@ import lombok.Setter;
 public class TeamDto {
     private Long id;
     private String name;
-    private String form;
     private String logo;
-    private Long leagueId;
 
 }

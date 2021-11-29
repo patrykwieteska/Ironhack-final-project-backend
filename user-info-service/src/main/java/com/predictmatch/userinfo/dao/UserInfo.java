@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 @AllArgsConstructor
@@ -19,17 +21,28 @@ public class UserInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String firstName;
-    private String lastName;
+    @Column(unique = true)
+    private String username;
+    @Nullable
     private String city;
+    @Nullable
     private String country;
+    @Nullable
     private String info;
+
+    @Email
+    @Column(unique =true)
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "favorite_team_id")
-    private Team favoriteTeam;
+    private long favoriteTeamId;
 
-
-
+    public UserInfo(String username, @Nullable String city, @Nullable String country, @Nullable String info,
+                    String email, long favoriteTeam) {
+        this.username = username;
+        this.city = city;
+        this.country = country;
+        this.info = info;
+        this.email = email;
+        this.favoriteTeamId = favoriteTeam;
+    }
 }

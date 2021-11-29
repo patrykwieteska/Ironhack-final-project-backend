@@ -1,9 +1,9 @@
 package com.predictmatch.userinfo.controller;
 
-import com.predictmatch.userinfo.dto.UserInfoRequest;
-import com.predictmatch.userinfo.dto.UserInfoResponse;
+import com.predictmatch.userinfo.dto.*;
 import com.predictmatch.userinfo.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,30 +18,34 @@ public class UserInfoController {
 
 
     @GetMapping
-    UserInfoResponse findUserByName() {
-        return null;
+    ResponseEntity<UserInfoResponse> findUserByUsername(@RequestParam(name="user") String username) {
+        return userInfoService.findUserByUsername(username);
+    }
+
+    @GetMapping("/{id}")
+    ResponseEntity<UserInfoResponse> findUserById(@PathVariable(name="id") Long id) {
+        return userInfoService.findUserById(id);
     }
 
     @PostMapping
-    UserInfoResponse createUser(@RequestBody @Valid UserInfoRequest request) {
-        return null;
+    ResponseEntity<CreatedUserInfo> createUser(@RequestBody @Valid UserInfoRequest request) {
+        return userInfoService.createUser(request);
     }
 
     @PatchMapping("/{userId}")
-    UserInfoResponse changeFavoriteTeam(@PathVariable(name="userId") Long id) {
-        return null;
+    ResponseEntity<UserInfoResponse> changeFavoriteTeam(@PathVariable(name="userId") Long id,
+                                                        @RequestBody TeamRequestDto team) {
+        return userInfoService.changeFavouriteTeam(id, team);
     }
 
-    @PostMapping
-    UserInfoResponse updateUserInfo() {
-        return null;
+    @PutMapping("/{userId}")
+    ResponseEntity<UserInfoResponse> updateUserInfo(@PathVariable(name="userId") Long id,
+                                    @RequestBody UserInfoRequest request) {
+        return userInfoService.updateUserInfo(id,request);
     }
 
     @DeleteMapping("/{userId}")
-    void removeUser() {
-
+    void removeUser(@PathVariable(name="userId") Long id) {
+        userInfoService.removeUser(id);
     }
-
-
-
 }
