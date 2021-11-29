@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -25,6 +26,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Autowired
     ValidationService validationService;
 
+    @Transactional
     @Override
     public ResponseEntity<UserInfoResponse> findUserByUsername(String username) {
         Optional<UserInfo> storedUser = Optional.of(userInfoRepository.findByUsername( username ));
@@ -38,7 +40,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 
     }
-
+    @Transactional
     @Override
     public ResponseEntity<UserInfoResponse> findUserById(Long id) {
         Optional<UserInfo> storedUser = userInfoRepository.findById( id );
@@ -53,7 +55,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         return ResponseEntity.ok( Mapper.userInfoEntityToDto( storedUser.get(),team ));
 
     }
-
+    @Transactional
     @Override
     public ResponseEntity<CreatedUserInfo> createUser(UserInfoRequest request) {
 
@@ -69,7 +71,7 @@ public class UserInfoServiceImpl implements UserInfoService {
                "User created!"));
 
     }
-
+    @Transactional
     @Override
     public ResponseEntity<UserInfoResponse> changeFavouriteTeam(Long id, TeamRequestDto teamRequest) {
 
@@ -89,7 +91,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
         return ResponseEntity.ok( Mapper.userInfoEntityToDto(user,team));
     }
-
+    @Transactional
     @Override
     public ResponseEntity<UserInfoResponse> updateUserInfo(Long id, UserInfoRequest request) {
 
@@ -109,6 +111,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         return ResponseEntity.ok( Mapper.userInfoEntityToDto( user,team ));
     }
 
+    @Transactional
     @Override
     public void removeUser(Long id) {
         Optional<UserInfo> storedUser = userInfoRepository.findById( id );
