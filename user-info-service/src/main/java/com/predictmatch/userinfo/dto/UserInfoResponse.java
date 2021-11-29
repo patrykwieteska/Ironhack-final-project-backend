@@ -10,4 +10,12 @@ import lombok.Setter;
 @Setter
 @Getter
 public class UserInfoResponse {
+    private Long userId;
+    private String username;
+    private String city;
+    private String country;
+    private String info;
+    private String email;
+    private TeamDto team;
+
 }

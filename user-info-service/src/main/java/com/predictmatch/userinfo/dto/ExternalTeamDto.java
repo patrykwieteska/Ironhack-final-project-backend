@@ -9,11 +9,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class UserInfoRequest {
-    private String username;
-    private String city;
-    private String country;
-    private String info;
-    private String email;
-    private long teamId;
+public class ExternalTeamDto {
+    private Long id;
+    private String name;
+    private String form;
+    private String logo;
+    private Long leagueId;
 }

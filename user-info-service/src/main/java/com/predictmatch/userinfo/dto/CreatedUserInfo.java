@@ -9,9 +9,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class UserTeam {
+public class CreatedUserInfo {
 
-    private Long id;
-    private String name;
-    private String logoUrl;
+    private Long userId;
+    private String message;
 }

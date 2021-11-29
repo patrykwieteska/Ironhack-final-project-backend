@@ -9,11 +9,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class UserInfoRequest {
-    private String username;
-    private String city;
-    private String country;
-    private String info;
-    private String email;
-    private long teamId;
+public class TeamRequestDto {
+    private Long id;
 }
