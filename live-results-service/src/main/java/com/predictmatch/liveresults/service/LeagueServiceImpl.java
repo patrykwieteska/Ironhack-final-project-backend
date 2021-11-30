@@ -22,7 +22,7 @@ import java.util.Optional;
 @Service
 public class LeagueServiceImpl implements LeagueService {
 
-    private static final long EXTERNAL_LEAGUE_ID = 106;
+    private static final long EXTERNAL_LEAGUE_ID = 39;
 
     @Autowired
     LeagueRepository leagueRepository;
@@ -39,7 +39,7 @@ public class LeagueServiceImpl implements LeagueService {
         List<LeagueStandingDto> standingsDto = new ArrayList<>();
         LeagueDto leagueDto;
 
-        Optional<League> storedLeague = leagueRepository.findById( (long) EXTERNAL_LEAGUE_ID);
+        Optional<League> storedLeague = leagueRepository.findById(  EXTERNAL_LEAGUE_ID);
 
         if(storedLeague.isEmpty())
             throw new EntityNotFoundException("There is no League with id: "+EXTERNAL_LEAGUE_ID);
