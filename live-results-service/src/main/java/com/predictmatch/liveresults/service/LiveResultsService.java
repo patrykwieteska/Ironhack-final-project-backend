@@ -1,6 +1,7 @@
 package com.predictmatch.liveresults.service;
 
 import com.predictmatch.liveresults.dao.*;
+import com.predictmatch.liveresults.enmus.FixtureStatus;
 import com.predictmatch.liveresults.mapper.FixtureStatusMapper;
 import com.predictmatch.liveresults.repository.*;
 import org.json.JSONArray;
@@ -90,6 +91,13 @@ public class LiveResultsService {
                     round,
                     leagueObject.getLong( "id" )
             );
+
+            if(fixture.getStatus().equals( FixtureStatus.UPCOMING) || fixture.getStatus().equals( FixtureStatus.POSTPONED)) {
+                fixture.setAwayGoals( null );
+                fixture.setHomeGoals( null );
+                fixture.setHomeIsWinner( null );
+                fixture.setAwayIsWinner( null );
+            }
 
             fixtureRepository.save( fixture );
         }

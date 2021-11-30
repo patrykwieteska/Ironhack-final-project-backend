@@ -38,12 +38,12 @@ public class ApiService {
 
     //Live fixtures
     public String getLiveFixtures() throws IOException {
-        return getDataFromFootballApi("/fixtures?league=39&season=2021");
+        return getDataFromFootballApi("/fixtures?league="+leagueId+"&season=2021");
     }
 
     //Live standings
     public String getLiveStandings() throws IOException {
-        return getDataFromFootballApi("/standings?season=2021&league=39");
+        return getDataFromFootballApi("/standings?season=2021&league="+leagueId);
     }
 
 

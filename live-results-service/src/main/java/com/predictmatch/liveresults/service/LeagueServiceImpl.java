@@ -10,6 +10,7 @@ import com.predictmatch.liveresults.repository.LeagueRepository;
 import com.predictmatch.liveresults.repository.LeagueStandingRepository;
 import com.predictmatch.liveresults.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,8 @@ import java.util.Optional;
 @Service
 public class LeagueServiceImpl implements LeagueService {
 
-    private static final long EXTERNAL_LEAGUE_ID = 39;
+    @Value("${api.football.league.id}")
+    private String leagueId;
 
     @Autowired
     LeagueRepository leagueRepository;
@@ -39,10 +41,10 @@ public class LeagueServiceImpl implements LeagueService {
         List<LeagueStandingDto> standingsDto = new ArrayList<>();
         LeagueDto leagueDto;
 
-        Optional<League> storedLeague = leagueRepository.findById(  EXTERNAL_LEAGUE_ID);
+        Optional<League> storedLeague = leagueRepository.findById( Long.parseLong( leagueId));
 
         if(storedLeague.isEmpty())
-            throw new EntityNotFoundException("There is no League with id: "+EXTERNAL_LEAGUE_ID);
+            throw new EntityNotFoundException("There is no League with id: "+leagueId);
 
         leagueDto = new LeagueDto(
                 storedLeague.get().getExternalLeagueId(),
