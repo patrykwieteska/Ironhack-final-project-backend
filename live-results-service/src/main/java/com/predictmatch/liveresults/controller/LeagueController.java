@@ -22,12 +22,4 @@ public class LeagueController {
     ResponseEntity<LeagueDto> getLeagueData() {
         return leagueService.initLeagueData();
     }
-
-    @Autowired
-    LiveResultsService liveResultsService;
-
-    @PostMapping("/update")
-    public void updateData() throws JSONException, IOException {
-        liveResultsService.initData();
-    }
 }

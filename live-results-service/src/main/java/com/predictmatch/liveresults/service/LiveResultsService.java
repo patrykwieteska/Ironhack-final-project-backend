@@ -17,7 +17,11 @@ import java.util.Optional;
 @Service
 public class LiveResultsService {
 
+
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern( "yyyy-MM-dd'T'HH:mm" );
+
+    @Autowired
+    ApiService apiService;
 
     @Autowired
     private TeamRepository teamRepository;
@@ -32,12 +36,17 @@ public class LiveResultsService {
     private FixtureRepository fixtureRepository;
 
     @Transactional
-    public void initData() throws JSONException, IOException {
-        // TODO Change to live
-        String standingsResponse = ApiService.getTestStandings();
+    public void initData(boolean isLive) throws JSONException, IOException {
+        String standingsResponse;
+        String fixturesResponse;
+        if(isLive) {
+            standingsResponse = apiService.getLiveStandings();
+            fixturesResponse = apiService.getLiveFixtures();
+        } else {
+            standingsResponse = apiService.getTestStandings();
+            fixturesResponse = apiService.getTestFixtures();
+        }
 
-        // TODO Change to live
-        String fixturesResponse = ApiService.getTestFixtures();
 
 
         saveLeague( standingsResponse );
