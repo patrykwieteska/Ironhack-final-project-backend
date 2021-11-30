@@ -11,7 +11,7 @@ import java.util.List;
 public interface TeamsProxy {
 
     @GetMapping("/liveresults/api/v1/teams")
-    public ResponseEntity<List<TeamDto>> getAllTeams();
+    ResponseEntity<List<TeamDto>> getAllTeams();
 
 
 }

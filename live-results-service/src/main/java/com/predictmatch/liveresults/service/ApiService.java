@@ -18,7 +18,7 @@ public class ApiService {
     private String baseurl;
     @Value("${api.football.api.key}")
     private String apiKey;
-    @Value("api.football.league.id")
+    @Value("${api.football.league.id}")
     private String leagueId;
 
 
@@ -55,7 +55,7 @@ public class ApiService {
 
     }
     // Test standings
-    public static String getTestStandings() throws IOException {
+    public String getTestStandings() throws IOException {
             return Files.readString (Paths.get("live-results-service/src/main/resources/static/standings.json"));
     }
 }

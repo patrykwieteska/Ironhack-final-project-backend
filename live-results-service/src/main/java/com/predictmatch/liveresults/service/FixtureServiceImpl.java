@@ -6,6 +6,7 @@ import com.predictmatch.liveresults.dto.FixtureDto;
 import com.predictmatch.liveresults.dto.FixtureResponseDto;
 import com.predictmatch.liveresults.enmus.FixtureStatus;
 import com.predictmatch.liveresults.mapper.FixtureMapper;
+import com.predictmatch.liveresults.mapper.FixtureStatusMapper;
 import com.predictmatch.liveresults.repository.FixtureRepository;
 import com.predictmatch.liveresults.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,8 @@ public class FixtureServiceImpl implements FixtureService {
     public ResponseEntity<FixtureResponseDto> initFixturesByStatus(FixtureStatus fixtureStatus) {
         List<FixtureDto> fixturesDtos = new ArrayList<>();
 
-        List<Fixture> storedFixtures = fixtureRepository.findFixturesByFixtureStatus(getFixtureStatuses( fixtureStatus ));
+        List<Fixture> storedFixtures =
+                fixtureRepository.findFixturesByFixtureStatus( fixtureStatus );
 
         if(storedFixtures.size() == 0)
             return ResponseEntity.ok(new FixtureResponseDto("No fixtures with status: "+fixtureStatus, 0,fixturesDtos));
@@ -107,14 +109,5 @@ public class FixtureServiceImpl implements FixtureService {
         });
 
         return ResponseEntity.ok(new FixtureResponseDto("OK",fixturesDtos.size(),fixturesDtos));
-    }
-
-    private static List<String> getFixtureStatuses(FixtureStatus fixtureStatus) {
-        return switch (fixtureStatus) {
-            case LIVE -> List.of("1H","2H", "HT");
-            case POSTPONED -> List.of("PST");
-            case FINISHED -> List.of("FT");
-            case UPCOMING -> List.of("NS", "TBD");
-        };
     }
 }

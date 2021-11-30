@@ -1,6 +1,7 @@
 package com.predictmatch.liveresults.service;
 
 import com.predictmatch.liveresults.dao.*;
+import com.predictmatch.liveresults.mapper.FixtureStatusMapper;
 import com.predictmatch.liveresults.repository.*;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,7 +67,7 @@ public class LiveResultsService {
 
             JSONObject fixtureObject = jsonArray.getJSONObject( i ).getJSONObject( "fixture" );
             JSONObject teamsObject = jsonArray.getJSONObject( i ).getJSONObject( "teams" );
-            JSONObject scoresObject = jsonArray.getJSONObject( i ).getJSONObject( "score" );
+            JSONObject goalsObject = jsonArray.getJSONObject( i ).getJSONObject( "goals" );
             JSONObject leagueObject = jsonArray.getJSONObject( i ).getJSONObject( "league" );
 
             int round= Integer.parseInt(  leagueObject.getString( "round" ).substring(leagueObject.getString(
@@ -79,15 +80,13 @@ public class LiveResultsService {
                     fixtureObject.getString( "referee" ),
                     fixtureObject.getJSONObject( "venue" ).getString( "name" ),
                     fixtureObject.getJSONObject( "venue" ).getString( "city" ),
-                    fixtureObject.getJSONObject( "status" ).getString( "short" ),
+                    FixtureStatusMapper.fixtureStatusToEnum(fixtureObject.getJSONObject( "status" ).getString( "short" )),
                     teamsObject.getJSONObject( "home" ).optLong( "id" ),
                     teamsObject.getJSONObject( "away" ).optLong( "id" ),
                     teamsObject.getJSONObject( "home" ).optBoolean( "winner" ),
                     teamsObject.getJSONObject( "away" ).optBoolean( "winner" ),
-                    scoresObject.getJSONObject( "halftime" ).optInt( "home" ),
-                    scoresObject.getJSONObject( "halftime" ).optInt( "away" ),
-                    scoresObject.getJSONObject( "fulltime" ).optInt( "home" ),
-                    scoresObject.getJSONObject( "fulltime" ).optInt( "away" ),
+                    goalsObject.optInt( "home" ),
+                    goalsObject.optInt( "away" ),
                     round,
                     leagueObject.getLong( "id" )
             );
