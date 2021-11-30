@@ -1,5 +1,6 @@
 package com.predictmatch.liveresults.dao;
 
+import com.predictmatch.liveresults.enmus.FixtureStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +29,8 @@ public class Fixture {
 
     private String venueCity;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private FixtureStatus status;
 
     private Long homeTeamId;
 
@@ -38,13 +40,9 @@ public class Fixture {
 
     private Boolean awayIsWinner;
 
-    private Integer homeHalfTimeGoals;
+    private Integer homeGoals;
 
-    private  Integer awayHalfTimeGoals;
-
-    private Integer homeFullTimeGoals;
-
-    private Integer awayFullTimeGoals;
+    private Integer awayGoals;
 
     private int round;
 

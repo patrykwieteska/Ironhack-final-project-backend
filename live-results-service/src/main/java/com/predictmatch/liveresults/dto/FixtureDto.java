@@ -1,6 +1,7 @@
 package com.predictmatch.liveresults.dto;
 
 import com.predictmatch.liveresults.dao.Team;
+import com.predictmatch.liveresults.enmus.FixtureStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,14 +23,12 @@ public class FixtureDto {
     private String referee;
     private String venueName;
     private String venueCity;
-    private String status;
+    private FixtureStatus status;
     private TeamDto homeTeam;
     private TeamDto awayTeam;
     private Boolean homeIsWinner;
     private Boolean awayIsWinner;
-    private Integer homeHalfTimeGoals;
-    private Integer awayHalfTimeGoals;
-    private Integer homeFullTimeGoals;
-    private Integer awayFullTimeGoals;
+    private Integer homeGoals;
+    private Integer awayGoals;
 
 }

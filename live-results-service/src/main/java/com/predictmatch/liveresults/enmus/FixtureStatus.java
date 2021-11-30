@@ -5,7 +5,8 @@ public enum FixtureStatus {
     LIVE,
     POSTPONED,
     FINISHED,
-    UPCOMING
+    UPCOMING,
+    UNKNOWN
 
 //    DB Fixture statuses:
 //    PST, // Match postponed

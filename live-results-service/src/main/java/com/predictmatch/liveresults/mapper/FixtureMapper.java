@@ -22,10 +22,8 @@ public class FixtureMapper {
                 TeamMapper.entityToDto( awayTeam),
                 fixture.getHomeIsWinner(),
                 fixture.getAwayIsWinner(),
-                fixture.getHomeHalfTimeGoals(),
-                fixture.getAwayHalfTimeGoals(),
-                fixture.getHomeFullTimeGoals(),
-                fixture.getAwayFullTimeGoals()
+                fixture.getHomeGoals(),
+                fixture.getAwayGoals()
 
         );
     }

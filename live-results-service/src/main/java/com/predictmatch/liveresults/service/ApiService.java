@@ -18,6 +18,9 @@ public class ApiService {
     private String baseurl;
     @Value("${api.football.api.key}")
     private String apiKey;
+    @Value("${api.football.league.id}")
+    private String leagueId;
+
 
     public String getDataFromFootballApi(String url) throws IOException {
         OkHttpClient client = new OkHttpClient();
@@ -35,12 +38,12 @@ public class ApiService {
 
     //Live fixtures
     public String getLiveFixtures() throws IOException {
-        return getDataFromFootballApi("/fixtures?league=106&season=2021");
+        return getDataFromFootballApi("/fixtures?league="+leagueId+"&season=2021");
     }
 
     //Live standings
     public String getLiveStandings() throws IOException {
-        return getDataFromFootballApi("/standings?season=2021&league=106");
+        return getDataFromFootballApi("/standings?season=2021&league="+leagueId);
     }
 
 
@@ -52,7 +55,7 @@ public class ApiService {
 
     }
     // Test standings
-    public static String getTestStandings() throws IOException {
+    public String getTestStandings() throws IOException {
             return Files.readString (Paths.get("live-results-service/src/main/resources/static/standings.json"));
     }
 }
