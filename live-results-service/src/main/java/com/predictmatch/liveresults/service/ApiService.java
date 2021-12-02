@@ -4,6 +4,9 @@ import com.predictmatch.liveresults.config.ApiProperties;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +15,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @Service
+@Slf4j
 public class ApiService {
+
+    private static Logger logger = LoggerFactory.getLogger( ApiService.class);
 
     @Value("${api.football.base.url}")
     private String baseurl;
@@ -23,6 +29,9 @@ public class ApiService {
 
 
     public String getDataFromFootballApi(String url) throws IOException {
+
+        logger.info( "Outgoing request: " +baseurl + url);
+
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
@@ -33,6 +42,9 @@ public class ApiService {
                 .build();
 
         Response response = client.newCall(request).execute();
+
+        logger.info("Incoming response: {}",response);
+
         return response.body().string();
     }
 

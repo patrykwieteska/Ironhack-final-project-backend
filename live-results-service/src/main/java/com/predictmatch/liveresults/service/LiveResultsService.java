@@ -7,20 +7,28 @@ import com.predictmatch.liveresults.repository.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Service
 public class LiveResultsService {
 
-
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern( "yyyy-MM-dd'T'HH:mm" );
+    private static Logger logger = LoggerFactory.getLogger( LiveResultsService.class );
+
+    @Value("${api.football.live}")
+    private boolean isLive;
 
     @Autowired
     ApiService apiService;
@@ -38,7 +46,10 @@ public class LiveResultsService {
     private FixtureRepository fixtureRepository;
 
     @Transactional
-    public void initData(boolean isLive) throws JSONException, IOException {
+    public void initData() throws JSONException, IOException {
+
+        ApiSchedulerService.lastApiCallDate=LocalDateTime.now(ZoneOffset.UTC);
+
         String standingsResponse;
         String fixturesResponse;
         if(isLive) {
@@ -74,14 +85,17 @@ public class LiveResultsService {
             int round= Integer.parseInt(  leagueObject.getString( "round" ).substring(leagueObject.getString(
                     "round" ).indexOf( "-" )+1).trim());
 
+
+
             Fixture fixture = new Fixture(
                     fixtureObject.getLong( "id" ),
                     LocalDateTime.parse( fixtureObject.getString( "date" ).substring( 0, 16 ), DATE_FORMAT ),
-                    fixtureObject.getString( "timezone" ),
+                    "GMT+1",
                     fixtureObject.getString( "referee" ),
                     fixtureObject.getJSONObject( "venue" ).getString( "name" ),
                     fixtureObject.getJSONObject( "venue" ).getString( "city" ),
                     FixtureStatusMapper.fixtureStatusToEnum(fixtureObject.getJSONObject( "status" ).getString( "short" )),
+                    fixtureObject.getJSONObject( "status" ).optInt( "elapsed" ),
                     teamsObject.getJSONObject( "home" ).optLong( "id" ),
                     teamsObject.getJSONObject( "away" ).optLong( "id" ),
                     teamsObject.getJSONObject( "home" ).optBoolean( "winner" ),
@@ -98,6 +112,9 @@ public class LiveResultsService {
                 fixture.setHomeIsWinner( null );
                 fixture.setAwayIsWinner( null );
             }
+
+            if(!fixture.getStatus().equals( FixtureStatus.LIVE))
+                fixture.setElapsedTime( null );
 
             fixtureRepository.save( fixture );
         }
