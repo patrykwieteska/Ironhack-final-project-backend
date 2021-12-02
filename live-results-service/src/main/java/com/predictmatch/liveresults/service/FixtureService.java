@@ -6,9 +6,9 @@ import org.springframework.http.ResponseEntity;
 
 public interface FixtureService {
 
-    ResponseEntity<FixtureResponseDto> initAllFixtures();
+    ResponseEntity<FixtureResponseDto> initAllFixtures(Integer round);
 
     ResponseEntity<FixtureResponseDto> initFixturesByStatus(FixtureStatus fixtureStatus);
 
-    ResponseEntity<FixtureResponseDto> initFixturesByRound(int round);
+    ResponseEntity<FixtureResponseDto> initFixturesByTeamId(Long id);
 }

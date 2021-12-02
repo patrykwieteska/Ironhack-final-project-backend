@@ -24,6 +24,7 @@ public class FixtureDto {
     private String venueName;
     private String venueCity;
     private FixtureStatus status;
+    private Integer elapsedTime;
     private TeamDto homeTeam;
     private TeamDto awayTeam;
     private Boolean homeIsWinner;

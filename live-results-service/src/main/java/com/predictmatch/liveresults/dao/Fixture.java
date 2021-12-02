@@ -32,6 +32,8 @@ public class Fixture {
     @Enumerated(EnumType.STRING)
     private FixtureStatus status;
 
+    private Integer elapsedTime;
+
     private Long homeTeamId;
 
     private Long awayTeamId;
