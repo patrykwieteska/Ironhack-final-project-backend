@@ -1,6 +1,5 @@
 package com.predictmatch.liveresults.dto;
 
-import com.predictmatch.liveresults.dao.Team;
 import com.predictmatch.liveresults.enmus.FixtureStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
