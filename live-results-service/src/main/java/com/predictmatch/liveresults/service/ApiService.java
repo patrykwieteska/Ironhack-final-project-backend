@@ -1,6 +1,5 @@
 package com.predictmatch.liveresults.service;
 
-import com.predictmatch.liveresults.config.ApiProperties;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;

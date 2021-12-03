@@ -16,10 +16,9 @@ import java.time.LocalDateTime;
 public class Prediction {
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String predictionId;
     private Long fixtureId;
-    private Long roundId;
+    private int roundId;
     private Long userId;
     private Integer predictedHomeGoals;
     private Integer predictedAwayGoals;
@@ -30,4 +29,17 @@ public class Prediction {
     @JoinColumn(name = "prediction_result_id")
     private PredictionResult predictionResult;
 
+
+    public Prediction(Long fixtureId, int roundId, Long userId, Integer predictedHomeGoals, Integer predictedAwayGoals,
+                      boolean predictedHomeWinner, boolean predictedAwayWinner, LocalDateTime predictionDate, PredictionResult predictionResult) {
+        this.fixtureId = fixtureId;
+        this.roundId = roundId;
+        this.userId = userId;
+        this.predictedHomeGoals = predictedHomeGoals;
+        this.predictedAwayGoals = predictedAwayGoals;
+        this.predictedHomeWinner = predictedHomeWinner;
+        this.predictedAwayWinner = predictedAwayWinner;
+        this.predictionDate = predictionDate;
+        this.predictionResult = predictionResult;
+    }
 }

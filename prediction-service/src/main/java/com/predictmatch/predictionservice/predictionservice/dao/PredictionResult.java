@@ -20,6 +20,12 @@ public class PredictionResult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int points;
+    @Enumerated(EnumType.STRING)
     private PredictionStatus status;
 
+
+    public PredictionResult(int points, PredictionStatus status) {
+        this.points = points;
+        this.status = status;
+    }
 }
