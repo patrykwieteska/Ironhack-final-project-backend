@@ -32,23 +32,19 @@ public class PredictionServiceImpl implements PredictionService {
     PredictionResultRepository predictionResultRepository;
 
     @Autowired
-    FixtureProxy fixtureProxy;
+    FixtureService fixtureService;
 
     @Override
     @Transactional
     public ResponseEntity<PredictionDto> addNewPrediction(PredictionRequest predictionRequest) {
 
         // 1. make a PredictionEntity from predictionRequest
-        Optional<FixtureDto> fixture = Optional.ofNullable(fixtureProxy.findFixtureById( predictionRequest.getFixtureId()).getBody());
+       FixtureDto fixture = fixtureService.getFixtureById( predictionRequest.getFixtureId() );
 
+        Prediction prediction = PredictionMapper.predictionRequestToPrediction( predictionRequest,fixture,null);
 
-        if(fixture.isEmpty())
-            throw new EntityNotFoundException("Error during making prediction - not found fixture with id: "+predictionRequest.getFixtureId());
-
-        Prediction prediction = PredictionMapper.predictionRequestToPrediction( predictionRequest,fixture.get(),null);
-
-        if(ChronoUnit.MINUTES.between ( fixture.get().getDate() ,prediction.getPredictionDate())>0)
-            throw new PredictionOnLiveMatchException( fixture.get().getFixtureId());
+        if(ChronoUnit.MINUTES.between ( fixture.getDate() ,prediction.getPredictionDate())>0)
+            throw new PredictionOnLiveMatchException( fixture.getFixtureId());
 
         PredictionResult predictionResult = new PredictionResult(
                 0,
@@ -70,11 +66,10 @@ public class PredictionServiceImpl implements PredictionService {
     public ResponseEntity<PredictionResponse> getUserPredictionByFixture(GetPredictionRequest predictionRequest) {
 
         // get fixture Result
-        Optional<FixtureDto> fixtureDto =
-                Optional.ofNullable(fixtureProxy.findFixtureById( predictionRequest.getFixtureId() ).getBody());
+        FixtureDto fixtureDto = fixtureService.getFixtureById(predictionRequest.getFixtureId());
 
         // check if fixture is existing
-        if(fixtureDto.get()==null)
+        if(fixtureDto==null)
             throw new EntityNotFoundException("Not found fixture with id: "+predictionRequest.getFixtureId());
 
 
@@ -91,10 +86,10 @@ public class PredictionServiceImpl implements PredictionService {
         Prediction prediction= storedPrediction.get();
 
         // update prediction result for finished matches
-        if(fixtureDto.get().getStatus().equals( "FINISHED") && predictionResult.getStatus().equals( PredictionStatus.PENDING )) {
+        if(fixtureDto.getStatus().equals( "FINISHED") && predictionResult.getStatus().equals( PredictionStatus.PENDING )) {
 
             PredictionResult newResult = PredictionMapper.updatePredictionResult( prediction,
-                    fixtureDto.get(), predictionResult);
+                    fixtureDto, predictionResult);
 
             predictionResultRepository.save( newResult );
 

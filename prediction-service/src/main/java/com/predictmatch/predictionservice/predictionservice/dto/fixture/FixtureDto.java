@@ -15,7 +15,7 @@ public class FixtureDto {
 
     private Long fixtureId;
     private Long leagueId;
-    private int round;
+    private Integer round;
     private LocalDateTime date;
     private String timezone;
     private String referee;
