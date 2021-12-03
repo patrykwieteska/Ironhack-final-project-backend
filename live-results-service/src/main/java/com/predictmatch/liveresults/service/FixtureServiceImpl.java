@@ -9,6 +9,7 @@ import com.predictmatch.liveresults.mapper.FixtureMapper;
 import com.predictmatch.liveresults.mapper.FixtureStatusMapper;
 import com.predictmatch.liveresults.repository.FixtureRepository;
 import com.predictmatch.liveresults.repository.TeamRepository;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -78,6 +79,19 @@ public class FixtureServiceImpl implements FixtureService {
         fixturesDtos= convertFixtureListToFixtureDtoList(storedFixtures);
 
         return ResponseEntity.ok(new FixtureResponseDto("OK",fixturesDtos.size(),fixturesDtos));
+    }
+
+    @Override
+    public ResponseEntity<FixtureDto> findFixtureById(Long id) {
+        Optional<Fixture> storedFixture = fixtureRepository.findById( id );
+
+        if (storedFixture.isEmpty())
+            throw new EntityNotFoundException( "Not found fixture with id: " + id );
+
+        List<FixtureDto> fixturesDtos = convertFixtureListToFixtureDtoList( List.of( storedFixture.get() ) );
+
+
+        return ResponseEntity.ok(fixturesDtos.get( 0 ));
     }
 
     private List<FixtureDto> convertFixtureListToFixtureDtoList(List<Fixture> storedFixtures) {
