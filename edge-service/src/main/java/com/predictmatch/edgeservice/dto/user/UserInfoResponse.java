@@ -1,5 +1,6 @@
 package com.predictmatch.edgeservice.dto.user;
 
+import com.predictmatch.edgeservice.dto.prediction.UserPredictionHistoryDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +18,6 @@ public class UserInfoResponse {
     private String info;
     private String email;
     private UserTeamDto team;
+    private UserPredictionHistoryDto predictionHistory;
 
 }

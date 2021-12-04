@@ -3,7 +3,7 @@ package com.predictmatch.predictionservice.predictionservice.mapper;
 import com.predictmatch.predictionservice.predictionservice.dao.Prediction;
 import com.predictmatch.predictionservice.predictionservice.dao.PredictionResult;
 import com.predictmatch.predictionservice.predictionservice.dto.PredictionDto;
-import com.predictmatch.predictionservice.predictionservice.dto.PredictionRequest;
+import com.predictmatch.predictionservice.predictionservice.dto.NewPredictionRequest;
 import com.predictmatch.predictionservice.predictionservice.dto.PredictionResultDto;
 import com.predictmatch.predictionservice.predictionservice.dto.fixture.FixtureDto;
 import com.predictmatch.predictionservice.predictionservice.dto.history.UserPredictionHistoryDto;
@@ -17,19 +17,19 @@ import java.util.Objects;
 
 public class PredictionMapper {
 
-    public static Prediction predictionRequestToPrediction(PredictionRequest predictionRequest, FixtureDto fixtureDto
+    public static Prediction predictionRequestToPrediction(NewPredictionRequest newPredictionRequest, FixtureDto fixtureDto
             , PredictionResult predictionResult) {
         LocalDateTime predictionDate = LocalDateTime.now( ZoneOffset.UTC);
-        boolean homeTeamWinner = predictionRequest.getPredictedHomeGoals() > predictionRequest.getPredictedAwayGoals();
-        boolean awayTeamWinner = predictionRequest.getPredictedAwayGoals() > predictionRequest.getPredictedHomeGoals();
+        boolean homeTeamWinner = newPredictionRequest.getPredictedHomeGoals() > newPredictionRequest.getPredictedAwayGoals();
+        boolean awayTeamWinner = newPredictionRequest.getPredictedAwayGoals() > newPredictionRequest.getPredictedHomeGoals();
 
         return new Prediction(
-                predictionRequest.getFixtureId()+"_"+ predictionRequest.getUserId(),
+                newPredictionRequest.getFixtureId()+"_"+ newPredictionRequest.getUserId(),
                 fixtureDto.getFixtureId(),
                 fixtureDto.getRound(),
-                predictionRequest.getUserId(),
-                predictionRequest.getPredictedHomeGoals(),
-                predictionRequest.getPredictedAwayGoals(),
+                newPredictionRequest.getUserId(),
+                newPredictionRequest.getPredictedHomeGoals(),
+                newPredictionRequest.getPredictedAwayGoals(),
                 homeTeamWinner,
                 awayTeamWinner,
                 predictionDate,

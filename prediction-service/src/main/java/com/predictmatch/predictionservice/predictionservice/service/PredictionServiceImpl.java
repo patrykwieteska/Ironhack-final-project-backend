@@ -35,12 +35,12 @@ public class PredictionServiceImpl implements PredictionService {
 
     @Override
     @Transactional
-    public ResponseEntity<PredictionDto> addNewPrediction(PredictionRequest predictionRequest) {
+    public ResponseEntity<PredictionResponse> addNewPrediction(NewPredictionRequest newPredictionRequest) {
 
         // 1. make a PredictionEntity from predictionRequest
-       FixtureDto fixture = fixtureService.getFixtureById( predictionRequest.getFixtureId() );
+       FixtureDto fixture = fixtureService.getFixtureById( newPredictionRequest.getFixtureId() );
 
-        Prediction prediction = PredictionMapper.predictionRequestToPrediction( predictionRequest,fixture,null);
+        Prediction prediction = PredictionMapper.predictionRequestToPrediction( newPredictionRequest,fixture,null);
 
         if(ChronoUnit.MINUTES.between ( fixture.getDate() ,prediction.getPredictionDate())>0)
             throw new PredictionOnLiveMatchException( fixture.getFixtureId());
@@ -54,9 +54,10 @@ public class PredictionServiceImpl implements PredictionService {
         prediction.setPredictionResult( predictionResult );
         predictionRepository.save( prediction );
 
+        PredictionResponse predictionResponse = new PredictionResponse(PredictionMapper.predictionEntityToDto( prediction ),
+                PredictionMapper.predictionResultEntityToDto( predictionResult ));
 
-
-        return ResponseEntity.ok(PredictionMapper.predictionEntityToDto( prediction ));
+        return ResponseEntity.ok(predictionResponse);
 
     }
 
