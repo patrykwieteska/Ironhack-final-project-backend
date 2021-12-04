@@ -36,7 +36,7 @@ public class UserInfoController {
         return userInfoService.createUser(request);
     }
 
-    @PatchMapping("/{userId}")
+    @PatchMapping("/{userId}/team")
     @ResponseStatus(HttpStatus.OK)
     ResponseEntity<UserInfoResponse> changeFavoriteTeam(@PathVariable(name="userId") Long id,
                                                         @RequestBody TeamRequestDto team) {
@@ -52,7 +52,7 @@ public class UserInfoController {
 
     @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    void removeUser(@PathVariable(name="userId") Long id) {
-        userInfoService.removeUser(id);
+    ResponseEntity<String> removeUser(@PathVariable(name="userId") Long id) {
+        return userInfoService.removeUser(id);
     }
 }

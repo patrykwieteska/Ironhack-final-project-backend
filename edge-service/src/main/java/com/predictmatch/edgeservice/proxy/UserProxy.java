@@ -22,12 +22,12 @@ public interface UserProxy {
     @PostMapping("/userinfo/api/v1/users")
     ResponseEntity<UserInfoResponse> createUser(@RequestBody @Valid UserInfoRequest request);
 
-    @PatchMapping("/userinfo/api/v1/users/{userId}")
+    @PatchMapping("/userinfo/api/v1/users/{userId}/team")
     ResponseEntity<UserInfoResponse> changeFavoriteTeam(@PathVariable(name="userId") Long id,
                                                         @RequestBody TeamRequestDto team);
     @PutMapping("/userinfo/api/v1/users/{userId}")
     ResponseEntity<UserInfoResponse> updateUserInfo(@PathVariable(name="userId") Long id,
                                                     @RequestBody UserInfoRequest request);
     @DeleteMapping("/userinfo/api/v1/users/{userId}")
-    void removeUser(@PathVariable(name="userId") Long id); //wireframes, FIGMA
+    ResponseEntity<String> removeUser(@PathVariable(name="userId") Long id); //wireframes, FIGMA
 }

@@ -8174,7 +8174,7 @@
     {
       "fixture": {
         "id": 712918,
-        "referee": "Pawel Raczkowski, Poland",
+        "referee": "P. Raczkowski",
         "timezone": "UTC",
         "date": "2021-11-28T14:00:00+00:00",
         "timestamp": 1638108000,
@@ -8242,7 +8242,7 @@
     {
       "fixture": {
         "id": 712919,
-        "referee": "Tomasz Musial, Poland",
+        "referee": "T. Musial",
         "timezone": "UTC",
         "date": "2021-11-28T16:30:00+00:00",
         "timestamp": 1638117000,
@@ -8582,7 +8582,7 @@
     {
       "fixture": {
         "id": 712924,
-        "referee": "Jaroslaw Przybyl, Poland",
+        "referee": "J. Przybył",
         "timezone": "UTC",
         "date": "2021-11-28T11:30:00+00:00",
         "timestamp": 1638099000,
@@ -8718,13 +8718,13 @@
     {
       "fixture": {
         "id": 712926,
-        "referee": null,
+        "referee": "Lukasz Kuzma, Poland",
         "timezone": "UTC",
         "date": "2021-12-04T14:00:00+00:00",
         "timestamp": 1638626400,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1638626400,
+          "second": 1638630000
         },
         "venue": {
           "id": 2288,
@@ -8732,9 +8732,9 @@
           "city": "Nieciecza"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null
+          "long": "Second Half",
+          "short": "2H",
+          "elapsed": 70
         }
       },
       "league": {
@@ -8751,23 +8751,23 @@
           "id": 3487,
           "name": "Nieciecza",
           "logo": "https://media.api-sports.io/football/teams/3487.png",
-          "winner": null
+          "winner": false
         },
         "away": {
           "id": 348,
           "name": "Pogon Szczecin",
           "logo": "https://media.api-sports.io/football/teams/348.png",
-          "winner": null
+          "winner": true
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 3
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 2
         },
         "fulltime": {
           "home": null,
@@ -8786,7 +8786,7 @@
     {
       "fixture": {
         "id": 712927,
-        "referee": null,
+        "referee": "J. Przybył",
         "timezone": "UTC",
         "date": "2021-12-05T19:00:00+00:00",
         "timestamp": 1638730800,
@@ -8854,13 +8854,13 @@
     {
       "fixture": {
         "id": 712928,
-        "referee": null,
+        "referee": "B. Frankowski",
         "timezone": "UTC",
         "date": "2021-12-03T19:30:00+00:00",
         "timestamp": 1638559800,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1638559800,
+          "second": 1638563400
         },
         "venue": {
           "id": 1248,
@@ -8868,9 +8868,9 @@
           "city": "Zabrze"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90
         }
       },
       "league": {
@@ -8887,27 +8887,27 @@
           "id": 340,
           "name": "Gornik Zabrze",
           "logo": "https://media.api-sports.io/football/teams/340.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 337,
           "name": "Slask Wroclaw",
           "logo": "https://media.api-sports.io/football/teams/337.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 3,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 3,
+          "away": 1
         },
         "extratime": {
           "home": null,
@@ -8922,7 +8922,7 @@
     {
       "fixture": {
         "id": 712929,
-        "referee": null,
+        "referee": "D. Kos",
         "timezone": "UTC",
         "date": "2021-12-05T16:30:00+00:00",
         "timestamp": 1638721800,
@@ -8990,7 +8990,7 @@
     {
       "fixture": {
         "id": 712930,
-        "referee": null,
+        "referee": "T. Musial",
         "timezone": "UTC",
         "date": "2021-12-04T19:00:00+00:00",
         "timestamp": 1638644400,
@@ -9060,8 +9060,8 @@
         "id": 712931,
         "referee": null,
         "timezone": "UTC",
-        "date": "2021-12-05T14:00:00+00:00",
-        "timestamp": 1638712800,
+        "date": "2021-12-14T19:30:00+00:00",
+        "timestamp": 1639510200,
         "periods": {
           "first": null,
           "second": null
@@ -9126,13 +9126,13 @@
     {
       "fixture": {
         "id": 712932,
-        "referee": null,
+        "referee": "D. Sylwestrzak",
         "timezone": "UTC",
         "date": "2021-12-03T17:00:00+00:00",
         "timestamp": 1638550800,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1638550800,
+          "second": 1638554400
         },
         "venue": {
           "id": 2294,
@@ -9140,9 +9140,9 @@
           "city": "Mielec"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90
         }
       },
       "league": {
@@ -9159,27 +9159,27 @@
           "id": 3493,
           "name": "Stal Mielec",
           "logo": "https://media.api-sports.io/football/teams/3493.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 341,
           "name": "Wisla Plock",
           "logo": "https://media.api-sports.io/football/teams/341.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 0
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "extratime": {
           "home": null,
@@ -9194,7 +9194,7 @@
     {
       "fixture": {
         "id": 712933,
-        "referee": null,
+        "referee": "P. Raczkowski",
         "timezone": "UTC",
         "date": "2021-12-06T17:00:00+00:00",
         "timestamp": 1638810000,
@@ -9264,8 +9264,8 @@
         "id": 712934,
         "referee": null,
         "timezone": "UTC",
-        "date": "2021-12-12T11:30:00+00:00",
-        "timestamp": 1639308600,
+        "date": "2021-12-12T16:30:00+00:00",
+        "timestamp": 1639326600,
         "periods": {
           "first": null,
           "second": null
@@ -9468,8 +9468,8 @@
         "id": 712937,
         "referee": null,
         "timezone": "UTC",
-        "date": "2021-12-12T16:30:00+00:00",
-        "timestamp": 1639326600,
+        "date": "2021-12-11T14:00:00+00:00",
+        "timestamp": 1639231200,
         "periods": {
           "first": null,
           "second": null
@@ -10012,8 +10012,8 @@
         "id": 712945,
         "referee": null,
         "timezone": "UTC",
-        "date": "2021-12-16T19:30:00+00:00",
-        "timestamp": 1639683000,
+        "date": "2021-12-18T11:30:00+00:00",
+        "timestamp": 1639827000,
         "periods": {
           "first": null,
           "second": null
@@ -10148,20 +10148,20 @@
         "id": 712947,
         "referee": null,
         "timezone": "UTC",
-        "date": "2021-12-18T00:00:00+00:00",
-        "timestamp": 1639785600,
+        "date": "2021-12-17T17:00:00+00:00",
+        "timestamp": 1639760400,
         "periods": {
           "first": null,
           "second": null
         },
         "venue": {
-          "id": null,
-          "name": null,
-          "city": null
+          "id": 1258,
+          "name": "Stadion Miejski im. Henryka Reymana",
+          "city": "Kraków"
         },
         "status": {
-          "long": "Time to be defined",
-          "short": "TBD",
+          "long": "Not Started",
+          "short": "NS",
           "elapsed": null
         }
       },
@@ -10216,20 +10216,20 @@
         "id": 712948,
         "referee": null,
         "timezone": "UTC",
-        "date": "2021-12-18T00:00:00+00:00",
-        "timestamp": 1639785600,
+        "date": "2021-12-17T19:30:00+00:00",
+        "timestamp": 1639769400,
         "periods": {
           "first": null,
           "second": null
         },
         "venue": {
-          "id": null,
-          "name": null,
-          "city": null
+          "id": 1259,
+          "name": "Stadion im. Kazimierza Górskiego",
+          "city": "Płock"
         },
         "status": {
-          "long": "Time to be defined",
-          "short": "TBD",
+          "long": "Not Started",
+          "short": "NS",
           "elapsed": null
         }
       },
@@ -19598,7 +19598,7 @@
     {
       "fixture": {
         "id": 718224,
-        "referee": null,
+        "referee": "S. Krasny",
         "timezone": "UTC",
         "date": "2021-12-04T16:30:00+00:00",
         "timestamp": 1638635400,
@@ -19668,8 +19668,8 @@
         "id": 718225,
         "referee": null,
         "timezone": "UTC",
-        "date": "2021-12-11T14:00:00+00:00",
-        "timestamp": 1639231200,
+        "date": "2021-12-12T11:30:00+00:00",
+        "timestamp": 1639308600,
         "periods": {
           "first": null,
           "second": null

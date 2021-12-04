@@ -34,8 +34,8 @@ public class UserService {
         return userProxy.updateUserInfo( id,request );
     }
 
-    public void deleteProfile(Long id) {
-        userProxy.removeUser( id );
+    public ResponseEntity<String> deleteProfile(Long id) {
+        return userProxy.removeUser( id );
     }
 
 

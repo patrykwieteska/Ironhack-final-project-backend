@@ -85,14 +85,13 @@ public class UserInfoServiceImpl implements UserInfoService {
         if(storedUser.isEmpty())
             throw new EntityNotFoundException("Not found user with id: "+id);
 
-
         UserInfo user = storedUser.get();
+
         user.setFavoriteTeamId( teamRequest.getId());
+        userInfoRepository.saveAndFlush( user );
 
-        userInfoRepository.save( user );
 
-
-        TeamDto team = teamService.findTeam(storedUser.get().getFavoriteTeamId());
+        TeamDto team = teamService.findTeam(user.getFavoriteTeamId());
 
         return ResponseEntity.ok( Mapper.userInfoEntityToDto(user,team));
     }
@@ -105,22 +104,37 @@ public class UserInfoServiceImpl implements UserInfoService {
         if(storedUser.isEmpty())
             throw new EntityNotFoundException("Not found user with id: "+id);
 
-
         UserInfo user = storedUser.get();
 
-        user.setInfo( request.getInfo());
-        user.setCity( request.getCity());
-        user.setCountry( request.getCountry() );
-        user.setUsername(request.getUsername());
-        user.setEmail(request.getEmail());
+        if(request.getUsername() !=null) {
+            if(validationService.checkIfUserAlreadyExists(request.getUsername().trim()) && !request.getUsername().equals( user.getUsername())) {
+                throw new UserAlreadyExistsException( request.getUsername());
+            }
+            user.setUsername(request.getUsername());
+        }
 
-        if(request.getTeamId()!=null && request.getTeamId()!=0)
+        if(request.getInfo()!=null) {
+            user.setInfo( request.getInfo());
+        }
+
+        if(request.getCity() !=null) {
+            user.setCity( request.getCity());
+        }
+
+        if(request.getCountry() !=null) {
+            user.setCountry( request.getCountry() );
+        }
+
+        if(request.getEmail() !=null) {
+            user.setEmail(request.getEmail());
+        }
+
+        if(request.getTeamId()!=null && request.getTeamId()!=0) {
             user.setFavoriteTeamId( request.getTeamId());
+        }
 
         TeamDto team = teamService.findTeam(user.getFavoriteTeamId());
-
         userInfoRepository.save( user );
-
         return ResponseEntity.ok( Mapper.userInfoEntityToDto( user,team ));
     }
 
@@ -133,6 +147,6 @@ public class UserInfoServiceImpl implements UserInfoService {
             return ResponseEntity.status( HttpStatus.NOT_FOUND).body( "User: "+id+" does not exist" );
 
         userInfoRepository.delete(  storedUser.get());
-        return ResponseEntity.status( HttpStatus.ACCEPTED).body( "User "+id+" removed" );
+        return ResponseEntity.status( HttpStatus.ACCEPTED).body( "User with id: "+id+" was removed" );
     }
 }
