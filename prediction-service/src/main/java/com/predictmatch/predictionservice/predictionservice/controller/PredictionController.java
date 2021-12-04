@@ -1,11 +1,11 @@
 package com.predictmatch.predictionservice.predictionservice.controller;
 
 import com.predictmatch.predictionservice.predictionservice.dto.GetPredictionRequest;
-import com.predictmatch.predictionservice.predictionservice.dto.PredictionRequest;
 import com.predictmatch.predictionservice.predictionservice.dto.PredictionDto;
+import com.predictmatch.predictionservice.predictionservice.dto.PredictionRequest;
+import com.predictmatch.predictionservice.predictionservice.dto.history.UserPredictionHistoryDto;
 import com.predictmatch.predictionservice.predictionservice.dto.PredictionResponse;
 import com.predictmatch.predictionservice.predictionservice.service.PredictionService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,9 +32,15 @@ public class PredictionController {
         return predictionService.getUserPredictionByFixture(predictionRequest);
     }
 
-    @GetMapping("/user/{userId}")
+    @GetMapping("user/{userId}")
     ResponseEntity<List<PredictionResponse>> getAllUserPredictions(@PathVariable(name="userId") Long id) {
         return predictionService.getAllUserPredictions( id );
     }
+
+    @GetMapping("/user/history/{userId}")
+    ResponseEntity<UserPredictionHistoryDto> getUserPredictionsHistory(@PathVariable(name="userId") Long id) {
+        return predictionService.getUserPredictionHistory( id );
+    }
+
 
 }

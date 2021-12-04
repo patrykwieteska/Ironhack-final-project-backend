@@ -4,13 +4,12 @@ import com.predictmatch.predictionservice.predictionservice.dao.Prediction;
 import com.predictmatch.predictionservice.predictionservice.dao.PredictionResult;
 import com.predictmatch.predictionservice.predictionservice.dto.*;
 import com.predictmatch.predictionservice.predictionservice.dto.fixture.FixtureDto;
+import com.predictmatch.predictionservice.predictionservice.dto.history.UserPredictionHistoryDto;
 import com.predictmatch.predictionservice.predictionservice.enums.PredictionStatus;
 import com.predictmatch.predictionservice.predictionservice.exceptions.PredictionOnLiveMatchException;
 import com.predictmatch.predictionservice.predictionservice.mapper.PredictionMapper;
-import com.predictmatch.predictionservice.predictionservice.proxy.FixtureProxy;
 import com.predictmatch.predictionservice.predictionservice.repository.PredictionRepository;
 import com.predictmatch.predictionservice.predictionservice.repository.PredictionResultRepository;
-import com.sun.istack.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -123,5 +122,19 @@ public class PredictionServiceImpl implements PredictionService {
 
 
         return ResponseEntity.ok(predictionList);
+    }
+
+    @Override
+    public ResponseEntity<UserPredictionHistoryDto> getUserPredictionHistory(Long id) {
+
+        List<IUserPredictionInfo> userPredictionInfoList = predictionResultRepository.getUserPredictionsByStatus( id );
+
+        if(userPredictionInfoList.size()==0)
+            return ResponseEntity.ok(new UserPredictionHistoryDto(0,0,0,0));
+
+
+        Integer totalPredictions = predictionResultRepository.getUserTotalPoints( id );
+
+         return ResponseEntity.ok(PredictionMapper.infoToPredictionHistory(userPredictionInfoList,totalPredictions));
     }
 }

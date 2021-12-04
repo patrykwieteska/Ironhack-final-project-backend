@@ -6,10 +6,13 @@ import com.predictmatch.predictionservice.predictionservice.dto.PredictionDto;
 import com.predictmatch.predictionservice.predictionservice.dto.PredictionRequest;
 import com.predictmatch.predictionservice.predictionservice.dto.PredictionResultDto;
 import com.predictmatch.predictionservice.predictionservice.dto.fixture.FixtureDto;
+import com.predictmatch.predictionservice.predictionservice.dto.history.UserPredictionHistoryDto;
 import com.predictmatch.predictionservice.predictionservice.enums.PredictionStatus;
+import com.predictmatch.predictionservice.predictionservice.service.IUserPredictionInfo;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.List;
 import java.util.Objects;
 
 public class PredictionMapper {
@@ -81,5 +84,31 @@ public class PredictionMapper {
                 predictionResult.getPoints(),
                 predictionResult.getStatus(),
                 predictionResult.getStatus().value);
+    }
+
+
+    public static UserPredictionHistoryDto infoToPredictionHistory(
+                                                                   List<IUserPredictionInfo> userPredictionInfoList,
+                                                                   Integer totalPredictions) {
+
+        Integer exactResults = 0;
+        Integer correctResults = 0;
+        int totalPoints = 0;
+
+
+        for (IUserPredictionInfo iUserPredictionInfo : userPredictionInfoList) {
+            switch (iUserPredictionInfo.getStatus()) {
+                case "EXACT" -> {
+                    exactResults++;
+                    totalPoints += 3;
+                }
+                case "CORRECT" -> {
+                    correctResults++;
+                    totalPoints += 1;
+                }
+            }
+        }
+
+        return new UserPredictionHistoryDto(exactResults,correctResults,totalPredictions,totalPoints);
     }
 }
