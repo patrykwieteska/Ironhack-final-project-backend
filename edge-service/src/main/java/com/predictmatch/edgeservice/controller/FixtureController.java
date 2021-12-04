@@ -1,10 +1,39 @@
 package com.predictmatch.edgeservice.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.predictmatch.edgeservice.dto.fixture.FixtureDto;
+import com.predictmatch.edgeservice.dto.fixture.FixtureResponseDto;
+import com.predictmatch.edgeservice.proxy.LiveResultsProxy;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/fixtures")
 public class FixtureController
 {
+
+    @Autowired
+    LiveResultsProxy liveResultsProxy;
+
+    @GetMapping
+    ResponseEntity<FixtureResponseDto> initAllFixtures(@RequestParam(required = false, name="round") Integer round) {
+        return liveResultsProxy.initAllFixtures(round);
+    }
+
+    @GetMapping("/status/{fixtureStatus}")
+    ResponseEntity<FixtureResponseDto> initPostponedFixtures(@PathVariable(name="fixtureStatus") String fixtureStatus) {
+        return liveResultsProxy.initPostponedFixtures(fixtureStatus);
+    }
+
+    @GetMapping("/team/{id}")
+    ResponseEntity<FixtureResponseDto> initFixturesByTeamId(@PathVariable(name="id") Long id) {
+        return liveResultsProxy.initFixturesByTeamId(id);
+    }
+
+    @GetMapping("/{id}")
+    ResponseEntity<FixtureDto> findFixtureById(@PathVariable(name="id") Long id) {
+        return liveResultsProxy.findFixtureById(id);
+    }
+
+
 }
