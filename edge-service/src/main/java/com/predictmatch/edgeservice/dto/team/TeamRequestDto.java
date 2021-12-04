@@ -9,12 +9,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class TeamDto {
-
+public class TeamRequestDto {
     private Long id;
-    private String name;
-    private String form;
-    private String logo;
-    private Long leagueId;
-
 }

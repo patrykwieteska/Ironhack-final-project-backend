@@ -4,13 +4,12 @@ import com.predictmatch.predictionservice.predictionservice.dao.Prediction;
 import com.predictmatch.predictionservice.predictionservice.dao.PredictionResult;
 import com.predictmatch.predictionservice.predictionservice.dto.*;
 import com.predictmatch.predictionservice.predictionservice.dto.fixture.FixtureDto;
+import com.predictmatch.predictionservice.predictionservice.dto.history.UserPredictionHistoryDto;
 import com.predictmatch.predictionservice.predictionservice.enums.PredictionStatus;
 import com.predictmatch.predictionservice.predictionservice.exceptions.PredictionOnLiveMatchException;
 import com.predictmatch.predictionservice.predictionservice.mapper.PredictionMapper;
-import com.predictmatch.predictionservice.predictionservice.proxy.FixtureProxy;
 import com.predictmatch.predictionservice.predictionservice.repository.PredictionRepository;
 import com.predictmatch.predictionservice.predictionservice.repository.PredictionResultRepository;
-import com.sun.istack.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,6 +19,7 @@ import javax.transaction.Transactional;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -36,12 +36,16 @@ public class PredictionServiceImpl implements PredictionService {
 
     @Override
     @Transactional
-    public ResponseEntity<PredictionDto> addNewPrediction(PredictionRequest predictionRequest) {
+    public ResponseEntity<PredictionResponse> addNewPrediction(NewPredictionRequest newPredictionRequest) {
 
         // 1. make a PredictionEntity from predictionRequest
-       FixtureDto fixture = fixtureService.getFixtureById( predictionRequest.getFixtureId() );
+       FixtureDto fixture = fixtureService.getFixtureById( newPredictionRequest.getFixtureId() );
 
-        Prediction prediction = PredictionMapper.predictionRequestToPrediction( predictionRequest,fixture,null);
+        Prediction prediction = PredictionMapper.predictionRequestToPrediction( newPredictionRequest,fixture,null);
+
+        if(newPredictionRequest.getUserId()==null || newPredictionRequest.getUserId()==0)
+            throw new NoSuchElementException("User id cannot be null or 0");
+
 
         if(ChronoUnit.MINUTES.between ( fixture.getDate() ,prediction.getPredictionDate())>0)
             throw new PredictionOnLiveMatchException( fixture.getFixtureId());
@@ -55,9 +59,10 @@ public class PredictionServiceImpl implements PredictionService {
         prediction.setPredictionResult( predictionResult );
         predictionRepository.save( prediction );
 
+        PredictionResponse predictionResponse = new PredictionResponse(PredictionMapper.predictionEntityToDto( prediction ),
+                PredictionMapper.predictionResultEntityToDto( predictionResult ));
 
-
-        return ResponseEntity.ok(PredictionMapper.predictionEntityToDto( prediction ));
+        return ResponseEntity.ok(predictionResponse);
 
     }
 
@@ -123,5 +128,19 @@ public class PredictionServiceImpl implements PredictionService {
 
 
         return ResponseEntity.ok(predictionList);
+    }
+
+    @Override
+    public ResponseEntity<UserPredictionHistoryDto> getUserPredictionHistory(Long id) {
+
+        List<IUserPredictionInfo> userPredictionInfoList = predictionResultRepository.getUserPredictionsByStatus( id );
+
+        if(userPredictionInfoList.size()==0)
+            return ResponseEntity.ok(new UserPredictionHistoryDto(0,0,0,0));
+
+
+        Integer totalPredictions = predictionResultRepository.getUserTotalPoints( id );
+
+         return ResponseEntity.ok(PredictionMapper.infoToPredictionHistory(userPredictionInfoList,totalPredictions));
     }
 }

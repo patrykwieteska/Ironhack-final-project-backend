@@ -1,16 +1,20 @@
-package com.predictmatch.userinfo.dto;
+package com.predictmatch.edgeservice.dto.fixture;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-public class CreatedUserInfo {
+public class FixturePredictionDto {
 
-    private Long userId;
-    private String message;
+
+    List<FixtureDto> fixtures;
+
+
 }

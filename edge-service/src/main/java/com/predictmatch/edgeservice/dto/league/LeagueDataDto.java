@@ -1,20 +1,22 @@
-package com.predictmatch.edgeservice.dto.team;
+package com.predictmatch.edgeservice.dto.league;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
-public class TeamDto {
-
+public class LeagueDataDto {
     private Long id;
     private String name;
-    private String form;
+    private Integer season;
     private String logo;
-    private Long leagueId;
-
+    private String country;
+    private String countryFlag;
+    private List<LeagueTableDto> standings;
 }

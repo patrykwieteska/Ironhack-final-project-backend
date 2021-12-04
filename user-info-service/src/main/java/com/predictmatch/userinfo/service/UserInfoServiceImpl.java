@@ -29,7 +29,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Transactional
     @Override
     public ResponseEntity<UserInfoResponse> findUserByUsername(String username) {
-        Optional<UserInfo> storedUser = Optional.of(userInfoRepository.findByUsername( username ));
+        Optional<UserInfo> storedUser = Optional.ofNullable(userInfoRepository.findByUsername( username ));
 
         if(storedUser.isEmpty())
             throw new EntityNotFoundException("Not found username: "+username);
@@ -57,7 +57,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
     @Transactional
     @Override
-    public ResponseEntity<CreatedUserInfo> createUser(UserInfoRequest request) {
+    public ResponseEntity<UserInfoResponse> createUser(UserInfoRequest request) {
 
         if(validationService.checkIfUserAlreadyExists(request.getUsername().trim())) {
             throw new UserAlreadyExistsException( request.getUsername());
@@ -67,8 +67,13 @@ public class UserInfoServiceImpl implements UserInfoService {
 
        userInfoRepository.save( user );
 
-       return ResponseEntity.status( HttpStatus.CREATED ).body( new CreatedUserInfo(user.getId(),
-               "User created!"));
+       Optional<TeamDto> team = Optional.ofNullable( teamService.findTeam( request.getTeamId() ));
+       TeamDto userTeam = null;
+
+       if(team.isPresent())
+           userTeam=team.get();
+
+       return ResponseEntity.status( HttpStatus.CREATED ).body( Mapper.userInfoEntityToDto( user,userTeam));
 
     }
     @Transactional
@@ -80,14 +85,13 @@ public class UserInfoServiceImpl implements UserInfoService {
         if(storedUser.isEmpty())
             throw new EntityNotFoundException("Not found user with id: "+id);
 
-
         UserInfo user = storedUser.get();
+
         user.setFavoriteTeamId( teamRequest.getId());
+        userInfoRepository.saveAndFlush( user );
 
-        userInfoRepository.save( user );
 
-
-        TeamDto team = teamService.findTeam(storedUser.get().getFavoriteTeamId());
+        TeamDto team = teamService.findTeam(user.getFavoriteTeamId());
 
         return ResponseEntity.ok( Mapper.userInfoEntityToDto(user,team));
     }
@@ -100,26 +104,49 @@ public class UserInfoServiceImpl implements UserInfoService {
         if(storedUser.isEmpty())
             throw new EntityNotFoundException("Not found user with id: "+id);
 
+        UserInfo user = storedUser.get();
 
-        UserInfo user = Mapper.userInfoRequestToEntity( request );
-        user.setId( id );
+        if(request.getUsername() !=null) {
+            if(validationService.checkIfUserAlreadyExists(request.getUsername().trim()) && !request.getUsername().equals( user.getUsername())) {
+                throw new UserAlreadyExistsException( request.getUsername());
+            }
+            user.setUsername(request.getUsername());
+        }
 
-        TeamDto team = teamService.findTeam(storedUser.get().getFavoriteTeamId());
+        if(request.getInfo()!=null) {
+            user.setInfo( request.getInfo());
+        }
 
+        if(request.getCity() !=null) {
+            user.setCity( request.getCity());
+        }
+
+        if(request.getCountry() !=null) {
+            user.setCountry( request.getCountry() );
+        }
+
+        if(request.getEmail() !=null) {
+            user.setEmail(request.getEmail());
+        }
+
+        if(request.getTeamId()!=null && request.getTeamId()!=0) {
+            user.setFavoriteTeamId( request.getTeamId());
+        }
+
+        TeamDto team = teamService.findTeam(user.getFavoriteTeamId());
         userInfoRepository.save( user );
-
         return ResponseEntity.ok( Mapper.userInfoEntityToDto( user,team ));
     }
 
     @Transactional
     @Override
-    public void removeUser(Long id) {
+    public ResponseEntity<String> removeUser(Long id) {
         Optional<UserInfo> storedUser = userInfoRepository.findById( id );
 
         if(storedUser.isEmpty())
-            throw new EntityNotFoundException("Cannot remove user with id: "+id+" User is not existing");
+            return ResponseEntity.status( HttpStatus.NOT_FOUND).body( "User: "+id+" does not exist" );
 
         userInfoRepository.delete(  storedUser.get());
-
+        return ResponseEntity.status( HttpStatus.ACCEPTED).body( "User with id: "+id+" was removed" );
     }
 }

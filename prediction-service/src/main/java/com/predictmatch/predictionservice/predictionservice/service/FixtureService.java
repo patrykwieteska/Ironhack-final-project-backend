@@ -4,7 +4,6 @@ import com.predictmatch.predictionservice.predictionservice.dto.fixture.FixtureD
 import com.predictmatch.predictionservice.predictionservice.proxy.FixtureProxy;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.naming.ServiceUnavailableException;

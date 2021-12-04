@@ -1,4 +1,4 @@
-package com.predictmatch.edgeservice.dto.team;
+package com.predictmatch.edgeservice.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,12 +9,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class TeamDto {
-
+public class UserTeamDto {
     private Long id;
     private String name;
-    private String form;
     private String logo;
-    private Long leagueId;
-
+    private String status;
 }

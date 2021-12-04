@@ -8,11 +8,11 @@ public interface UserInfoService {
 
     ResponseEntity<UserInfoResponse> findUserById(Long id);
 
-    ResponseEntity<CreatedUserInfo> createUser(UserInfoRequest request);
+    ResponseEntity<UserInfoResponse> createUser(UserInfoRequest request);
 
     ResponseEntity<UserInfoResponse> changeFavouriteTeam(Long id, TeamRequestDto team);
 
     ResponseEntity<UserInfoResponse> updateUserInfo(Long id, UserInfoRequest request);
 
-    void removeUser(Long id);
+    ResponseEntity<String> removeUser(Long id);
 }

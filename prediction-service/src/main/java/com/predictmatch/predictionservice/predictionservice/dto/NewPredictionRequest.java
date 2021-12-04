@@ -9,9 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PredictionRequest {
+public class NewPredictionRequest {
     private Long fixtureId;
-    private Long roundId;
     private Long userId;
     private Integer predictedHomeGoals;
     private Integer predictedAwayGoals;

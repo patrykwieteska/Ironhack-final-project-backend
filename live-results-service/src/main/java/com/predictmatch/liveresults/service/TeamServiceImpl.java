@@ -20,11 +20,11 @@ public class TeamServiceImpl implements TeamService{
     TeamRepository teamRepository;
 
     @Override
-    public ResponseEntity<TeamDto> getTeamById(Long id) {
-        Optional<Team> storedTeam = teamRepository.findById( id );
+    public ResponseEntity<TeamDto> getTeamById(Long teamId) {
+        Optional<Team> storedTeam = teamRepository.findById( teamId );
 
         if(storedTeam.isEmpty())
-            throw new EntityNotFoundException("Not found team with id: "+id);
+            throw new EntityNotFoundException("Not found team with id: "+teamId);
 
         return ResponseEntity.ok( TeamMapper.entityToDto( storedTeam.get() ) );
 
