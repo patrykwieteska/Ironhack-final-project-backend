@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/predictmatch/api/v1/fixtures")
+@RequestMapping("/fixtures")
 public class FixtureController
 {
 }

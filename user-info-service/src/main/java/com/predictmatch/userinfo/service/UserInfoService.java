@@ -14,5 +14,5 @@ public interface UserInfoService {
 
     ResponseEntity<UserInfoResponse> updateUserInfo(Long id, UserInfoRequest request);
 
-    void removeUser(Long id);
+    ResponseEntity<String> removeUser(Long id);
 }

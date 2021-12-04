@@ -29,7 +29,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Transactional
     @Override
     public ResponseEntity<UserInfoResponse> findUserByUsername(String username) {
-        Optional<UserInfo> storedUser = Optional.of(userInfoRepository.findByUsername( username ));
+        Optional<UserInfo> storedUser = Optional.ofNullable(userInfoRepository.findByUsername( username ));
 
         if(storedUser.isEmpty())
             throw new EntityNotFoundException("Not found username: "+username);
@@ -106,10 +106,18 @@ public class UserInfoServiceImpl implements UserInfoService {
             throw new EntityNotFoundException("Not found user with id: "+id);
 
 
-        UserInfo user = Mapper.userInfoRequestToEntity( request );
-        user.setId( id );
+        UserInfo user = storedUser.get();
 
-        TeamDto team = teamService.findTeam(storedUser.get().getFavoriteTeamId());
+        user.setInfo( request.getInfo());
+        user.setCity( request.getCity());
+        user.setCountry( request.getCountry() );
+        user.setUsername(request.getUsername());
+        user.setEmail(request.getEmail());
+
+        if(request.getTeamId()!=null && request.getTeamId()!=0)
+            user.setFavoriteTeamId( request.getTeamId());
+
+        TeamDto team = teamService.findTeam(user.getFavoriteTeamId());
 
         userInfoRepository.save( user );
 
@@ -118,13 +126,13 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Transactional
     @Override
-    public void removeUser(Long id) {
+    public ResponseEntity<String> removeUser(Long id) {
         Optional<UserInfo> storedUser = userInfoRepository.findById( id );
 
         if(storedUser.isEmpty())
-            throw new EntityNotFoundException("Cannot remove user with id: "+id+" User is not existing");
+            return ResponseEntity.status( HttpStatus.NOT_FOUND).body( "User: "+id+" does not exist" );
 
         userInfoRepository.delete(  storedUser.get());
-
+        return ResponseEntity.status( HttpStatus.ACCEPTED).body( "User "+id+" removed" );
     }
 }

@@ -4,6 +4,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/predictmatch/api/v1/standings")
+@RequestMapping("/standings")
 public class StandingsController {
 }

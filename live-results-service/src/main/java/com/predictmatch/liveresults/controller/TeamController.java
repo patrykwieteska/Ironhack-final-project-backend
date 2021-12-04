@@ -18,9 +18,9 @@ public class TeamController {
     @Autowired
     TeamService teamService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<TeamDto> getTeamById(@PathVariable(name="id") Long id) {
-        return teamService.getTeamById(id);
+    @GetMapping("/{teamId}")
+    public ResponseEntity<TeamDto> getTeamById(@PathVariable(name="teamId") Long teamId) {
+        return teamService.getTeamById(teamId);
     }
 
     @GetMapping
