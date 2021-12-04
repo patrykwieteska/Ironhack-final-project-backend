@@ -2,6 +2,7 @@ package com.predictmatch.edgeservice.proxy;
 
 import com.predictmatch.edgeservice.dto.fixture.FixtureDto;
 import com.predictmatch.edgeservice.dto.fixture.FixtureResponseDto;
+import com.predictmatch.edgeservice.dto.league.LeagueDataDto;
 import com.predictmatch.edgeservice.dto.team.TeamDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,9 @@ public interface LiveResultsProxy {
 
     @GetMapping("/liveresults/api/v1/teams")
     ResponseEntity<List<TeamDto>> getAllTeams();
+
+    @GetMapping("/liveresults/api/v1/standings")
+    ResponseEntity<LeagueDataDto> getLeagueData();
 
 
 }
