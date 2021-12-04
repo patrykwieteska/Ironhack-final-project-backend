@@ -11,7 +11,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class NewPredictionRequest {
     private Long fixtureId;
-    private Long roundId;
     private Long userId;
     private Integer predictedHomeGoals;
     private Integer predictedAwayGoals;

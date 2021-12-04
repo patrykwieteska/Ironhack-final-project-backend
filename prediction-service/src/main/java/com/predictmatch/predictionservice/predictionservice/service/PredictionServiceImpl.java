@@ -19,6 +19,7 @@ import javax.transaction.Transactional;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -41,6 +42,10 @@ public class PredictionServiceImpl implements PredictionService {
        FixtureDto fixture = fixtureService.getFixtureById( newPredictionRequest.getFixtureId() );
 
         Prediction prediction = PredictionMapper.predictionRequestToPrediction( newPredictionRequest,fixture,null);
+
+        if(newPredictionRequest.getUserId()==null || newPredictionRequest.getUserId()==0)
+            throw new NoSuchElementException("User id cannot be null or 0");
+
 
         if(ChronoUnit.MINUTES.between ( fixture.getDate() ,prediction.getPredictionDate())>0)
             throw new PredictionOnLiveMatchException( fixture.getFixtureId());
