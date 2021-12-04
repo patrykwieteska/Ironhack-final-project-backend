@@ -8,7 +8,7 @@ public interface UserInfoService {
 
     ResponseEntity<UserInfoResponse> findUserById(Long id);
 
-    ResponseEntity<CreatedUserInfo> createUser(UserInfoRequest request);
+    ResponseEntity<UserInfoResponse> createUser(UserInfoRequest request);
 
     ResponseEntity<UserInfoResponse> changeFavouriteTeam(Long id, TeamRequestDto team);
 

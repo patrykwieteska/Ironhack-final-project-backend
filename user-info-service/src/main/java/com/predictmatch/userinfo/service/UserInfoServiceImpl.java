@@ -57,7 +57,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
     @Transactional
     @Override
-    public ResponseEntity<CreatedUserInfo> createUser(UserInfoRequest request) {
+    public ResponseEntity<UserInfoResponse> createUser(UserInfoRequest request) {
 
         if(validationService.checkIfUserAlreadyExists(request.getUsername().trim())) {
             throw new UserAlreadyExistsException( request.getUsername());
@@ -67,8 +67,13 @@ public class UserInfoServiceImpl implements UserInfoService {
 
        userInfoRepository.save( user );
 
-       return ResponseEntity.status( HttpStatus.CREATED ).body( new CreatedUserInfo(user.getId(),
-               "User created!"));
+       Optional<TeamDto> team = Optional.ofNullable( teamService.findTeam( request.getTeamId() ));
+       TeamDto userTeam = null;
+
+       if(team.isPresent())
+           userTeam=team.get();
+
+       return ResponseEntity.status( HttpStatus.CREATED ).body( Mapper.userInfoEntityToDto( user,userTeam));
 
     }
     @Transactional

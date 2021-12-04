@@ -28,7 +28,7 @@ public class UserInfoController {
     }
 
     @PostMapping
-    ResponseEntity<CreatedUserInfo> createUser(@RequestBody @Valid UserInfoRequest request) {
+    ResponseEntity<UserInfoResponse> createUser(@RequestBody @Valid UserInfoRequest request) {
         return userInfoService.createUser(request);
     }
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @FeignClient("live-results-service")
-public interface TeamsProxy {
+public interface TeamProxy {
 
     @GetMapping("/liveresults/api/v1/teams")
     ResponseEntity<List<TeamDto>> getAllTeams();
