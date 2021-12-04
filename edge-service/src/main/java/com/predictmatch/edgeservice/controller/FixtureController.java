@@ -24,8 +24,8 @@ public class FixtureController
 
     @GetMapping("/status/{fixtureStatus}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<FixtureResponseDto> initPostponedFixtures(@PathVariable(name="fixtureStatus") String fixtureStatus) {
-        return liveResultsProxy.initPostponedFixtures(fixtureStatus);
+    ResponseEntity<FixtureResponseDto> initFixturesByStatus(@PathVariable(name="fixtureStatus") String fixtureStatus) {
+        return liveResultsProxy.initFixturesByStatus(fixtureStatus);
     }
 
     @GetMapping("/team/{id}")

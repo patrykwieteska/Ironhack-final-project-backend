@@ -19,7 +19,7 @@ public interface LiveResultsProxy {
     ResponseEntity<FixtureResponseDto> initAllFixtures(@RequestParam(required = false, name="round") Integer round);
 
     @GetMapping("/liveresults/api/v1/fixtures/status/{fixtureStatus}")
-    ResponseEntity<FixtureResponseDto> initPostponedFixtures(@PathVariable(name="fixtureStatus") String fixtureStatus);
+    ResponseEntity<FixtureResponseDto> initFixturesByStatus(@PathVariable(name="fixtureStatus") String fixtureStatus);
 
     @GetMapping("/liveresults/api/v1/fixtures/team/{id}")
     ResponseEntity<FixtureResponseDto> initFixturesByTeamId(@PathVariable(name="id") Long id);

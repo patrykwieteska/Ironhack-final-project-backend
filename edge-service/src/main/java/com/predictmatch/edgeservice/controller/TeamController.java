@@ -1,7 +1,7 @@
 package com.predictmatch.edgeservice.controller;
 
 import com.predictmatch.edgeservice.dto.team.TeamDto;
-import com.predictmatch.edgeservice.services.TeamService;
+import com.predictmatch.edgeservice.proxy.LiveResultsProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +17,11 @@ import java.util.List;
 public class TeamController
 {
     @Autowired
-    TeamService teamService;
+    LiveResultsProxy liveResultsProxy;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     ResponseEntity<List<TeamDto>> getAllTeams() {
-        return teamService.getAllTeams();
+        return liveResultsProxy.getAllTeams();
     };
 }

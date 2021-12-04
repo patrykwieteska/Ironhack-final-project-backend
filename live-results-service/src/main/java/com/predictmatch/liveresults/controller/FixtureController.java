@@ -21,7 +21,7 @@ public class FixtureController {
     }
 
     @GetMapping("/status/{fixtureStatus}")
-    public ResponseEntity<FixtureResponseDto> initPostponedFixtures(@PathVariable(name="fixtureStatus") FixtureStatus fixtureStatus) {
+    public ResponseEntity<FixtureResponseDto> initFixturesByStatus(@PathVariable(name="fixtureStatus") FixtureStatus fixtureStatus) {
         return fixtureService.initFixturesByStatus( fixtureStatus);
     }
 
