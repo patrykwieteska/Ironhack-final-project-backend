@@ -61,7 +61,7 @@ public class PredictionService {
         Optional<FixtureResponseDto> fixtureResponseDto =
                 Optional.ofNullable( liveResultsProxy.initAllFixtures( userRoundFixtureRequest.getRound()).getBody() );
 
-        if(fixtureResponseDto.isEmpty())
+        if(fixtureResponseDto.isEmpty() || fixtureResponseDto.get().getFixtures().size()==0)
             throw new EntityNotFoundException("Not found fixtures for round: "+userRoundFixtureRequest.getRound());
 
         if(fixtureResponseDto.get().getFixtures().size()==0) {

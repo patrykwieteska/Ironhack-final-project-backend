@@ -13,5 +13,5 @@ import lombok.Setter;
 @Getter
 public class FixturePredictionDto {
     FixtureDto fixture;
-    PredictionResponse prediction;
+    PredictionResponse predictionInfo;
 }
