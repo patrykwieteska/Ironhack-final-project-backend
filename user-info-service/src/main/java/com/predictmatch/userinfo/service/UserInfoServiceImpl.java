@@ -1,10 +1,16 @@
 package com.predictmatch.userinfo.service;
 
 import com.predictmatch.userinfo.dao.UserInfo;
-import com.predictmatch.userinfo.dto.*;
+import com.predictmatch.userinfo.dao.auth.User;
+import com.predictmatch.userinfo.dto.TeamDto;
+import com.predictmatch.userinfo.dto.TeamRequestDto;
+import com.predictmatch.userinfo.dto.UserInfoRequest;
+import com.predictmatch.userinfo.dto.UserInfoResponse;
+import com.predictmatch.userinfo.dto.auth.RegisterRequest;
 import com.predictmatch.userinfo.exceptions.UserAlreadyExistsException;
 import com.predictmatch.userinfo.mapper.Mapper;
 import com.predictmatch.userinfo.repository.UserInfoRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +21,7 @@ import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class UserInfoServiceImpl implements UserInfoService {
 
     @Autowired
@@ -55,27 +62,34 @@ public class UserInfoServiceImpl implements UserInfoService {
         return ResponseEntity.ok( Mapper.userInfoEntityToDto( storedUser.get(),team ));
 
     }
+
     @Transactional
     @Override
-    public ResponseEntity<UserInfoResponse> createUser(UserInfoRequest request) {
+    public UserInfoResponse createUserProfile(RegisterRequest request, User user) {
 
         if(validationService.checkIfUserAlreadyExists(request.getUsername().trim())) {
             throw new UserAlreadyExistsException( request.getUsername());
         }
 
-       UserInfo user = Mapper.userInfoRequestToEntity( request );
-
-       userInfoRepository.save( user );
+       UserInfo userInfo = Mapper.registerRequestToUserInfoEntity( request,user );
+        log.info("User profile is creating...");
+       userInfoRepository.save( userInfo );
 
        Optional<TeamDto> team = Optional.ofNullable( teamService.findTeam( request.getTeamId() ));
        TeamDto userTeam = null;
 
-       if(team.isPresent())
+       if(team.isPresent()) {
            userTeam=team.get();
+           log.info( "Team {} added to user profile",team.get().getName() );
+       } else {
+           log.error( "Currently cannot find team with id: "+request.getTeamId());
+       }
 
-       return ResponseEntity.status( HttpStatus.CREATED ).body( Mapper.userInfoEntityToDto( user,userTeam));
+
+       return Mapper.userInfoEntityToDto( userInfo,userTeam);
 
     }
+
     @Transactional
     @Override
     public ResponseEntity<UserInfoResponse> changeFavouriteTeam(Long id, TeamRequestDto teamRequest) {

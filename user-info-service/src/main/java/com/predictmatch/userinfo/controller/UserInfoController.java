@@ -1,13 +1,13 @@
 package com.predictmatch.userinfo.controller;
 
-import com.predictmatch.userinfo.dto.*;
+import com.predictmatch.userinfo.dto.TeamRequestDto;
+import com.predictmatch.userinfo.dto.UserInfoRequest;
+import com.predictmatch.userinfo.dto.UserInfoResponse;
 import com.predictmatch.userinfo.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/userinfo/api/v1/users")
@@ -30,11 +30,6 @@ public class UserInfoController {
         return userInfoService.findUserById(id);
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<UserInfoResponse> createUser(@RequestBody @Valid UserInfoRequest request) {
-        return userInfoService.createUser(request);
-    }
 
     @PatchMapping("/{userId}/team")
     @ResponseStatus(HttpStatus.OK)

@@ -1,10 +1,11 @@
 package com.predictmatch.userinfo.mapper;
 
 import com.predictmatch.userinfo.dao.UserInfo;
+import com.predictmatch.userinfo.dao.auth.User;
 import com.predictmatch.userinfo.dto.ExternalTeamDto;
 import com.predictmatch.userinfo.dto.TeamDto;
-import com.predictmatch.userinfo.dto.UserInfoRequest;
 import com.predictmatch.userinfo.dto.UserInfoResponse;
+import com.predictmatch.userinfo.dto.auth.RegisterRequest;
 
 public class Mapper {
 
@@ -22,14 +23,14 @@ public class Mapper {
     }
 
 
-    public static UserInfo userInfoRequestToEntity(UserInfoRequest request) {
-        return new UserInfo(
+    public static UserInfo registerRequestToUserInfoEntity(RegisterRequest request, User user) {
+        return new UserInfo(user.getId(),
                 request.getUsername(),
                 request.getCity(),
                 request.getCountry(),
                 request.getInfo(),
                 request.getEmail(),
-                request.getTeamId()
+                request.getTeamId(),user
         );
     }
 
