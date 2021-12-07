@@ -15,6 +15,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static org.springframework.http.HttpMethod.GET;
+import static org.springframework.http.HttpMethod.POST;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -22,6 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final JwtUtils jwtUtils;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -31,17 +35,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         CustomAuthenticationFilter customAuthenticationFilter =
-                new CustomAuthenticationFilter( authenticationManagerBean() );
+                new CustomAuthenticationFilter( authenticationManagerBean(),jwtUtils);
 
         customAuthenticationFilter.setFilterProcessesUrl( "/userinfo/api/v1/login" );
 
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy( SessionCreationPolicy.STATELESS );
-        http.authorizeRequests().antMatchers( "/api/login/**","/userinfo/api/v1/register/**" ).permitAll();
+        http.authorizeRequests().antMatchers( GET,"/userinfo/api/v1/users/**" ).permitAll();
+        http.authorizeRequests().antMatchers( POST,"/userinfo/api/v1/login/**","/userinfo/api/v1/register/**" ).permitAll();
+        http.authorizeRequests().antMatchers( POST,"http://user-info-service/userinfo/api/v1/login/**" ).permitAll();
         http.authorizeRequests().antMatchers("/userinfo/api/v1/users/**").hasAnyAuthority( "ROLE_USER");
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter( customAuthenticationFilter);
-        http.addFilterBefore( new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class );
+        http.addFilterBefore( new CustomAuthorizationFilter(jwtUtils), UsernamePasswordAuthenticationFilter.class );
     }
 
     @Bean

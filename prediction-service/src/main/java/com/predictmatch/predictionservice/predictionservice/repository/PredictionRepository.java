@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface PredictionRepository extends JpaRepository<Prediction,String> {
 
-    List<Prediction> findByUserId(Long userId);
+    List<Prediction> findByUsername(String username);
 }

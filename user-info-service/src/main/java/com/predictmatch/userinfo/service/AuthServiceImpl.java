@@ -80,7 +80,7 @@ public class AuthServiceImpl implements AuthService, UserDetailsService {
             log.error( "User not found in the database" );
             throw new UsernameNotFoundException( "User not found in the database" );
         } else {
-            log.error( "User found in the database: {}",username );
+            log.info( "User found in the database: {}",username );
 
         }
 
@@ -105,6 +105,10 @@ public class AuthServiceImpl implements AuthService, UserDetailsService {
                     "already exists!"));
         }
 
+        if(!registerRequest.getPassword().equals( registerRequest.getRepeatedPassword() )) {
+            return ResponseEntity.badRequest().body( new MessageResponse("Passwords are not the same!"));
+        }
+
         User user =  userRepository.save( new User(registerRequest.getUsername(),passwordEncoder.encode(registerRequest.getPassword()),
                 new ArrayList<>()));
 
@@ -121,7 +125,7 @@ public class AuthServiceImpl implements AuthService, UserDetailsService {
 
         UserInfoResponse userInfo =  userInfoService.createUserProfile(registerRequest,user);
 
-        return new ResponseEntity<MessageResponse>(new MessageResponse("User "+registerRequest.getUsername()+" registered!"),
+        return new ResponseEntity<UserInfoResponse>(userInfo,
                 HttpStatus.CREATED) ;
     }
 

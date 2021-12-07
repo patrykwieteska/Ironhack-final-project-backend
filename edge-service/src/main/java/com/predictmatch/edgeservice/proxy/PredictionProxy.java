@@ -23,9 +23,9 @@ public interface PredictionProxy {
     @PostMapping("/api/v1/predictions")
     ResponseEntity<PredictionResponse> getUserPredictionByFixture(@RequestBody @Valid GetPredictionRequest predictionRequest);
 
-    @GetMapping("/api/v1/predictions/user/{userId}")
-    ResponseEntity<List<PredictionResponse>> getAllUserPredictions(@PathVariable(name="userId") Long id);
+    @GetMapping("/api/v1/predictions/user/{username}")
+    ResponseEntity<List<PredictionResponse>> getAllUserPredictions(@PathVariable(name="username") String username);
 
-    @GetMapping("/api/v1/predictions/user/history/{userId}")
-    ResponseEntity<UserPredictionHistoryDto> getUserPredictionsHistory(@PathVariable(name="userId") Long id);
+    @GetMapping("/api/v1/predictions/user/history/{username}")
+    UserPredictionHistoryDto getUserPredictionsHistory(@PathVariable(name="username") String username);
 }

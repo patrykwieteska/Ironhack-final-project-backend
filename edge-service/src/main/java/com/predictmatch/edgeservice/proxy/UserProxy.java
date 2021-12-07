@@ -1,6 +1,9 @@
 package com.predictmatch.edgeservice.proxy;
 
+import com.predictmatch.edgeservice.dto.TokenResponse;
 import com.predictmatch.edgeservice.dto.team.TeamRequestDto;
+import com.predictmatch.edgeservice.dto.user.LoginRequest;
+import com.predictmatch.edgeservice.dto.user.RegisterRequest;
 import com.predictmatch.edgeservice.dto.user.UserInfoRequest;
 import com.predictmatch.edgeservice.dto.user.UserInfoResponse;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -19,15 +22,18 @@ public interface UserProxy {
     @GetMapping("/userinfo/api/v1/users/{id}")
     ResponseEntity<UserInfoResponse> findUserById(@PathVariable(name="id") Long id);
 
-    @PostMapping("/userinfo/api/v1/users")
-    ResponseEntity<UserInfoResponse> createUser(@RequestBody @Valid UserInfoRequest request);
+    @PostMapping("/userinfo/api/v1/register")
+    ResponseEntity<UserInfoResponse> registerUser(@RequestBody @Valid RegisterRequest request);
 
     @PatchMapping("/userinfo/api/v1/users/{userId}/team")
     ResponseEntity<UserInfoResponse> changeFavoriteTeam(@PathVariable(name="userId") Long id,
-                                                        @RequestBody TeamRequestDto team);
+                                                        @RequestBody TeamRequestDto team, @RequestHeader("Authorization") String bearerToken);
     @PutMapping("/userinfo/api/v1/users/{userId}")
     ResponseEntity<UserInfoResponse> updateUserInfo(@PathVariable(name="userId") Long id,
-                                                    @RequestBody UserInfoRequest request);
+                                                    @RequestBody UserInfoRequest request, @RequestHeader("Authorization") String bearerToken);
     @DeleteMapping("/userinfo/api/v1/users/{userId}")
-    ResponseEntity<String> removeUser(@PathVariable(name="userId") Long id); //wireframes, FIGMA
+    ResponseEntity<String> removeUser(@PathVariable(name="userId") Long id, @RequestHeader("Authorization") String bearerToken);
+
+    @PostMapping("/userinfo/api/v1/login")
+    TokenResponse login(@RequestBody @Valid LoginRequest loginRequest);
 }

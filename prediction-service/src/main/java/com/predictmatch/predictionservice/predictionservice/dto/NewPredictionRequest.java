@@ -12,7 +12,7 @@ import org.springframework.core.style.ToStringCreator;
 @NoArgsConstructor
 public class NewPredictionRequest {
     private Long fixtureId;
-    private Long userId;
+    private String username;
     private Integer predictedHomeGoals;
     private Integer predictedAwayGoals;
 
@@ -21,7 +21,7 @@ public class NewPredictionRequest {
     public String toString() {
         return new ToStringCreator( this )
                 .append( "fixtureId", fixtureId )
-                .append( "userId", userId )
+                .append( "username", username )
                 .append( "predictedHomeGoals", predictedHomeGoals )
                 .append( "predictedAwayGoals", predictedAwayGoals )
                 .toString();

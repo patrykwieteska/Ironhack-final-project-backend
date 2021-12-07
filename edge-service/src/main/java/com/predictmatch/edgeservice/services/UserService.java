@@ -1,17 +1,22 @@
 package com.predictmatch.edgeservice.services;
 
+import com.predictmatch.edgeservice.dto.TokenResponse;
+import com.predictmatch.edgeservice.dto.prediction.UserPredictionHistoryDto;
 import com.predictmatch.edgeservice.dto.team.TeamRequestDto;
+import com.predictmatch.edgeservice.dto.user.LoginRequest;
+import com.predictmatch.edgeservice.dto.user.RegisterRequest;
 import com.predictmatch.edgeservice.dto.user.UserInfoRequest;
 import com.predictmatch.edgeservice.dto.user.UserInfoResponse;
 import com.predictmatch.edgeservice.proxy.PredictionProxy;
 import com.predictmatch.edgeservice.proxy.UserProxy;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service @Slf4j
 public class UserService {
 
     public static final Logger logger = LoggerFactory.getLogger( UserService.class );
@@ -23,60 +28,57 @@ public class UserService {
     PredictionProxy predictionProxy;
 
     public ResponseEntity<UserInfoResponse> findProfileByUsername(String username) {
-
-        UserInfoResponse userInfoResponse= userProxy.findUserByUsername( username ).getBody();
+        log.info( "Searching for profile by username" );
+        UserInfoResponse userInfoResponse= userProxy.findUserByUsername( username).getBody();
 
 
         if(userInfoResponse!=null)
         userInfoResponse
                 .setPredictionHistory(
-                        predictionProxy.getUserPredictionsHistory( userInfoResponse.getUserId())
-                                .getBody());
+                        predictionProxy.getUserPredictionsHistory( userInfoResponse.getUsername()));
 
         return ResponseEntity.ok(userInfoResponse);
     }
 
-    public ResponseEntity<UserInfoResponse> createUserProfile(UserInfoRequest request) {
+    public ResponseEntity<UserInfoResponse> registerNewUser(RegisterRequest request) {
+        log.info( "Registering new user" );
+        UserInfoResponse userInfoResponse=userProxy.registerUser( request ).getBody();
 
-        UserInfoResponse userInfoResponse=userProxy.createUser( request ).getBody();
+        if(userInfoResponse!=null) {
+            UserPredictionHistoryDto userPredictionHistory = predictionProxy.getUserPredictionsHistory( userInfoResponse.getUsername());
+            userInfoResponse
+                    .setPredictionHistory(userPredictionHistory);
+        }
 
+        return ResponseEntity.ok(userInfoResponse);
+    }
+
+    public ResponseEntity<UserInfoResponse> changeFavouriteTeam(Long id, TeamRequestDto team, String token) {
+
+        UserInfoResponse userInfoResponse=userProxy.changeFavoriteTeam( id,team ,token).getBody();
         if(userInfoResponse!=null)
             userInfoResponse
                     .setPredictionHistory(
-                            predictionProxy.getUserPredictionsHistory( userInfoResponse.getUserId())
-                                    .getBody());
+                            predictionProxy.getUserPredictionsHistory( userInfoResponse.getUsername()));
 
         return ResponseEntity.ok(userInfoResponse);
     }
 
-    public ResponseEntity<UserInfoResponse> changeFavouriteTeam(Long id, TeamRequestDto team) {
+    public ResponseEntity<UserInfoResponse> updateProfile(Long id, UserInfoRequest request, String token) {
 
-        UserInfoResponse userInfoResponse=userProxy.changeFavoriteTeam( id,team ).getBody();
+        UserInfoResponse userInfoResponse=userProxy.updateUserInfo( id,request,token ).getBody();
         if(userInfoResponse!=null)
             userInfoResponse
                     .setPredictionHistory(
-                            predictionProxy.getUserPredictionsHistory( userInfoResponse.getUserId())
-                                    .getBody());
-
-        return ResponseEntity.ok(userInfoResponse);
-    }
-
-    public ResponseEntity<UserInfoResponse> updateProfile(Long id, UserInfoRequest request) {
-
-        UserInfoResponse userInfoResponse=userProxy.updateUserInfo( id,request ).getBody();
-        if(userInfoResponse!=null)
-            userInfoResponse
-                    .setPredictionHistory(
-                            predictionProxy.getUserPredictionsHistory( userInfoResponse.getUserId())
-                                    .getBody());
+                            predictionProxy.getUserPredictionsHistory( userInfoResponse.getUsername()));
 
         return ResponseEntity.ok(userInfoResponse);
 
 
     }
 
-    public ResponseEntity<String> deleteProfile(Long id) {
-        return userProxy.removeUser( id );
+    public ResponseEntity<String> deleteProfile(Long id,String token) {
+        return userProxy.removeUser( id ,token);
     }
 
 
@@ -86,10 +88,15 @@ public class UserService {
         if(userInfoResponse!=null)
             userInfoResponse
                     .setPredictionHistory(
-                            predictionProxy.getUserPredictionsHistory( userInfoResponse.getUserId())
-                                    .getBody());
+                            predictionProxy.getUserPredictionsHistory( userInfoResponse.getUsername()));
 
         return ResponseEntity.ok(userInfoResponse);
+
+    }
+
+    public ResponseEntity<TokenResponse> signIn(LoginRequest loginRequest) {
+
+        return ResponseEntity.ok(userProxy.login(loginRequest));
 
     }
 }

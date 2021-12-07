@@ -19,7 +19,7 @@ public class Prediction {
     private String predictionId;
     private Long fixtureId;
     private int roundId;
-    private Long userId;
+    private String username;
     private Integer predictedHomeGoals;
     private Integer predictedAwayGoals;
     private boolean predictedHomeWinner;
@@ -30,11 +30,12 @@ public class Prediction {
     private PredictionResult predictionResult;
 
 
-    public Prediction(Long fixtureId, int roundId, Long userId, Integer predictedHomeGoals, Integer predictedAwayGoals,
+    public Prediction(Long fixtureId, int roundId, String username, Integer predictedHomeGoals,
+                      Integer predictedAwayGoals,
                       boolean predictedHomeWinner, boolean predictedAwayWinner, LocalDateTime predictionDate, PredictionResult predictionResult) {
         this.fixtureId = fixtureId;
         this.roundId = roundId;
-        this.userId = userId;
+        this.username = username;
         this.predictedHomeGoals = predictedHomeGoals;
         this.predictedAwayGoals = predictedAwayGoals;
         this.predictedHomeWinner = predictedHomeWinner;

@@ -33,14 +33,15 @@ public class PredictionService {
     @Autowired
     LiveResultsProxy liveResultsProxy;
 
-    public ResponseEntity<PredictionResponse> predictMatch(NewPredictionRequest predictionRequest) {
+    public ResponseEntity<PredictionResponse> predictMatch(NewPredictionRequest predictionRequest, String token) {
 
-        Optional<UserInfoResponse> storedUser = Optional.ofNullable( userProxy.findUserById( predictionRequest.getUserId() ).getBody() );
+        Optional<UserInfoResponse> storedUser =
+                Optional.ofNullable( userProxy.findUserByUsername( predictionRequest.getUsername() ).getBody() );
         Optional<FixtureDto> storedFixture =
                 Optional.ofNullable( liveResultsProxy.findFixtureById( predictionRequest.getFixtureId()).getBody());
 
         if(storedUser.isEmpty())
-            throw new EntityNotFoundException("There is no user with id "+predictionRequest.getUserId());
+            throw new EntityNotFoundException("There is no user with id "+predictionRequest.getUsername());
 
         if(storedFixture.isEmpty())
             throw new EntityNotFoundException("There is no fixture with id "+predictionRequest.getFixtureId());
@@ -49,13 +50,13 @@ public class PredictionService {
 
     }
 
-    public ResponseEntity<List<FixturePredictionDto>> getFixturesPredictionsByRoundId(UserRoundFixtureRequest userRoundFixtureRequest) {
+    public ResponseEntity<List<FixturePredictionDto>> getFixturesPredictionsByRoundId(UserRoundFixtureRequest userRoundFixtureRequest, String token) {
 
         Optional<UserInfoResponse> userInfoResponse =
-                Optional.ofNullable( userProxy.findUserById( userRoundFixtureRequest.getUserId() ).getBody());
+                Optional.ofNullable( userProxy.findUserByUsername( userRoundFixtureRequest.getUsername() ).getBody());
 
         if(userInfoResponse.isEmpty())
-            throw new EntityNotFoundException("Not found user with id: "+userRoundFixtureRequest.getUserId());
+            throw new EntityNotFoundException("Not found user: "+userRoundFixtureRequest.getUsername());
 
 
         Optional<FixtureResponseDto> fixtureResponseDto =
@@ -73,7 +74,7 @@ public class PredictionService {
         List<FixturePredictionDto> fixturePredictionDtoList = new ArrayList<>();
 
         fixtureResponseDto.get().getFixtures().forEach( fixture -> {
-            GetPredictionRequest predictionRequest = new GetPredictionRequest(userRoundFixtureRequest.getUserId(),
+            GetPredictionRequest predictionRequest = new GetPredictionRequest(userRoundFixtureRequest.getUsername(),
                     fixture.getFixtureId());
 
             PredictionResponse predictionResponse =

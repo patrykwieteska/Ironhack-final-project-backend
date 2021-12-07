@@ -22,14 +22,14 @@ public class PredictionController {
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<PredictionResponse> predictMatch(@RequestBody NewPredictionRequest predictionRequest) {
-        return predictionService.predictMatch( predictionRequest );
+    ResponseEntity<PredictionResponse> predictMatch(@RequestBody NewPredictionRequest predictionRequest,@RequestHeader("Authorization") String token) {
+        return predictionService.predictMatch( predictionRequest,token );
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<List<FixturePredictionDto>> initFixturePredictionsByRoundId(@RequestBody @Valid UserRoundFixtureRequest userRoundFixtureRequest) {
-        return predictionService.getFixturesPredictionsByRoundId(userRoundFixtureRequest);
+    ResponseEntity<List<FixturePredictionDto>> initFixturePredictionsByRoundId(@RequestBody @Valid UserRoundFixtureRequest userRoundFixtureRequest,@RequestHeader("Authorization") String token) {
+        return predictionService.getFixturesPredictionsByRoundId(userRoundFixtureRequest,token);
     }
 
 

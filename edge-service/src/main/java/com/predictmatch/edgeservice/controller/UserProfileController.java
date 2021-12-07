@@ -9,8 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-
 @RestController
 @RequestMapping("/users")
 public class UserProfileController {
@@ -30,28 +28,22 @@ public class UserProfileController {
         return userService.findUserById(id);
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<UserInfoResponse> createProfile(@RequestBody @Valid UserInfoRequest request) {
-        return userService.createUserProfile(request);
-    }
-
     @PatchMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
     ResponseEntity<UserInfoResponse> changeFavoriteTeam(@PathVariable(name="userId") Long id,
-                                                        @RequestBody TeamRequestDto team) {
-        return userService.changeFavouriteTeam(id, team);
+                                                        @RequestBody TeamRequestDto team,@RequestHeader("Authorization") String token) {
+        return userService.changeFavouriteTeam(id, team,token);
     }
     @PutMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
     ResponseEntity<UserInfoResponse> updateUserInfo(@PathVariable(name="userId") Long id,
-                                                    @RequestBody UserInfoRequest request) {
-       return userService.updateProfile(id,request);
+                                                    @RequestBody UserInfoRequest request,@RequestHeader("Authorization") String token) {
+       return userService.updateProfile(id,request,token);
     }
 
     @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    ResponseEntity<String> removeUser(@PathVariable(name="userId") Long id) {
-        return userService.deleteProfile(id);
+    ResponseEntity<String> removeUser(@PathVariable(name="userId") Long id,@RequestHeader("Authorization") String token) {
+        return userService.deleteProfile(id,token);
     }
 }

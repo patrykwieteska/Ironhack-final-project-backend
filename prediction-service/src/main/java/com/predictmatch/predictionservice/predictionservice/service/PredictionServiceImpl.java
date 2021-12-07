@@ -10,6 +10,7 @@ import com.predictmatch.predictionservice.predictionservice.exceptions.Predictio
 import com.predictmatch.predictionservice.predictionservice.mapper.PredictionMapper;
 import com.predictmatch.predictionservice.predictionservice.repository.PredictionRepository;
 import com.predictmatch.predictionservice.predictionservice.repository.PredictionResultRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
-@Service
+@Service @Slf4j
 public class PredictionServiceImpl implements PredictionService {
 
     @Autowired
@@ -43,7 +44,7 @@ public class PredictionServiceImpl implements PredictionService {
 
         Prediction prediction = PredictionMapper.predictionRequestToPrediction( newPredictionRequest,fixture,null);
 
-        if(newPredictionRequest.getUserId()==null || newPredictionRequest.getUserId()==0)
+        if(newPredictionRequest.getUsername()==null || newPredictionRequest.getUsername().equals( "" ))
             throw new NoSuchElementException("User id cannot be null or 0");
 
 
@@ -79,7 +80,7 @@ public class PredictionServiceImpl implements PredictionService {
 
 
         Optional<Prediction> storedPrediction =
-                predictionRepository.findById( predictionRequest.getFixtureId()+"_"+ predictionRequest.getUserId());
+                predictionRepository.findById( predictionRequest.getFixtureId()+"_"+ predictionRequest.getUsername());
 
         // check if there is prediction for the fixture
         if(storedPrediction.isEmpty())
@@ -112,9 +113,9 @@ public class PredictionServiceImpl implements PredictionService {
     }
 
     @Override
-    public ResponseEntity<List<PredictionResponse>> getAllUserPredictions(Long userId) {
+    public ResponseEntity<List<PredictionResponse>> getAllUserPredictions(String username) {
 
-        List<Prediction> userPredictions = predictionRepository.findByUserId( userId );
+        List<Prediction> userPredictions = predictionRepository.findByUsername( username );
         List<PredictionResponse> predictionList = new ArrayList<>();
 
         if(userPredictions.size()==0)
@@ -131,16 +132,21 @@ public class PredictionServiceImpl implements PredictionService {
     }
 
     @Override
-    public ResponseEntity<UserPredictionHistoryDto> getUserPredictionHistory(Long id) {
-
-        List<IUserPredictionInfo> userPredictionInfoList = predictionResultRepository.getUserPredictionsByStatus( id );
-
-        if(userPredictionInfoList.size()==0)
-            return ResponseEntity.ok(new UserPredictionHistoryDto(0,0,0,0));
+    public UserPredictionHistoryDto getUserPredictionHistory(String username) {
 
 
-        Integer totalPredictions = predictionResultRepository.getUserTotalPoints( id );
+        List<IUserPredictionInfo> userPredictionInfoList = predictionResultRepository.getUserPredictionsByStatus( username );
+        Integer totalPredictions = predictionResultRepository.getUserTotalPoints( username );
 
-         return ResponseEntity.ok(PredictionMapper.infoToPredictionHistory(userPredictionInfoList,totalPredictions));
+        log.info( "userPredictionInfoList {}",userPredictionInfoList );
+        log.info( "totalPredictions {}",totalPredictions );
+
+        if(userPredictionInfoList.size() == 0 || totalPredictions==0) {
+            log.info( "new UserPredictionHistoryDto: {}",new UserPredictionHistoryDto(0,0,0,0) );
+            return new UserPredictionHistoryDto(0,0,0,0);
+        }
+
+
+        return PredictionMapper.infoToPredictionHistory(userPredictionInfoList,totalPredictions);
     }
 }

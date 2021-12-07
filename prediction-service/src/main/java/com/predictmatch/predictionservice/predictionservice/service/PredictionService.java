@@ -13,7 +13,7 @@ public interface PredictionService {
 
     ResponseEntity<PredictionResponse> getUserPredictionByFixture(GetPredictionRequest predictionRequest);
 
-    ResponseEntity<List<PredictionResponse>> getAllUserPredictions(Long id);
+    ResponseEntity<List<PredictionResponse>> getAllUserPredictions(String username);
 
-    ResponseEntity<UserPredictionHistoryDto> getUserPredictionHistory(Long id);
+    UserPredictionHistoryDto getUserPredictionHistory(String username);
 }
