@@ -88,7 +88,7 @@ public class ApiSchedulerService implements SchedulingConfigurer {
                                 Optional.ofNullable(context.lastCompletionTime());
                         Instant nextExecutionTime =
                                 lastCompletionTime.orElseGet(Date::new).toInstant()
-                                        .plusMillis(600000); // call every 10 minutes
+                                        .plusMillis(10 * 60 * 1000); // call every 10 minutes
                         return Date.from(nextExecutionTime);
                     }
                 }
