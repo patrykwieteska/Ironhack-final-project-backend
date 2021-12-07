@@ -9,7 +9,7 @@
 	* set **api.football.live** on **true**
 
 4. Run config-server project
-5. Run projecst from this repo in the following order:
+5. Run projects from this repo in the following order:
 	
 	1. discovery-server
 	2. live-results-service
