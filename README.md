@@ -2,7 +2,7 @@
 ## How to run it:
 1. Clone this reposutory
 2. Clone config-server repository: https://github.com/patrykwieteska/Ironhack-final-project-config-server
-3. If you want to work on live football results you have to change live-results-service properties:
+3. If you want to run it with live football results you have to change live-results-service properties:
 	
 	* set **api.football.api.key** on your own API-FOOTBALL key (https://rapidapi.com/api-sports/api/api-football/)
 	
