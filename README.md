@@ -17,7 +17,7 @@
 	4. prediction-service
 	5. live-results-service
 
-## API DOCUMENTATION (SWAGGER):
+## API Documentation (SWAGGER):
 http://localhost:8400/predictmatch/api/v1/swagger-ui/#/
 
   
