@@ -8,9 +8,12 @@ import com.predictmatch.edgeservice.dto.prediction.GetPredictionRequest;
 import com.predictmatch.edgeservice.dto.prediction.NewPredictionRequest;
 import com.predictmatch.edgeservice.dto.prediction.PredictionResponse;
 import com.predictmatch.edgeservice.dto.user.UserInfoResponse;
+import com.predictmatch.edgeservice.dto.user.UserVerificationRequest;
 import com.predictmatch.edgeservice.proxy.LiveResultsProxy;
 import com.predictmatch.edgeservice.proxy.PredictionProxy;
 import com.predictmatch.edgeservice.proxy.UserProxy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,6 +26,8 @@ import java.util.Optional;
 @Service
 public class PredictionService {
 
+    private final Logger logger = LoggerFactory.getLogger( PredictionService.class );
+
 
     @Autowired
     PredictionProxy predictionProxy;
@@ -33,14 +38,20 @@ public class PredictionService {
     @Autowired
     LiveResultsProxy liveResultsProxy;
 
-    public ResponseEntity<PredictionResponse> predictMatch(NewPredictionRequest predictionRequest) {
+    public ResponseEntity<PredictionResponse> predictMatch(NewPredictionRequest predictionRequest, String token) {
 
-        Optional<UserInfoResponse> storedUser = Optional.ofNullable( userProxy.findUserById( predictionRequest.getUserId() ).getBody() );
+        if(Boolean.FALSE.equals( userProxy.verifyUsername( new UserVerificationRequest( predictionRequest.getUsername() ), token ).getBody() )){
+            logger.error( "Error: Unauthorized operation! No permission to predict match" );
+            throw new IllegalArgumentException("Unauthorized operation! No permission to predict match");
+        }
+
+        Optional<UserInfoResponse> storedUser =
+                Optional.ofNullable( userProxy.findUserByUsername( predictionRequest.getUsername() ).getBody() );
         Optional<FixtureDto> storedFixture =
                 Optional.ofNullable( liveResultsProxy.findFixtureById( predictionRequest.getFixtureId()).getBody());
 
         if(storedUser.isEmpty())
-            throw new EntityNotFoundException("There is no user with id "+predictionRequest.getUserId());
+            throw new EntityNotFoundException("There is no user "+predictionRequest.getUsername());
 
         if(storedFixture.isEmpty())
             throw new EntityNotFoundException("There is no fixture with id "+predictionRequest.getFixtureId());
@@ -49,13 +60,18 @@ public class PredictionService {
 
     }
 
-    public ResponseEntity<List<FixturePredictionDto>> getFixturesPredictionsByRoundId(UserRoundFixtureRequest userRoundFixtureRequest) {
+    public ResponseEntity<List<FixturePredictionDto>> getFixturesPredictionsByRoundId(UserRoundFixtureRequest userRoundFixtureRequest, String token) {
+
+        if(Boolean.FALSE.equals( userProxy.verifyUsername( new UserVerificationRequest( userRoundFixtureRequest.getUsername() ), token ).getBody() )){
+            logger.error( "Error: Unauthorized operation! No permission to predict match" );
+            throw new IllegalArgumentException("Unauthorized operation! No permission to predict match");
+        }
 
         Optional<UserInfoResponse> userInfoResponse =
-                Optional.ofNullable( userProxy.findUserById( userRoundFixtureRequest.getUserId() ).getBody());
+                Optional.ofNullable( userProxy.findUserByUsername( userRoundFixtureRequest.getUsername() ).getBody());
 
         if(userInfoResponse.isEmpty())
-            throw new EntityNotFoundException("Not found user with id: "+userRoundFixtureRequest.getUserId());
+            throw new EntityNotFoundException("Not found user: "+userRoundFixtureRequest.getUsername());
 
 
         Optional<FixtureResponseDto> fixtureResponseDto =
@@ -73,7 +89,7 @@ public class PredictionService {
         List<FixturePredictionDto> fixturePredictionDtoList = new ArrayList<>();
 
         fixtureResponseDto.get().getFixtures().forEach( fixture -> {
-            GetPredictionRequest predictionRequest = new GetPredictionRequest(userRoundFixtureRequest.getUserId(),
+            GetPredictionRequest predictionRequest = new GetPredictionRequest(userRoundFixtureRequest.getUsername(),
                     fixture.getFixtureId());
 
             PredictionResponse predictionResponse =

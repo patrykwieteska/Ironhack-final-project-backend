@@ -1,4 +1,4 @@
-package com.predictmatch.edgeservice.dto.user;
+package com.predictmatch.userinfo.dto.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,12 +11,16 @@ import javax.validation.constraints.Email;
 @NoArgsConstructor
 @Setter
 @Getter
-public class UserInfoRequest {
+public class RegisterRequest {
+
     private String username;
+    private String password;
+    private String repeatedPassword;
     private String city;
     private String country;
     private String info;
     @Email
     private String email;
-    private long teamId;
+    private Long teamId;
+
 }

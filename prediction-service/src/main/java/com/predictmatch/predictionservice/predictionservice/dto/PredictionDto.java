@@ -15,7 +15,7 @@ public class PredictionDto {
     private String id;
     private Long fixtureId;
     private int roundId;
-    private Long userId;
+    private String username;
     private Integer predictedHomeGoals;
     private Integer predictedAwayGoals;
     private boolean predictedHomeWinner;

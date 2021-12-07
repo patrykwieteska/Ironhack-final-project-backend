@@ -1,13 +1,14 @@
 package com.predictmatch.userinfo.controller;
 
-import com.predictmatch.userinfo.dto.*;
+import com.predictmatch.userinfo.dto.TeamRequestDto;
+import com.predictmatch.userinfo.dto.UserInfoRequest;
+import com.predictmatch.userinfo.dto.UserInfoResponse;
 import com.predictmatch.userinfo.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/userinfo/api/v1/users")
@@ -30,29 +31,27 @@ public class UserInfoController {
         return userInfoService.findUserById(id);
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<UserInfoResponse> createUser(@RequestBody @Valid UserInfoRequest request) {
-        return userInfoService.createUser(request);
-    }
 
     @PatchMapping("/{userId}/team")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<UserInfoResponse> changeFavoriteTeam(@PathVariable(name="userId") Long id,
-                                                        @RequestBody TeamRequestDto team) {
-        return userInfoService.changeFavouriteTeam(id, team);
+    @PreAuthorize("hasRole('USER')")
+    ResponseEntity<?> changeFavoriteTeam(@PathVariable(name="userId") String username,
+                                                        @RequestBody TeamRequestDto team,@RequestHeader("Authorization") String token) {
+        return userInfoService.changeFavouriteTeam(username, team,token);
     }
 
     @PutMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<UserInfoResponse> updateUserInfo(@PathVariable(name="userId") Long id,
-                                    @RequestBody UserInfoRequest request) {
-        return userInfoService.updateUserInfo(id,request);
+    @PreAuthorize("hasRole('USER')")
+    ResponseEntity<?> updateUserInfo(@PathVariable(name="userId") String username,
+                                    @RequestBody UserInfoRequest request,@RequestHeader("Authorization") String token) {
+        return userInfoService.updateUserInfo(username,request,token);
     }
 
     @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    ResponseEntity<String> removeUser(@PathVariable(name="userId") Long id) {
-        return userInfoService.removeUser(id);
+    @PreAuthorize("hasRole('USER')")
+    ResponseEntity<String> removeUser(@PathVariable(name="userId") String username,@RequestHeader("Authorization") String token) {
+        return userInfoService.removeUser(username,token);
     }
 }

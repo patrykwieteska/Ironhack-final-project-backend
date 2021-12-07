@@ -11,6 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetPredictionRequest {
-    Long userId;
+    String username;
     Long fixtureId;
 }

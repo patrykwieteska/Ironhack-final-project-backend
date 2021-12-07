@@ -37,14 +37,14 @@ public class PredictionController {
         return predictionService.getUserPredictionByFixture(predictionRequest);
     }
 
-    @GetMapping("user/{userId}")
-    ResponseEntity<List<PredictionResponse>> getAllUserPredictions(@PathVariable(name="userId") Long id) {
-        return predictionService.getAllUserPredictions( id );
+    @GetMapping("user/{username}")
+    ResponseEntity<List<PredictionResponse>> getAllUserPredictions(@PathVariable(name="username") String username) {
+        return predictionService.getAllUserPredictions( username );
     }
 
-    @GetMapping("/user/history/{userId}")
-    ResponseEntity<UserPredictionHistoryDto> getUserPredictionsHistory(@PathVariable(name="userId") Long id) {
-        return predictionService.getUserPredictionHistory( id );
+    @GetMapping("/user/history/{username}")
+    UserPredictionHistoryDto getUserPredictionsHistory(@PathVariable(name="username") String username) {
+        return predictionService.getUserPredictionHistory( username );
     }
 
 

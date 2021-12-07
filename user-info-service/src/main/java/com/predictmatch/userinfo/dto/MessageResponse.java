@@ -1,4 +1,4 @@
-package com.predictmatch.edgeservice.dto.fixture.predicted;
+package com.predictmatch.userinfo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,9 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class UserRoundFixtureRequest {
+public class MessageResponse {
 
-    String username;
-    Integer round;
-
+    private String message;
 }

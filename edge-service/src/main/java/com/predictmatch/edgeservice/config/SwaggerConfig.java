@@ -28,7 +28,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "PREDICT MATCH REST API",
+                "EDGE-SERVICE REST API",
                 "Edge service rest api for match prediction application",
                 "v1",
                 "",

@@ -1,4 +1,4 @@
-package com.predictmatch.edgeservice.dto.fixture.predicted;
+package com.predictmatch.userinfo.dto.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,9 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class UserRoundFixtureRequest {
-
-    String username;
-    Integer round;
-
+public class LoginRequest {
+    private String username;
+    private String password;
 }

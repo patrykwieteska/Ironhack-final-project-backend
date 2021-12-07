@@ -12,10 +12,10 @@ import java.util.List;
 public interface PredictionResultRepository  extends JpaRepository<PredictionResult,Long> {
 
     @Query(value = "select pr.status, sum(points) from prediction_result pr left join prediction p on p" +
-            ".prediction_result_id = pr.id where p.user_id=:userId group by pr.status",nativeQuery = true)
-    List<IUserPredictionInfo> getUserPredictionsByStatus(Long userId);
+            ".prediction_result_id = pr.id where p.username=:username group by pr.status",nativeQuery = true)
+    List<IUserPredictionInfo> getUserPredictionsByStatus(String username);
 
     @Query(value="select count(*) from prediction_result pr left join prediction p on p.prediction_result_id=pr.id " +
-            "where p.user_id=:userId", nativeQuery = true)
-    Integer getUserTotalPoints(Long userId);
+            "where p.username=:username", nativeQuery = true)
+    Integer getUserTotalPoints(String username);
 }

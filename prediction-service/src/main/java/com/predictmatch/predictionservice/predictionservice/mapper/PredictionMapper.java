@@ -24,10 +24,10 @@ public class PredictionMapper {
         boolean awayTeamWinner = newPredictionRequest.getPredictedAwayGoals() > newPredictionRequest.getPredictedHomeGoals();
 
         return new Prediction(
-                newPredictionRequest.getFixtureId()+"_"+ newPredictionRequest.getUserId(),
+                newPredictionRequest.getFixtureId()+"_"+ newPredictionRequest.getUsername(),
                 fixtureDto.getFixtureId(),
                 fixtureDto.getRound(),
-                newPredictionRequest.getUserId(),
+                newPredictionRequest.getUsername(),
                 newPredictionRequest.getPredictedHomeGoals(),
                 newPredictionRequest.getPredictedAwayGoals(),
                 homeTeamWinner,
@@ -44,7 +44,7 @@ public class PredictionMapper {
                 prediction.getPredictionId(),
                 prediction.getFixtureId(),
                 prediction.getRoundId(),
-                prediction.getUserId(),
+                prediction.getUsername(),
                 prediction.getPredictedHomeGoals(),
                 prediction.getPredictedAwayGoals(),
                 prediction.isPredictedHomeWinner(),
@@ -90,7 +90,6 @@ public class PredictionMapper {
     public static UserPredictionHistoryDto infoToPredictionHistory(
                                                                    List<IUserPredictionInfo> userPredictionInfoList,
                                                                    Integer totalPredictions) {
-
         Integer exactResults = 0;
         Integer correctResults = 0;
         int totalPoints = 0;

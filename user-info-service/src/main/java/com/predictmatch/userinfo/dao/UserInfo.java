@@ -1,5 +1,6 @@
 package com.predictmatch.userinfo.dao;
 
+import com.predictmatch.userinfo.dao.auth.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,13 +37,7 @@ public class UserInfo {
 
     private long favoriteTeamId;
 
-    public UserInfo(String username, @Nullable String city, @Nullable String country, @Nullable String info,
-                    String email, long favoriteTeam) {
-        this.username = username;
-        this.city = city;
-        this.country = country;
-        this.info = info;
-        this.email = email;
-        this.favoriteTeamId = favoriteTeam;
-    }
+    @OneToOne
+    @JoinColumn(name = "user_id",nullable = false)
+    User user;
 }

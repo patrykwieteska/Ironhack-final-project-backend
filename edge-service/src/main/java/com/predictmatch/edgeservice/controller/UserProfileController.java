@@ -9,8 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-
 @RestController
 @RequestMapping("/users")
 public class UserProfileController {
@@ -24,34 +22,29 @@ public class UserProfileController {
         return userService.findProfileByUsername(username);
     }
 
-    @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<UserInfoResponse> findUserById(@PathVariable(name="id") Long id) {
-        return userService.findUserById(id);
+//    @GetMapping("/{id}")
+//    @ResponseStatus(HttpStatus.CREATED)
+//    ResponseEntity<UserInfoResponse> findUserById(@PathVariable(name="id") Long id) {
+//        return userService.findUserById(id);
+//    }
+
+    @PatchMapping("/{username}")
+    @ResponseStatus(HttpStatus.OK)
+    ResponseEntity<UserInfoResponse> changeFavoriteTeam(@PathVariable(name="username") String username,
+                                                        @RequestBody TeamRequestDto team,@RequestHeader("Authorization") String token) {
+        return userService.changeFavouriteTeam(username, team,token);
+    }
+    @PutMapping("/{username}")
+    @ResponseStatus(HttpStatus.OK)
+    ResponseEntity<UserInfoResponse> updateUserInfo(@PathVariable(name="username") String username,
+                                                    @RequestBody UserInfoRequest request,@RequestHeader("Authorization") String token) {
+       return userService.updateProfile(username,request,token);
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<UserInfoResponse> createProfile(@RequestBody @Valid UserInfoRequest request) {
-        return userService.createUserProfile(request);
-    }
-
-    @PatchMapping("/{userId}")
-    @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<UserInfoResponse> changeFavoriteTeam(@PathVariable(name="userId") Long id,
-                                                        @RequestBody TeamRequestDto team) {
-        return userService.changeFavouriteTeam(id, team);
-    }
-    @PutMapping("/{userId}")
-    @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<UserInfoResponse> updateUserInfo(@PathVariable(name="userId") Long id,
-                                                    @RequestBody UserInfoRequest request) {
-       return userService.updateProfile(id,request);
-    }
-
-    @DeleteMapping("/{userId}")
+    @DeleteMapping("/{username}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    ResponseEntity<String> removeUser(@PathVariable(name="userId") Long id) {
-        return userService.deleteProfile(id);
+    ResponseEntity<String> removeUser(@PathVariable(name="username") String username,
+                                      @RequestHeader("Authorization") String token) {
+        return userService.deleteProfile(username,token);
     }
 }
