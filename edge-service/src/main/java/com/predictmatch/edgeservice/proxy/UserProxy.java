@@ -26,13 +26,13 @@ public interface UserProxy {
     ResponseEntity<UserInfoResponse> registerUser(@RequestBody @Valid RegisterRequest request);
 
     @PatchMapping("/userinfo/api/v1/users/{userId}/team")
-    ResponseEntity<UserInfoResponse> changeFavoriteTeam(@PathVariable(name="userId") Long id,
+    ResponseEntity<UserInfoResponse> changeFavoriteTeam(@PathVariable(name="userId") String username,
                                                         @RequestBody TeamRequestDto team, @RequestHeader("Authorization") String bearerToken);
     @PutMapping("/userinfo/api/v1/users/{userId}")
-    ResponseEntity<UserInfoResponse> updateUserInfo(@PathVariable(name="userId") Long id,
+    ResponseEntity<UserInfoResponse> updateUserInfo(@PathVariable(name="userId") String username,
                                                     @RequestBody UserInfoRequest request, @RequestHeader("Authorization") String bearerToken);
     @DeleteMapping("/userinfo/api/v1/users/{userId}")
-    ResponseEntity<String> removeUser(@PathVariable(name="userId") Long id, @RequestHeader("Authorization") String bearerToken);
+    ResponseEntity<String> removeUser(@PathVariable(name="userId") String username, @RequestHeader("Authorization") String bearerToken);
 
     @PostMapping("/userinfo/api/v1/login")
     TokenResponse login(@RequestBody @Valid LoginRequest loginRequest);

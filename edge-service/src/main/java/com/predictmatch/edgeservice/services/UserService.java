@@ -53,9 +53,9 @@ public class UserService {
         return ResponseEntity.ok(userInfoResponse);
     }
 
-    public ResponseEntity<UserInfoResponse> changeFavouriteTeam(Long id, TeamRequestDto team, String token) {
+    public ResponseEntity<UserInfoResponse> changeFavouriteTeam(String username, TeamRequestDto team, String token) {
 
-        UserInfoResponse userInfoResponse=userProxy.changeFavoriteTeam( id,team ,token).getBody();
+        UserInfoResponse userInfoResponse=userProxy.changeFavoriteTeam( username,team ,token).getBody();
         if(userInfoResponse!=null)
             userInfoResponse
                     .setPredictionHistory(
@@ -64,9 +64,9 @@ public class UserService {
         return ResponseEntity.ok(userInfoResponse);
     }
 
-    public ResponseEntity<UserInfoResponse> updateProfile(Long id, UserInfoRequest request, String token) {
+    public ResponseEntity<UserInfoResponse> updateProfile(String username, UserInfoRequest request, String token) {
 
-        UserInfoResponse userInfoResponse=userProxy.updateUserInfo( id,request,token ).getBody();
+        UserInfoResponse userInfoResponse=userProxy.updateUserInfo( username,request,token ).getBody();
         if(userInfoResponse!=null)
             userInfoResponse
                     .setPredictionHistory(
@@ -77,8 +77,8 @@ public class UserService {
 
     }
 
-    public ResponseEntity<String> deleteProfile(Long id,String token) {
-        return userProxy.removeUser( id ,token);
+    public ResponseEntity<String> deleteProfile(String username, String token) {
+        return userProxy.removeUser( username ,token);
     }
 
 

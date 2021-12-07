@@ -12,9 +12,9 @@ public interface UserInfoService {
 
     UserInfoResponse createUserProfile(RegisterRequest request, User user);
 
-    ResponseEntity<UserInfoResponse> changeFavouriteTeam(Long id, TeamRequestDto team);
+    ResponseEntity<?> changeFavouriteTeam(String username, TeamRequestDto team, String token);
 
-    ResponseEntity<UserInfoResponse> updateUserInfo(Long id, UserInfoRequest request);
+    ResponseEntity<?> updateUserInfo(String username, UserInfoRequest request, String token);
 
-    ResponseEntity<String> removeUser(Long id);
+    ResponseEntity<String> removeUser(String username, String token);
 }

@@ -22,28 +22,29 @@ public class UserProfileController {
         return userService.findProfileByUsername(username);
     }
 
-    @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
-    ResponseEntity<UserInfoResponse> findUserById(@PathVariable(name="id") Long id) {
-        return userService.findUserById(id);
-    }
+//    @GetMapping("/{id}")
+//    @ResponseStatus(HttpStatus.CREATED)
+//    ResponseEntity<UserInfoResponse> findUserById(@PathVariable(name="id") Long id) {
+//        return userService.findUserById(id);
+//    }
 
-    @PatchMapping("/{userId}")
+    @PatchMapping("/{username}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<UserInfoResponse> changeFavoriteTeam(@PathVariable(name="userId") Long id,
+    ResponseEntity<UserInfoResponse> changeFavoriteTeam(@PathVariable(name="username") String username,
                                                         @RequestBody TeamRequestDto team,@RequestHeader("Authorization") String token) {
-        return userService.changeFavouriteTeam(id, team,token);
+        return userService.changeFavouriteTeam(username, team,token);
     }
-    @PutMapping("/{userId}")
+    @PutMapping("/{username}")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<UserInfoResponse> updateUserInfo(@PathVariable(name="userId") Long id,
+    ResponseEntity<UserInfoResponse> updateUserInfo(@PathVariable(name="username") String username,
                                                     @RequestBody UserInfoRequest request,@RequestHeader("Authorization") String token) {
-       return userService.updateProfile(id,request,token);
+       return userService.updateProfile(username,request,token);
     }
 
-    @DeleteMapping("/{userId}")
+    @DeleteMapping("/{username}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    ResponseEntity<String> removeUser(@PathVariable(name="userId") Long id,@RequestHeader("Authorization") String token) {
-        return userService.deleteProfile(id,token);
+    ResponseEntity<String> removeUser(@PathVariable(name="username") String username,
+                                      @RequestHeader("Authorization") String token) {
+        return userService.deleteProfile(username,token);
     }
 }
