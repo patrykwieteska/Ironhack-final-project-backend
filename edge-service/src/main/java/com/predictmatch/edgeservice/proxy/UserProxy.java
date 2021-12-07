@@ -2,10 +2,7 @@ package com.predictmatch.edgeservice.proxy;
 
 import com.predictmatch.edgeservice.dto.TokenResponse;
 import com.predictmatch.edgeservice.dto.team.TeamRequestDto;
-import com.predictmatch.edgeservice.dto.user.LoginRequest;
-import com.predictmatch.edgeservice.dto.user.RegisterRequest;
-import com.predictmatch.edgeservice.dto.user.UserInfoRequest;
-import com.predictmatch.edgeservice.dto.user.UserInfoResponse;
+import com.predictmatch.edgeservice.dto.user.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,4 +33,8 @@ public interface UserProxy {
 
     @PostMapping("/userinfo/api/v1/login")
     TokenResponse login(@RequestBody @Valid LoginRequest loginRequest);
+
+    @PostMapping("/userinfo/api/v1/verify")
+    public ResponseEntity<Boolean> verifyUsername(@RequestBody @Valid UserVerificationRequest verifyUser,
+                                            @RequestHeader("Authorization") String bearerToken);
 }

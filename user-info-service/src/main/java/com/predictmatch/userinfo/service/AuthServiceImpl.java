@@ -1,13 +1,16 @@
 package com.predictmatch.userinfo.service;
 
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.predictmatch.userinfo.dao.auth.Role;
 import com.predictmatch.userinfo.dao.auth.User;
 import com.predictmatch.userinfo.dto.MessageResponse;
 import com.predictmatch.userinfo.dto.UserInfoResponse;
 import com.predictmatch.userinfo.dto.auth.RegisterRequest;
+import com.predictmatch.userinfo.dto.auth.UserVerificationRequest;
 import com.predictmatch.userinfo.repository.RoleRepository;
 import com.predictmatch.userinfo.repository.UserInfoRepository;
 import com.predictmatch.userinfo.repository.UserRepository;
+import com.predictmatch.userinfo.security.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,6 +46,9 @@ public class AuthServiceImpl implements AuthService, UserDetailsService {
     @Autowired
     UserInfoRepository userInfoRepository;
 
+    @Autowired
+    JwtUtils jwtUtils;
+
 
     @Override
     public Role saveRole(Role role) {
@@ -71,6 +77,21 @@ public class AuthServiceImpl implements AuthService, UserDetailsService {
     public List<User> getUsers() {
         log.info("Fetching all users");
         return userRepository.findAll();
+    }
+
+    @Override
+    public ResponseEntity<Boolean> verifyUsername(UserVerificationRequest verifyUser, String token) {
+        DecodedJWT decodedJWT = jwtUtils.decodeJwtToken( token );
+
+        String tokenUsername = decodedJWT.getSubject();
+        String username= verifyUser.getUsername();
+
+        if(!tokenUsername.equals( username )) {
+            log.error( "Error: Unauthorized operation!" );
+            return ResponseEntity.status( HttpStatus.UNAUTHORIZED ).body(false);
+        }
+
+        return ResponseEntity.status( HttpStatus.OK).body( true);
     }
 
     @Override

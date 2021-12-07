@@ -34,6 +34,7 @@ public class UserInfoController {
 
     @PatchMapping("/{userId}/team")
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasRole('USER')")
     ResponseEntity<?> changeFavoriteTeam(@PathVariable(name="userId") String username,
                                                         @RequestBody TeamRequestDto team,@RequestHeader("Authorization") String token) {
         return userInfoService.changeFavouriteTeam(username, team,token);
@@ -49,6 +50,7 @@ public class UserInfoController {
 
     @DeleteMapping("/{userId}")
     @ResponseStatus(HttpStatus.ACCEPTED)
+    @PreAuthorize("hasRole('USER')")
     ResponseEntity<String> removeUser(@PathVariable(name="userId") String username,@RequestHeader("Authorization") String token) {
         return userInfoService.removeUser(username,token);
     }

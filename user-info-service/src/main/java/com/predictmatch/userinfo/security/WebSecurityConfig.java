@@ -44,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers( POST,"/userinfo/api/v1/login/**","/userinfo/api/v1/register/**" ).permitAll();
         http.authorizeRequests().antMatchers( POST,"http://user-info-service/userinfo/api/v1/login/**" ).permitAll();
         http.authorizeRequests().antMatchers("/userinfo/api/v1/users/**").hasAnyAuthority( "ROLE_USER");
+        http.authorizeRequests().antMatchers(POST,"/userinfo/api/v1/verify/**").hasAnyAuthority( "ROLE_USER");
         http.authorizeRequests().anyRequest().authenticated();
         http.addFilter( customAuthenticationFilter);
         http.addFilterBefore( new CustomAuthorizationFilter(jwtUtils), UsernamePasswordAuthenticationFilter.class );

@@ -28,9 +28,8 @@ public class PredictionController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<List<FixturePredictionDto>> initFixturePredictionsByRoundId(@RequestBody @Valid UserRoundFixtureRequest userRoundFixtureRequest,@RequestHeader("Authorization") String token) {
+    ResponseEntity<List<FixturePredictionDto>> initFixturePredictionsByRoundId(@RequestBody @Valid UserRoundFixtureRequest userRoundFixtureRequest,
+                                                                               @RequestHeader("Authorization") String token) {
         return predictionService.getFixturesPredictionsByRoundId(userRoundFixtureRequest,token);
     }
-
-
 }
