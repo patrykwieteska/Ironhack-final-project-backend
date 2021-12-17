@@ -50,7 +50,6 @@ public class ApiSchedulerService implements SchedulingConfigurer {
         LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
         LocalDateTime nextMatchDate = fixtureRepository.getNextMatchDate();
         int liveMatches = fixtureRepository.getNumberOfLiveMatches(); // TODO --> what if last match will start -->
-        // ERROR?
 
 
         if((liveMatches>0 && ChronoUnit.MINUTES.between( lastApiCallDate,now) >20)
@@ -88,7 +87,7 @@ public class ApiSchedulerService implements SchedulingConfigurer {
                                 Optional.ofNullable(context.lastCompletionTime());
                         Instant nextExecutionTime =
                                 lastCompletionTime.orElseGet(Date::new).toInstant()
-                                        .plusMillis(600000); // call every 10 minutes
+                                        .plusMillis(10 * 60 * 1000); // call every 10 minutes
                         return Date.from(nextExecutionTime);
                     }
                 }

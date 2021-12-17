@@ -40,7 +40,7 @@ public class UserService {
         return ResponseEntity.ok(userInfoResponse);
     }
 
-    public ResponseEntity<UserInfoResponse> registerNewUser(RegisterRequest request) {
+    public ResponseEntity<?> registerNewUser(RegisterRequest request) {
         log.info( "Registering new user" );
         UserInfoResponse userInfoResponse=userProxy.registerUser( request ).getBody();
 
@@ -50,7 +50,7 @@ public class UserService {
                     .setPredictionHistory(userPredictionHistory);
         }
 
-        return ResponseEntity.ok(userInfoResponse);
+        return ResponseEntity.ok("User "+ request.getUsername() + " created!");
     }
 
     public ResponseEntity<UserInfoResponse> changeFavouriteTeam(String username, TeamRequestDto team, String token) {
