@@ -11,6 +11,7 @@ import com.predictmatch.userinfo.dto.auth.RegisterRequest;
 import com.predictmatch.userinfo.exceptions.UserAlreadyExistsException;
 import com.predictmatch.userinfo.mapper.Mapper;
 import com.predictmatch.userinfo.repository.UserInfoRepository;
+import com.predictmatch.userinfo.repository.UserRepository;
 import com.predictmatch.userinfo.security.JwtUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,9 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Autowired
     JwtUtils jwtUtils;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Transactional
     @Override
@@ -141,16 +145,19 @@ public class UserInfoServiceImpl implements UserInfoService {
 
         Optional<UserInfo> storedUser = userInfoRepository.findById( tokenUserId );
 
+
         if(storedUser.isEmpty())
             throw new EntityNotFoundException("Not found user with id: "+tokenUserId);
 
         UserInfo user = storedUser.get();
+        User userAuth = userRepository.findByUsername( username );
 
         if(request.getUsername() !=null) {
             if(validationService.checkIfUserAlreadyExists(request.getUsername().trim()) && !request.getUsername().equals( user.getUsername())) {
                 throw new UserAlreadyExistsException( request.getUsername());
             }
             user.setUsername(request.getUsername());
+            userAuth.setUsername( request.getUsername() );
         }
 
         if(request.getInfo()!=null) {
@@ -175,6 +182,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 
         TeamDto team = teamService.findTeam(user.getFavoriteTeamId());
         userInfoRepository.save( user );
+        userRepository.save(userAuth );
+
         return ResponseEntity.ok( Mapper.userInfoEntityToDto( user,team ));
     }
 
@@ -197,7 +206,11 @@ public class UserInfoServiceImpl implements UserInfoService {
         if(storedUser.isEmpty())
             return ResponseEntity.status( HttpStatus.NOT_FOUND).body( "User: "+username+" does not exist" );
 
+
+        User user = userRepository.findByUsername( username );
+
         userInfoRepository.delete(  storedUser.get());
+        userRepository.delete( user );
         return ResponseEntity.status( HttpStatus.ACCEPTED).body( "User with id: "+username+" was removed" );
     }
 }

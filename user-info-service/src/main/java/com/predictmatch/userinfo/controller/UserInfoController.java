@@ -52,6 +52,7 @@ public class UserInfoController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PreAuthorize("hasRole('USER')")
     ResponseEntity<String> removeUser(@PathVariable(name="userId") String username,@RequestHeader("Authorization") String token) {
+
         return userInfoService.removeUser(username,token);
     }
 }

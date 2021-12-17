@@ -50,7 +50,6 @@ public class ApiSchedulerService implements SchedulingConfigurer {
         LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
         LocalDateTime nextMatchDate = fixtureRepository.getNextMatchDate();
         int liveMatches = fixtureRepository.getNumberOfLiveMatches(); // TODO --> what if last match will start -->
-        // ERROR?
 
 
         if((liveMatches>0 && ChronoUnit.MINUTES.between( lastApiCallDate,now) >20)
