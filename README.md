@@ -68,6 +68,6 @@ http://localhost:8400/predictmatch/api/v1/swagger-ui/#/
 ![image](https://user-images.githubusercontent.com/44143107/146634905-eca2e0a1-e24d-4671-b4d8-67d3d3a42329.png)
 
 <div style="text-align:center"><img src="https://github.com/patrykwieteska/Ironhack-final-project-frontend/blob/main/src/assets/images/logo/logo_no_bg_black.png" /></div>
-![alt text](https://github.com/patrykwieteska/Ironhack-final-project-frontend/blob/main/src/assets/images/logo/logo_no_bg_black.png)
+<!-- ![alt text](https://github.com/patrykwieteska/Ironhack-final-project-frontend/blob/main/src/assets/images/logo/logo_no_bg_black.png) -->
   
   
