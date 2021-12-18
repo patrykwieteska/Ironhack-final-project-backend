@@ -31,16 +31,6 @@ http://localhost:8400/predictmatch/api/v1/swagger-ui/#/
 
 ## Documentation:
 
-###
-## Rules of the predict match game
-Prediction possibility
-
-Only logged users can predict matches
-User can predict any match which wasn't started yet
-User can check his results in his profile
-Users receive points as the following:
-
-3 points for predicting an exact score
 1 point for predicting the correct result
 
 ### 1. Use cases
