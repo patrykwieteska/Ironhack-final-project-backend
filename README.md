@@ -1,8 +1,7 @@
+# Ironhack-final-project-backend
 <div style="text-align:center"><img width="300px" src="https://github.com/patrykwieteska/Ironhack-final-project-frontend/blob/main/src/assets/images/logo/logo_no_bg_black.png" /></div>
 <!-- ![alt text](https://github.com/patrykwieteska/Ironhack-final-project-frontend/blob/main/src/assets/images/logo/logo_no_bg_black.png) -->
   
-
-# Ironhack-final-project-backend
 ## How to run it:
 1. Clone this reposutory
 2. If you want to run it with live football results you have to change live-results-service properties:
