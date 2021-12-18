@@ -12,9 +12,10 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "standings")
 public class LeagueStanding {
-
     @Id
+    @Column(name = "rank_id", nullable = false)
     private Long rank;
 
     private Long teamId;
@@ -37,5 +38,8 @@ public class LeagueStanding {
 
     private String rankStatus;
 
-    private Long leagueId;
+    @JoinColumn(name="league_id", nullable = false, updatable = false, insertable = true)
+    @ManyToOne
+    private League leagueId;
+
 }

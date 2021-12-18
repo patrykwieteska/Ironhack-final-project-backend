@@ -1,9 +1,15 @@
 package com.predictmatch.liveresults.service;
 
-import com.predictmatch.liveresults.dao.*;
+import com.predictmatch.liveresults.dao.Fixture;
+import com.predictmatch.liveresults.dao.League;
+import com.predictmatch.liveresults.dao.LeagueStanding;
+import com.predictmatch.liveresults.dao.Team;
 import com.predictmatch.liveresults.enmus.FixtureStatus;
 import com.predictmatch.liveresults.mapper.FixtureStatusMapper;
-import com.predictmatch.liveresults.repository.*;
+import com.predictmatch.liveresults.repository.FixtureRepository;
+import com.predictmatch.liveresults.repository.LeagueRepository;
+import com.predictmatch.liveresults.repository.LeagueStandingRepository;
+import com.predictmatch.liveresults.repository.TeamRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,7 +22,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
@@ -136,7 +141,8 @@ public class LiveResultsService {
                 leagueObject.getInt( "season" ),
                 leagueObject.getString( "logo" ),
                 leagueObject.getString( "country" ),
-                leagueObject.getString( "flag" )
+                leagueObject.getString( "flag" ),
+                null
 
         );
 
@@ -152,6 +158,12 @@ public class LiveResultsService {
                 .getJSONObject( "league" )
                 .getJSONArray( "standings" )
                 .getJSONArray( 0 );
+        Long leagueId = result.getJSONArray( "response" ).getJSONObject( 0 ).getJSONObject( "league" ).getLong( "id" );
+        Optional<League> storedLeague = leagueRepository.findById( leagueId );
+        League league = null;
+
+        if(storedLeague.isPresent())
+            league=storedLeague.get();
 
         for (int i = 0; i < standingsArray.length(); i++) {
 
@@ -168,7 +180,7 @@ public class LiveResultsService {
                     standing.getJSONObject( "all" ).getJSONObject( "goals" ).getInt( "against" ),
                     standing.getInt( "goalsDiff" ),
                     standing.getString( "status" ),
-                    result.getJSONArray( "response" ).getJSONObject( 0 ).getJSONObject( "league" ).getLong( "id" )
+                    league
             );
 
             leagueStandingRepository.save( leagueStanding );

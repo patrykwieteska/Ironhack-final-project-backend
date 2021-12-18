@@ -6,10 +6,8 @@ import com.predictmatch.liveresults.dto.FixtureDto;
 import com.predictmatch.liveresults.dto.FixtureResponseDto;
 import com.predictmatch.liveresults.enmus.FixtureStatus;
 import com.predictmatch.liveresults.mapper.FixtureMapper;
-import com.predictmatch.liveresults.mapper.FixtureStatusMapper;
 import com.predictmatch.liveresults.repository.FixtureRepository;
 import com.predictmatch.liveresults.repository.TeamRepository;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -36,7 +34,7 @@ public class FixtureServiceImpl implements FixtureService {
         if(round == null) {
             storedFixtures = fixtureRepository.findAll();
         } else {
-            storedFixtures = fixtureRepository.findFixtureByRound( round );
+            storedFixtures = fixtureRepository.findFixtureByRoundOrderByDateAsc( round );
 
             if(storedFixtures.size() == 0)
                 return ResponseEntity.ok(new FixtureResponseDto(

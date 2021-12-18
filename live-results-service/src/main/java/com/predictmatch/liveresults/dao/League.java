@@ -5,8 +5,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,4 +30,7 @@ public class League {
     private String country;
 
     private String countryFlag;
+
+    @OneToMany( cascade = {CascadeType.ALL}, mappedBy = "leagueId")
+    private List<LeagueStanding> standings;
 }

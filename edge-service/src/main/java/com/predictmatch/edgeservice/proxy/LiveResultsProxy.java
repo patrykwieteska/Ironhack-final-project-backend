@@ -33,5 +33,8 @@ public interface LiveResultsProxy {
     @GetMapping("/liveresults/api/v1/standings")
     ResponseEntity<LeagueDataDto> getLeagueData();
 
+    @GetMapping("/liveresults/api/v1/standings/last-round")
+    Integer getLastPlayedRound();
+
 
 }

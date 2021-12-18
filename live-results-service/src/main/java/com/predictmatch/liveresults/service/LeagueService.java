@@ -6,4 +6,6 @@ import org.springframework.http.ResponseEntity;
 public interface LeagueService {
 
     ResponseEntity<LeagueDto> initLeagueData();
+
+    Integer getLastPlayedRound();
 }
