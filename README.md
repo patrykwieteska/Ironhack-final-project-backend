@@ -16,12 +16,25 @@
 	4. prediction-service
 	5. live-results-service
 
+5. Run front end project: https://github.com/patrykwieteska/Ironhack-final-project-frontend (http://localhost:4200)
+
 ### API Documentation (SWAGGER):
 http://localhost:8400/predictmatch/api/v1/swagger-ui/#/
 
 ### Frontend part: https://github.com/patrykwieteska/Ironhack-final-project-frontend
 ### Remote config-server:https://github.com/patrykwieteska/Ironhack-final-project-config-server
 ### Remote config properties: https://github.com/patrykwieteska/Ironhack-final-project-cloud-config
+
+
+## Documentation:
+
+1. Class diagrams
+
+2. Use cases
+
+3. Architecture
+
+
 
   
   
