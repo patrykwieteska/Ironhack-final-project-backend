@@ -48,7 +48,7 @@ public class PredictionServiceImpl implements PredictionService {
             throw new NoSuchElementException("User id cannot be null or 0");
 
 
-        if(ChronoUnit.MINUTES.between ( fixture.getDate() ,prediction.getPredictionDate())>0)
+        if(ChronoUnit.MINUTES.between ( fixture.getDate() ,prediction.getPredictionDate())>0 && !fixture.getStatus().equals( "POSTPONED" ))
             throw new PredictionOnLiveMatchException( fixture.getFixtureId());
 
         PredictionResult predictionResult = new PredictionResult(

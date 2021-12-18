@@ -73,4 +73,9 @@ public class LeagueServiceImpl implements LeagueService {
 
         return ResponseEntity.ok(leagueDto);
     }
+
+    @Override
+    public Integer getLastPlayedRound() {
+        return leagueRepository.getLastPlayedRound();
+    }
 }
