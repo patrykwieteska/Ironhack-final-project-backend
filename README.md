@@ -28,11 +28,28 @@ http://localhost:8400/predictmatch/api/v1/swagger-ui/#/
 
 ## Documentation:
 
-1. Class diagrams
 
-2. Use cases
+### 1. Use cases
+1.1. Authorization
+![image](https://user-images.githubusercontent.com/44143107/146634768-978b2114-5a43-4bf2-8b97-cfbd4c62afdf.png)
 
-3. Architecture
+
+
+
+### 2. Class diagrams
+
+1.1. Live-results-service
+ ![image](https://user-images.githubusercontent.com/44143107/146634720-1c81e614-2314-475d-a4bc-bc4223716300.png)
+ 
+1.2. User-info-service:
+![image](https://user-images.githubusercontent.com/44143107/146634749-5be36bc6-3860-4844-b844-f61d7ca16717.png)
+
+
+1.3. Prediction-service
+![image](https://user-images.githubusercontent.com/44143107/146634741-01b5e6a8-2671-4ced-a3eb-70119dc4e643.png)
+
+
+### 3. Architecture
 
 
 
